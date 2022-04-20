@@ -1,31 +1,29 @@
-import React from "react";
-import { Provider } from "react-redux";
+import React, { useCallback, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { addDecorator } from '@storybook/react';
+import clsx from 'clsx';
+// @ts-ignore
+import styles from '../src/assets/styles/index.scss';
 
-import store from "../src/store/configureStore";
+const MainDecorator = (story) => {
+  const [islight, setIsLight] = useState(false);
 
-import { addDecorator } from "@storybook/react";
-import { CssBaseline, StylesProvider, ThemeProvider } from "@material-ui/core";
-import Connector from "services/walletConnect";
+  const handleSwitchTheme = useCallback(() => {
+    setIsLight(!islight);
+  }, [islight]);
 
-import { theme } from "../src/theme";
-import { BreakpointsProvider } from "../src/hooks/useBreakpoints";
+  return (
+    <>
+      <button onClick={handleSwitchTheme}>Change theme</button>
+      <div className={clsx(styles.app, { [styles.light]: islight })}>
+        <Router>
+          {story()}
+        </Router>
+      </div>
+    </>
+  );
+};
 
-const MUIDecorator = (story) => (
-  // <Provider store={store.store}>
-  //   <Connector>
-      <Router>
-        <ThemeProvider theme={theme}>
-          <StylesProvider>
-            <CssBaseline />
-            <BreakpointsProvider>{story()}</BreakpointsProvider>
-          </StylesProvider>
-        </ThemeProvider>
-      </Router>
-  //   </Connector>
-  // </Provider>
-);
+addDecorator(MainDecorator);
 
-addDecorator(MUIDecorator);
-
-export const parameters = { layout: "fullscreen" };
+export const parameters = { layout: 'fullscreen' };

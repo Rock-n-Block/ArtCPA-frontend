@@ -19,6 +19,7 @@ import clsx from 'clsx';
 import { Switch } from 'components/Switch';
 import { Button } from 'components';
 import setNotification from 'utils/setNotification';
+import { useGetAccountInfo } from '@elrondnetwork/dapp-core';
 import styles from './styles.module.scss';
 
 export interface LayoutProps {
@@ -69,8 +70,11 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
     setIsLight(!isLight);
   }, [isLight]);
 
+  const { address: elraddress } = useGetAccountInfo();
+
   return (
     <div className={clsx(styles.app, { [styles.light]: isLight })}>
+      <div>elraddress: {elraddress}</div>
       <Button onClick={() => setNotification({
         type: 'info',
         message: 'Test',
