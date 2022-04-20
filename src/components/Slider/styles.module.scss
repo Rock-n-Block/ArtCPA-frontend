@@ -1,0 +1,67 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+
+.slider * {
+  transition: 50ms !important;
+}
+.slider {
+  height: 30px;
+  @include flexbox;
+}
+
+.track {
+  
+  &:nth-child(1) {
+    @include flexbox;
+    width: 100%;
+    background: var(--slider-default-thumb);
+    height: 4px;
+    border-radius: 2px;
+    left: 0;
+  }
+  &:nth-child(2) {
+    background: var(--slider-default-track);
+    height: 4px;
+    border-radius: 2px;
+    left: 0;
+  }
+
+  
+}
+
+.range > .track {
+  &:nth-child(1) {
+    background: var(--slider-default-track);
+  }
+  &:nth-child(2) {
+    background: var(--slider-default-thumb);
+  }
+}
+
+.thumb {
+  @include flexbox;
+  outline: none;
+  cursor: grabbing;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--slider-default-thumb);
+  box-shadow: var(--slider-default-thumb-boxshadow);
+  margin-right: 12.5px;
+
+  &:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+}
+
+.mark {
+  width: 1px;
+  height: 100%;
+  background: black;
+}

@@ -1,0 +1,87 @@
+@import './color-constants';
+
+$button-border-width: 1px;
+
+$buttonColorsDefault: (
+  ////outlined
+  //background
+  "button-outlined-default-background": transparent,
+  "button-outlined-hover-background": $colorGreenGradient,
+  "button-outlined-active-background": $colorGreenAcid,
+  //border
+  "button-outlined-default-border": $colorGreenAcid,
+  "button-outlined-hover-border": $colorGreenAcid,
+  "button-outlined-active-border": transparent,
+  //color
+  "button-outlined-default-color": $colorWhite,
+  "button-outlined-hover-color": $colorWhite,
+  "button-outlined-active-color": $colorWhite,
+  //icon
+  "button-outlined-default-icon-color": $colorGreenAcid,
+  "button-outlined-hover-icon-color": $colorGreen700,
+  "button-outlined-active-icon-color": $colorGreen700,
+  "button-outlined-disabled-icon-color": $colorGrey700,
+  ////filled
+  //background
+  "button-filled-default-background": $colorGreenGradient,
+  "button-filled-hover-background": linear-gradient(90deg, #BF8FFB 0%, #877EF6 100%),
+  "button-filled-active-background": $colorGreenAcid,
+  //border
+  "button-filled-default-border": transparent,
+  "button-filled-hover-border": transparent,
+  "button-filled-active-border": $colorGreenAcid,
+  //color
+  "button-filled-default-color": $colorWhite,
+  "button-filled-hover-color": $colorWhite,
+  "button-filled-active-color": $colorWhite,
+  //icon
+  "button-filled-default-icon-color": $colorGreenAcid,
+  "button-filled-hover-icon-color": $colorGreen700,
+  "button-filled-active-icon-color": $colorGreen700,
+  "button-filled-disabled-icon-color": $colorGrey700,
+  //misc
+  "button-disabled-background": $colorBlack700,
+  "button-disabled-color": $colorGrey700,
+);
+
+$buttonColorsLight: (
+  ////outlined
+  //background
+  "button-outlined-default-background": $colorWhite,
+  "button-outlined-hover-background": $colorGreenGradient,
+  "button-outlined-active-background": $colorGreenAcid,
+  //border
+  "button-outlined-default-border": $colorGlacierWhite,
+  "button-outlined-hover-border": transparent,
+  "button-outlined-active-border": $colorGreenAcid,
+  //color
+  "button-outlined-default-color": $colorDarkBlue,
+  "button-outlined-hover-color": $colorWhite,
+  "button-outlined-active-color": $colorWhite,
+  //icon
+  "button-outlined-default-icon-color": $colorMediumBlue,
+  "button-outlined-hover-icon-color": $colorGreen700,
+  "button-outlined-active-icon-color": $colorGreen700,
+  "button-outlined-disabled-icon-color": $colorPlatinumGrey,
+  ////filled
+  //background
+  "button-filled-default-background": $colorGreenGradient,
+  "button-filled-hover-background": linear-gradient(90deg, #BF8FFB 0%, #877EF6 100%),
+  "button-filled-active-background": $colorGreenAcid,
+  //border
+  "button-filled-default-border": transparent,
+  "button-filled-hover-border": transparent,
+  "button-filled-active-border": $colorGreenAcid,
+  //color
+  "button-filled-default-color": $colorWhite,
+  "button-filled-hover-color": $colorWhite,
+  "button-filled-active-color": $colorWhite,
+  //icon
+  "button-filled-default-icon-color": $colorMediumBlue,
+  "button-filled-hover-icon-color": $colorGreen700,
+  "button-filled-active-icon-color": $colorGreen700,
+  "button-filled-disabled-icon-color": $colorPlatinumGrey,
+  //misc
+  "button-disabled-background": $colorWhite,
+  "button-disabled-color": $colorGrey700,
+);

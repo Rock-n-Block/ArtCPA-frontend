@@ -1,0 +1,37 @@
+$filled-secondary-button-border-width: 1px;
+
+$filledSecondaryButtonColorsDefault: (
+  //default
+  "filled-secondary-button-secondary-default-font": $colorGrey700,
+  "filled-secondary-button-secondary-default-icon": $colorGrey700,
+  "filled-secondary-button-secondary-default-border": $colorBlack500,
+  "filled-secondary-button-secondary-default-background": $colorBlack600,
+  // hover
+  "filled-secondary-button-secondary-hover-font": $colorGreenAcid,
+  "filled-secondary-button-secondary-hover-icon": $colorGreenAcid,
+  "filled-secondary-button-secondary-hover-border": transparent,
+  "filled-secondary-button-secondary-hover-background": $colorBlack600,
+  // active
+  "filled-secondary-button-secondary-active-font": $colorGreenAcid,
+  "filled-secondary-button-secondary-active-icon": $colorGreenAcid,
+  "filled-secondary-button-secondary-active-border": $colorGreenAcid,
+  "filled-secondary-button-secondary-active-background": $colorBlack600,
+);
+
+$filledSecondaryButtonColorsLight: (
+  //default
+  "filled-secondary-button-secondary-default-font": $colorDarkBlue,
+  "filled-secondary-button-secondary-default-icon": $colorMediumBlue,
+  "filled-secondary-button-secondary-default-border": $colorGlacierWhite,
+  "filled-secondary-button-secondary-default-background": $colorWhite,
+  // hover
+  "filled-secondary-button-secondary-hover-font": $colorGreenAcid,
+  "filled-secondary-button-secondary-hover-icon": $colorGreenAcid,
+  "filled-secondary-button-secondary-hover-border": $colorGlacierWhite,
+  "filled-secondary-button-secondary-hover-background": $colorWhite,
+  // active
+  "filled-secondary-button-secondary-active-font": $colorGreenAcid,
+  "filled-secondary-button-secondary-active-icon": $colorGreenAcid,
+  "filled-secondary-button-secondary-active-border": $colorGreenAcid,
+  "filled-secondary-button-secondary-active-background": $colorWhite,
+);

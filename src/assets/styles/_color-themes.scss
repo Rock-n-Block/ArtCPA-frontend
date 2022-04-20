@@ -1,0 +1,67 @@
+@import './component-variables/button';
+@import './component-variables/icon_button';
+@import './component-variables/typography';
+@import './component-variables/switch';
+@import './component-variables/input';
+@import './component-variables/select';
+@import './component-variables/table';
+@import './component-variables/tooltip';
+@import './component-variables/main';
+@import './component-variables/slider';
+@import './component-variables/breadcrumbs';
+@import './component-variables/toastify';
+@import './component-variables/filled-secondary-button';
+@import './component-variables/card';
+@import './component-variables/checkbox';
+@import './component-variables/contractCard';
+
+:root {
+  $colors: (
+    $mainColorsDefault,
+    $buttonColorsDefault,
+    $iconButtonColorsDefault,
+    $typographyColorsDefault,
+    $switchColorsDefault,
+    $inputColorsDefault,
+    $selectColorsDefault,
+    $tableColorsDefault,
+    $tooltipColorsDefault,
+    $cardColorDefault,
+    $toastifyColorsDefault,
+    $filledSecondaryButtonColorsDefault,
+    $checkboxColorsDefault,
+    $breadcrumbsColorsDefault,
+    $contractCardColorDefault,
+    $sliderColorDefault,
+  );
+  @each $key_name in $colors {
+    @each $key_name_2, $value in $key_name {
+      --#{$key_name_2}: #{$value};
+    }
+  }
+}
+.light {
+  $colors: (
+    $mainColorsLight,
+    $buttonColorsLight,
+    $iconButtonColorsLight,
+    $typographyColorsLight,
+    $switchColorsLight,
+    $inputColorsLight,
+    $selectColorsLight,
+    $tableColorsLight,
+    $tooltipColorsLight,
+    $cardColorLight,
+    $filledSecondaryButtonColorsLight,
+    $checkboxColorsDefault,
+    $breadcrumbsColorsDefault,
+    $contractCardColorLight,
+    $sliderColorLight
+  );
+  @each $key_name in $colors {
+    @each $key_name_2, $value in $key_name {
+      --#{$key_name_2}: #{$value};
+    }
+  }
+
+}

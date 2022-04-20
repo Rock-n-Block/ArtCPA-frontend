@@ -1,0 +1,33 @@
+@import '../../assets/styles/mixins';
+
+.titleWrapper {
+  display: flex;
+
+  .logo {
+    width: 48px;
+    height: 48px;
+    background: var(--contractCard-default-backrounnd);
+    border-radius: 50%;
+    position: relative;
+    margin-right: spacing(3);
+
+    img {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .title {
+    align-self: center;
+    order: 1;
+    color: var(--contractCard-default-title-color);
+  }
+}
+.description {
+  color: var(--contractCard-default-description-color);
+  line-height: 20px;
+  padding-top: spacing(2);
+}

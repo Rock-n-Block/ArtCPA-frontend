@@ -1,0 +1,57 @@
+$selectColorsDefault: (
+  "select-default-background":$colorTenebre,
+  "select-default-label": $colorGrey600,
+  "select-default-border": 1px solid $colorOrionGrey,
+  "select-default-icon": $colorGrey700,
+  "select-default-value-color": $colorGrey600,
+  "select-default-value-background": $colorTenebre,
+
+  "select-hover-background":$colorTenebre,
+  "select-hover-label": $colorGrey600,
+  "select-hover-border": 1px solid $colorGrey700,
+  "select-hover-value-background": $colorTricornBlack,
+
+  "select-active-background":$colorTenebre,
+  "select-active-label": $colorGrey700,
+  "select-active-border": 1px solid $colorGreenAcid,
+  "select-active-icon": $colorGreenAcid,
+
+  "select-focus-background":$colorTenebre,
+  "select-focus-label": $colorGrey700,
+  "select-focus-border": 1px solid $colorGreenAcid,
+  "select-focus-icon": $colorGreenAcid,
+
+  "select-disabled-background":$colorTenebre,
+  "select-disabled-label": $colorEbonyBlack,
+  "select-disabled-border": 1px solid $colorBlack700,
+
+  "select-error-background":$colorBlack600,
+  "select-error-label": $colorRed,
+  "select-error-border": 1px solid $colorRed,
+);
+
+$selectColorsLight: (
+  "select-default-background":$colorWhite,
+  "select-default-label": $colorDarkBlue,
+  "select-default-border": 1px solid $colorGlacierWhite,
+
+  "select-hover-background":$colorWhite,
+  "select-hover-label": $colorMediumBlue,
+  "select-hover-border": 1px solid $colorMediumBlue,
+
+  "select-active-background":$colorWhite,
+  "select-active-label": $colorMediumBlue,
+  "select-active-border": 1px solid $colorGreenAcid,
+
+  "select-focus-background":$colorBlack600,
+  "select-focus-label": $colorGreenAcid,
+  "select-focus-border": 1px solid $colorGreenAcid,
+
+  "select-disabled-background":$colorWhite,
+  "select-disabled-label": $colorGlacierWhite,
+  "select-disabled-border": 1px solid $colorPlatinumGrey,
+
+  "select-error-background":$colorWhite,
+  "select-error-label": $colorRed,
+  "select-error-border": 1px solid $colorRed,
+);

@@ -1,0 +1,17 @@
+import { VFC } from 'react';
+
+import cn from 'clsx';
+
+import styles from './styles.module.scss';
+
+export interface {{ properCase name }}Props {
+  className?: string;
+}
+
+export const {{ properCase name }}: VFC<{{ properCase name }}Props> = ({ className }) => {
+  return (
+    <div className={cn(styles.{{ camelCase name }}, className)}>
+      Hello World!
+    </div>
+  );
+};

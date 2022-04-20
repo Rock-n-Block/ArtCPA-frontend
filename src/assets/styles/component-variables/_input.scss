@@ -1,0 +1,58 @@
+$inputColorsDefault: (
+  "input-default-background":$colorBlack600,
+  "input-default-label": $colorGrey600,
+  "input-default-border": 1px solid $colorBlack500,
+  "input-default-icon": $colorFrenchBlue,
+
+  "input-hover-background":$colorBlack600,
+  "input-hover-label": $colorGrey600,
+  "input-hover-border": 1px solid $colorGrey700,
+  "input-hover-icon": $colorFrenchBlue,
+
+  "input-active-background":$colorBlack600,
+  "input-active-label": $colorGrey700,
+  "input-active-border": 1px solid $colorGreenAcid,
+  "input-active-caret": $colorGreenAcid,
+  "input-active-icon": $colorGreenAcid,
+
+  "input-focus-background":$colorBlack600,
+  "input-focus-label": $colorGrey700,
+  "input-focus-border": 1px solid $colorGreenAcid,
+  "input-focus-icon": $colorGreenAcid,
+
+  "input-disabled-background":$colorBlack700,
+  "input-disabled-label": $colorGrey700,
+  "input-disabled-border": 1px solid $colorBlack700,
+  "input-disabled-icon": $colorFrenchBlue,
+
+  "input-error-background":$colorBlack600,
+  "input-error-label": $colorRed,
+  "input-error-border": 1px solid $colorRed,
+  "input-error-icon": $colorRed,
+);
+
+$inputColorsLight: (
+  "input-default-background":$colorWhite,
+  "input-default-label": $colorDarkBlue,
+  "input-default-border": 1px solid $colorGlacierWhite,
+
+  "input-hover-background":$colorWhite,
+  "input-hover-label": $colorMediumBlue,
+  "input-hover-border": 1px solid $colorMediumBlue,
+
+  "input-active-background":$colorWhite,
+  "input-active-label": $colorMediumBlue,
+  "input-active-border": 1px solid $colorGreenAcid,
+
+  "input-focus-background":$colorBlack600,
+  "input-focus-label": $colorGreenAcid,
+  "input-focus-border": 1px solid $colorGreenAcid,
+
+  "input-disabled-background":$colorWhite,
+  "input-disabled-label": $colorGlacierWhite,
+  "input-disabled-border": 1px solid $colorPlatinumGrey,
+
+  "input-error-background":$colorWhite,
+  "input-error-label": $colorRed,
+  "input-error-border": 1px solid $colorRed,
+);

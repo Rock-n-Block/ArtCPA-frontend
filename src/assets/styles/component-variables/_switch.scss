@@ -1,0 +1,35 @@
+$switchColorsDefault: (
+  "switch-default-background":$colorSomberGrey,
+  "switch-default-thumb": $colorCharcoalGrey,
+  "switch-default-border": transparent,
+
+  "switch-default-background-checked": $colorGreenGradient,
+  "switch-default-thumb-checked": $colorCharcoalGrey,
+  "switch-default-border-checked": transparent,
+
+  "switch-secondary-background": $colorCharcoalGrey,
+  "switch-secondary-thumb": $colorGrey500,
+  "switch-secondary-border": $colorGrey500,
+
+  "switch-secondary-background-checked": $colorGrey700,
+  "switch-secondary-thumb-checked": $colorCharcoalGrey,
+  "switch-secondary-border-checked": $colorGrey700,
+);
+
+$switchColorsLight: (
+  "switch-default-background": $colorWhite,
+  "switch-default-thumb": $colorMediumBlue,
+  "switch-default-border": $colorMediumBlue,
+
+  "switch-default-background-checked": $colorGreenGradient,
+  "switch-default-thumb-checked": $colorWhite,
+  "switch-default-border-checked": transparent,
+
+  "switch-secondary-background": $colorWhite,
+  "switch-secondary-thumb": $colorMediumBlue,
+  "switch-secondary-border": $colorMediumBlue,
+
+  "switch-secondary-background-checked": $colorWhite,
+  "switch-secondary-thumb-checked": $colorMediumBlue,
+  "switch-secondary-border-checked": $colorMediumBlue,
+);

@@ -1,0 +1,65 @@
+  @import '../../assets/styles/variables';
+  @import '../../assets/styles/mixins';
+  
+.toastify{
+  width: 454px;
+  min-height: 54px;
+  border-radius: 10px;
+  @include flexbox(center, flex-start);
+  padding: spacing(2);
+  cursor: pointer;
+  .startAdorment{
+    margin-right: 16px;
+    width: 24px;
+    height: 24px;
+  }
+  .endAdorment{
+    margin-left: 43px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.infoText, .warningText, .errorText, .successText {
+  width: 315px;
+  min-height: 24px;
+}
+
+.info {
+  background: var(--toastify-default-color);
+  color: var(--toastify-info-font-color);
+  border: $toastify-border-info;
+  .startAdorment > svg > path {
+    fill: var(--toastify-info-icon-color);
+  }
+  .endAdorment > svg > path {
+    fill: var(--toastify-info-color);
+  }
+}
+.warning {
+  background: var(--toastify-default-color);
+  color: var(--toastify-warning-font-color);
+  border: $toastify-border-warning;
+  .endAdorment > svg > path {
+    fill: var(--toastify-warning-color);
+  }
+}
+.error {
+  background: var(--toastify-default-color);
+  color: var(--toastify-error-font-color);
+  border: $toastify-border-error;
+  .endAdorment > svg > path {
+    fill: var(--toastify-error-color);
+  }
+}
+.success {
+  background: var(--toastify-default-color);
+  color: var(--toastify-success-font-color);
+  border: $toastify-border-success;
+  .startAdorment > svg > path {
+    fill: var(--toastify-success-icon-color);
+  }
+  .endAdorment > svg > path {
+    fill: var(--toastify-success-color);
+  }
+}

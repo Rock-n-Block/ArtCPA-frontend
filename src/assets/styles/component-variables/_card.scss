@@ -1,0 +1,11 @@
+$cardColorDefault: (
+  'card-default-background': $colorBlack700,
+  'card-default-border': $colorBlack600,
+  'card-default-hover': $colorGreenAcid,
+  'card-default-border-radius': 4px,
+);
+$cardColorLight: (
+  'card-default-background': $colorWhite,
+  'card-default-border-radius': 16px,
+  'card-default-border': $colorGlacierWhite,
+);

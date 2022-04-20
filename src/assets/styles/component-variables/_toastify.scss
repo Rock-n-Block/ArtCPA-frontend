@@ -1,0 +1,50 @@
+$toastify-border-width: 1px;
+
+
+$toastifyColorsDefault: (
+  // main colors
+  "toastify-default-color": $colorBlack700,
+  "toastify-secondary-color": $colorGrey700,
+  // info colors
+  "toastify-info-color": $colorGrey700,
+  "toastify-info-font-color": $colorGrey700,
+  "toastify-info-icon-color": $colorGrey700,
+  // warning colors
+  "toastify-warning-color": $colorYellowMediumLightShade,
+  "toastify-warning-font-color": $colorYellowMediumLightShade,
+
+  // error colors
+  "toastify-error-color": $colorRed,
+  "toastify-error-font-color": $colorRed,
+
+  // success colors
+  "toastify-success-color": $colorGreen,
+  "toastify-success-font-color": $colorGreen, 
+  "toastify-success-icon-color": $colorGreenAcid,
+
+  
+);
+
+$toastifyColorsLight: (
+  // main colors
+  "toastify-default-color": $colorWhite,
+  "toastify-secondary-color": $colorBlue,
+  // info colors
+  "toastify-info-color": $colorBlue,
+  "toastify-info-icon-color": $colorBlue,
+  "toastify-info-font-color": $colorDarkBlue, 
+
+  //warning colors 
+  "toastify-warning-color": $colorYellowMediumLightShade,
+  "toastify-warning-font-color": $colorDarkBlue, 
+
+  // error colors
+  "toastify-error-color": $colorRed,
+  "toastify-error-font-color": $colorDarkBlue,
+
+  // success colors
+  "toastify-success-color": $colorGreen,
+  "toastify-success-font-color": $colorDarkBlue,
+  "toastify-success-icon-color": $colorGreen,
+
+);

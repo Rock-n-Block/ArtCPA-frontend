@@ -1,0 +1,62 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.label {
+  @include flexbox();
+  color: var(--checkbox-checked-border-color);
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  &.top {
+    flex-direction: column-reverse;
+  }
+  &.left {
+    flex-direction: row-reverse;
+  }
+  &.bottom {
+    flex-direction: column;
+  }
+  &.right {
+    flex-direction: row;
+  }
+}
+.checkbox {
+  cursor: pointer;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--checkbox-default-background-color);
+  border: 1px solid var(--checkbox-default-border-color);
+  border-radius: 3px;
+  @include flexbox();
+  &:hover {
+    border: 1px solid var(--checkbox-hover-border-color);
+  }
+  &:checked {
+    background: var(--checkbox-checked-background-color);
+    border: 1 px solid var(--checkbox-checked-border-color);
+    &:hover {
+      border: 1 px solid var(--checkbox-checked-border-color);
+    }
+    &::before {
+      transform: scale(1);
+    }
+  }
+  &::before {
+    background-image: url('/src/assets/icons/icons/components/Checkbox/IconCheckmark.svg');
+    background-size: auto auto;
+    background-repeat: no-repeat;
+    content: "";
+    width: 8px;
+    height: 8px;
+    transform: scale(0);
+    transition: 60ms;
+  }
+}
+
+
+

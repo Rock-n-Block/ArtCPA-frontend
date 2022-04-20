@@ -1,0 +1,21 @@
+$tableColorsDefault: (
+  "table-head-default-background":$colorBlack500,
+  "table-head-default-color":$colorGrey500,
+
+  "table-row-default-background":$colorCharcoalGrey,
+  "table-row-secondary-background":$colorBlack500,
+
+  "table-pagination-active-background":$colorBlack500,
+  "table-pagination-disabled-background":$colorCharcoalGrey,
+);
+
+$tableColorsLight: (
+  "table-head-default-background":$colorGlacierWhite,
+  "table-head-default-color": $colorSavoyGray,
+
+  "table-row-default-background":$colorMoonstone,
+  "table-row-secondary-background":$colorGlacierWhite,
+
+  "table-pagination-active-background":$colorGlacierWhite,
+  "table-pagination-disabled-background":$colorMoonstone,
+);

@@ -1,0 +1,10 @@
+@import './color-themes';
+
+// toastify
+$toastify-border-info: $toastify-border-width solid var(--toastify-info-color);
+$toastify-border-warning: $toastify-border-width solid var(--toastify-warning-color);
+$toastify-border-error: $toastify-border-width solid var(--toastify-error-color);
+$toastify-border-success: $toastify-border-width solid var(--toastify-success-color);
+
+
+
