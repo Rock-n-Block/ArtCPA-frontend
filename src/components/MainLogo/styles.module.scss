@@ -15,5 +15,6 @@
 .textContainer {
   @include flexbox();
   flex-direction: column;
+  margin-left: 18px !important;
 
 }
