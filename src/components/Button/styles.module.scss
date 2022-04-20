@@ -6,7 +6,6 @@
   cursor: pointer;
   border-radius: 8px;
   @include flexbox();
-  transition: ease-in-out 200ms;
 
   
   &.outlined {
