@@ -2,11 +2,18 @@
   $colorGreenGradient: linear-gradient(90deg, #291AED 0%, #C59AFC 100%);
   $colorGreenAcid: #8A7FF6;
   $colorGreen700: #E9D9FE;
+  $colorGreenGradien700: linear-gradient(180deg, #E1E365 0%, #CBCE00 100%);
+  $colorGreenGradient600: linear-gradient(180deg, #ABF6A5 0%, #72FC66 100%);
+  $colorGreen600: #E1E365;
+  $colorGreen500:  #8DFA84;
   // Dark
   $colorBlackBG: #111215;
   $colorBlack700: #191A1D;
   $colorBlack600: #1E2023;
   $colorBlack500: #25272E;
+  $colorBlack400: #141417;
+  $colorBlack300: rgba(255, 255, 255, 0.08);
+  $colorBlack200: rgba(52, 47, 27, 0.2);
   // Light
   $colorGrey700: #64656A;
   $colorGrey600: #C4C4C4;
