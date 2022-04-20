@@ -1,9 +1,1 @@
 export { default as vector } from './vector.png';
-export { default as CRU } from './CRU.png';
-export { default as EFFORT } from './EFFORT.png';
-export { default as EGLD } from './EGLD.png';
-export { default as ISET } from './ISET.png';
-export { default as JEX } from './JEX.png';
-export { default as MEX } from './MEX.png';
-export { default as USDC } from './USDC.png';
-export { default as ZPAY } from './ZPAY.png';
