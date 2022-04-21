@@ -2,18 +2,18 @@ import { VFC } from 'react';
 
 import cn from 'clsx';
 
-import { MainLogoIcon } from 'assets/icons/icons';
+import { LogoIcon } from 'assets/img/icons';
 import { H2, Text } from 'components/Typography';
 import styles from './styles.module.scss';
 
-export interface MainLogoProps {
+export interface LogoProps {
   className?: string;
 }
 
-export const MainLogo: VFC<MainLogoProps> = ({ className }) => {
+export const Logo: VFC<LogoProps> = ({ className }) => {
   return (
-    <div className={cn(styles.mainLogo, className)}>
-      <MainLogoIcon />
+    <div className={cn(styles.Logo, className)}>
+      <img src={LogoIcon} alt="logo" />
       <div className={styles.textContainer}>
         <H2 weight="semiBold">ArtCPAclub</H2>
         <Text size="l">Art & BlockChain</Text>

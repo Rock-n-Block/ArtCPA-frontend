@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 
-import { MainLogo } from './MainLogo';
-import { mainLogoPropsMocked } from './MainLogo.mock';
+import { Menu } from './Menu';
+import { menuPropsMocked } from './Menu.mock';
 
-describe('MainLogo', () => {
+describe('Menu', () => {
   it('should render', () => {
     const { container } = render(
-      <MainLogo
-        {...mainLogoPropsMocked}
+      <Menu
+        {...menuPropsMocked}
       />,
     );
     expect(container).toMatchSnapshot();
