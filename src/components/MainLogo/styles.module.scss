@@ -3,18 +3,16 @@
 
 .mainLogo { 
   @include flexbox(space-between, space-between);
-  flex-direction: row;
   width: fit-content;
   & > svg {
     width: 60px;
     height: 60px;
     margin-top: auto;
     margin-bottom: auto;
+    margin-right: 18px;
   } 
 }
 .textContainer {
   @include flexbox();
   flex-direction: column;
-  margin-left: 18px !important;
-
 }
