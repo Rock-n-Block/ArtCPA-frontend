@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { FirstCard } from 'assets/img/icons';
 import { Card } from './Card';
 import { cardPropsMocked } from './Card.mock';
 
@@ -8,10 +9,10 @@ export default {
   component: Card,
 } as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => (
-  <>
-    <Card {...args}>adakdnalsdnaslkdnlkasdnlaksdnalksdnlk</Card>
-  </>
+const Template: ComponentStory<typeof Card> = () => (
+  <div style={{ background: 'black' }}>
+    <Card image={FirstCard} personName="Name" personPosition="position" />
+  </div>
 );
 export const Default = Template.bind({});
 

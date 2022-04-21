@@ -1,34 +1,12 @@
 @import '../../assets/styles/variables';
 @import '../../assets/styles/mixins';
 
-.wrapper {
-  background: var(--card-default-background);
-  border: 1px solid var(--card-default-border);
-  display: inline-block;
-  padding: spacing(4.25);
-  border-radius: var(--card-default-border-radius);
-  margin: 0 auto;
-  max-width: 350px;
-  min-height: 224px;
-}
-
-.sm {
-  min-width: 350px;
-  min-height: 224px;
-}
-
-.md {
-  min-width: 420px;
-  min-height: 300px;
-}
-
-.lg {
-  min-width: 500px;
-  min-height: 350px;
-}
-
-.hoverEffect {
-  &:hover {
-    border: 1px solid var(--card-default-hover);
+.root {
+  @include flexbox();
+  flex-direction: column;
+  & > img {
+    margin-bottom: 16px;
+    aspect-ratio: 1 / 1;
   }
 }
+

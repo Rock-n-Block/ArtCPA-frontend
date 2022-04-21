@@ -1,0 +1,14 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.team {
+  & > .cards {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, 320px);
+    gap: 24px;
+    // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: repeat(auto-fit, 400px);
+  }
+  
+}
