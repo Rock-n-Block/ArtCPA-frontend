@@ -24,3 +24,4 @@ yarn-error.log*
 .eslintcache
 settings.json
 .history
+.vscode

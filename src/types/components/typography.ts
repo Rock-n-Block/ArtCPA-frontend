@@ -5,7 +5,6 @@ enum ColorValues {
 }
 
 enum SizeValues {
-  xs,
   s,
   m,
   l,
@@ -13,7 +12,6 @@ enum SizeValues {
 
 enum WeightValues {
   normal,
-  medium,
   semiBold,
   bold,
 }
