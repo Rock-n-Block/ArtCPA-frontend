@@ -1,0 +1,29 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.followUs { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px,1fr));
+    gap: spacing(2);
+}
+.title {
+    padding-bottom: spacing(5.75);
+}
+.link {
+    margin-right: spacing(2);
+    position: relative;
+    z-index: 1;
+}
+.svgWrap {
+    background-color: white;
+    display: inline-block;
+    width: 27px;
+    height: 20px;
+    position: absolute;
+    z-index: -1;
+    top:10px;
+    left:8px
+}
+.testBackground {
+    background-color: black;
+}

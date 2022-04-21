@@ -1,0 +1,11 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.followCard {  
+  display: flex;
+  background-color: var(--card-default-background);
+  border-radius: spacing(3);
+  padding: spacing(2.5, 1, 2, 5.25);
+  align-items: center;
+  color: var(--typography-default-color);
+}
