@@ -9,9 +9,10 @@ import styles from './styles.module.scss';
 
 export interface NotFoundProps {
   className?: string;
+  onButtonClick: () => void;
 }
 
-export const NotFound: VFC<NotFoundProps> = ({ className }) => {
+export const NotFound: VFC<NotFoundProps> = ({ className, onButtonClick }) => {
   return (
     <div className={cn(styles.notFound, className)}>
       <MainLogo className={styles.logo} />
@@ -24,7 +25,7 @@ export const NotFound: VFC<NotFoundProps> = ({ className }) => {
             you were looking for.
           </Text>
         </div>
-        <Button variant="filled"> Go to home page </Button>
+        <Button variant="filled" onClick={onButtonClick}> Go to home page </Button>
       </div>
     </div>
   );
