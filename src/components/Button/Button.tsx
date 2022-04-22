@@ -33,7 +33,7 @@ export interface ButtonProps {
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   variant = 'outlined',
-  size = 'lg',
+  size = 'sm',
   className,
   type = 'button',
   disabled,
