@@ -16,6 +16,12 @@ export const Team: VFC<TeamProps> = ({ className, cards }) => {
       <H1 weight="semiBold" align="center"> Team </H1>
       <div className={styles.cards}>
         {cards && cards.map((card) => card)}
+        {/* Структура карточки
+        //  <Card>
+        //    <img>
+        //    <Text>
+        //  </Card>
+        */}
       </div>
     </div>
   );
