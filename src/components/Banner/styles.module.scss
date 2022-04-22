@@ -7,10 +7,6 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  @include forDesktopSm {
-    width: 100vw;
-  height: 100vh;
-  }
   @include flexbox;
   & > .container {
     overflow: hidden;
@@ -21,14 +17,15 @@
     & > .bannerText {
       overflow: hidden;
       max-height: 80%;
-      @include forDesktopSm {
-        font-size: 22px;
-      }
     }
     & > button {
       margin-top: 72px;
     }
   }
-  
-  
+}
+
+@include forDesktopSm {
+  .bannerText {
+    font-size: 22px;
+  }
 }
