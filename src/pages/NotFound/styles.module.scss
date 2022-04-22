@@ -22,7 +22,7 @@
       & > .errorCode {
         font-size: 288px;
         line-height: inherit;
-        background: linear-gradient(180deg, #E1E365 0%, #CBCE00 100%);
+        background: $colorGreenGradient700;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
