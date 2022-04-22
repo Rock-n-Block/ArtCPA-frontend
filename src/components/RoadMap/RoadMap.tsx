@@ -28,7 +28,11 @@ export const RoadMap: VFC<RoadMapProps> = ({ className, content }) => {
           {index === content.length - 1 && index !== 0 && (
             <div className={styles.dividerBetweenItems} />
           )}
-          <div className={styles.indexContainer}><H1 align="center" weight="bold" className={styles.index}>{pad(index + 1)}</H1></div>
+          <div className={styles.indexContainer}>
+            <H1 align="center" weight="bold" className={styles.index}>
+              {pad(index + 1)}
+            </H1>
+          </div>
           <div className={styles.dividerInsideContainer} />
 
           <div className={styles.content}>
