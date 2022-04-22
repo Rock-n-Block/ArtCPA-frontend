@@ -2,11 +2,10 @@
 @import '../../assets/styles/mixins';
 
 .followCard {  
-  display: flex;
+  @include flexbox(align-items);
   background-color: var(--card-default-background);
   border-radius: spacing(3);
   padding: spacing(2.5, 1, 2, 5.25);
-  align-items: center;
   color: var(--typography-default-color);
   position: relative;
   z-index: -2;
