@@ -24,10 +24,8 @@ export const NotFound: VFC<NotFoundProps> = ({ className }) => {
             you were looking for.
           </Text>
         </div>
-
         <Button variant="filled"> Go to home page </Button>
       </div>
-
     </div>
   );
 };

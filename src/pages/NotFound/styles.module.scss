@@ -1,6 +1,7 @@
 @import '../../assets/styles/variables';
 @import '../../assets/styles/mixins';
 
+
 .notFound { 
   @include flexbox(center);
   flex-direction: column;
@@ -10,21 +11,6 @@
   & > .logo {
     position: absolute;
     top: 5vh;
-    
-  }
-  @include forDesktopSm {
-    @include flexbox(space-between);
-    & > .logo {
-      & > div {
-        display: none;
-        
-      }
-      & > svg {
-        width: 48px;
-        height: 48px;
-        margin: 0;
-      }
-    }
   }
   & > .container{
     height: 60%;
@@ -45,9 +31,22 @@
         width: 70%;
       }
     }
-    
-
-    @include forDesktopSm {
+  }
+}
+@include forDesktopSm {
+  .notFound {
+    @include flexbox(space-between);
+    & > .logo {
+      & > div {
+        display: none;
+      }
+      & > svg {
+        width: 48px;
+        height: 48px;
+        margin: 0;
+      }
+    }
+    & > .container {
       height: 100%;
       @include flexbox(space-evenly);
       & > .headerText {
