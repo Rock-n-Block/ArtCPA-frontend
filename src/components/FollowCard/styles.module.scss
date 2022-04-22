@@ -8,4 +8,19 @@
   padding: spacing(2.5, 1, 2, 5.25);
   align-items: center;
   color: var(--typography-default-color);
+  position: relative;
+  z-index: -2;
+}
+.svgWrap {
+  background-color: white;
+  display: inline-block;
+  width: 27px;
+  height: 20px;
+  position: absolute;
+  z-index: -1;
+  top:30px;
+  left:50px
+}
+.name {
+  padding-left: spacing(2);
 }

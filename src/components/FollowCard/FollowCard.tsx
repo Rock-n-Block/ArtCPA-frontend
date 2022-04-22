@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 
 import cn from 'clsx';
 import { H3 } from 'components';
@@ -7,12 +7,14 @@ import styles from './styles.module.scss';
 export interface FollowCardProps {
   className?: string;
   name: string,
+  icon: ReactElement
 }
 
-export const FollowCard: FC<FollowCardProps> = ({ className, name, children }) => {
+export const FollowCard: FC<FollowCardProps> = ({ className, name, icon }) => {
   return (
     <div className={cn(styles.followCard, className)}>
-      {children}
+      <div className={styles.svgWrap} />
+      {icon}
       <H3 className={styles.name}>{name}</H3>
     </div>
   );
