@@ -10,6 +10,7 @@ import styles from './styles.module.scss';
 export interface ComingSoonProps {
   className?: string;
   title: string;
+  onButtonClick: () => void;
 }
 
 export const ComingSoon: VFC<ComingSoonProps> = ({ className, title }) => {
