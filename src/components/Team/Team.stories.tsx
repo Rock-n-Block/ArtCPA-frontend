@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { FirstCard, SecondCard, ThirdCard, FourthCard } from 'assets/img/icons';
-import { TeamCard } from 'components/TeamCard';
 
 import { Team } from './Team';
 
@@ -10,23 +9,16 @@ export default {
 } as ComponentMeta<typeof Team>;
 
 const data = [
-  { image: FirstCard, name: 'Name', position: 'position' },
-  { image: SecondCard, name: 'Name', position: 'position' },
-  { image: ThirdCard, name: 'Name', position: 'position' },
-  { image: FourthCard, name: 'Name', position: 'position' },
+  { image: FirstCard, personName: 'Name', personPosition: 'position' },
+  { image: SecondCard, personName: 'Name', personPosition: 'position' },
+  { image: ThirdCard, personName: 'Name', personPosition: 'position' },
+  { image: FourthCard, personName: 'Name', personPosition: 'position' },
 
 ];
-const cards = data.map((item) => (
-  <TeamCard
-    image={item.image}
-    personName={item.name}
-    personPosition={item.position}
-    className="inputCard"
-  />
-));
+
 const Template: ComponentStory<typeof Team> = () => (
   <div style={{ background: 'black' }}>
-    <Team cards={cards} />
+    <Team cards={data} />
   </div>
 );
 export const Default = Template.bind({});
