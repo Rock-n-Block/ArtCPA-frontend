@@ -17,10 +17,10 @@ export const Team: VFC<TeamProps> = ({ className, cards }) => {
       <div className={styles.cards}>
         {cards && cards.map((card) => card)}
         {/* Структура карточки
-        //  <Card>
+        //  <TeamCard>
         //    <img>
         //    <Text>
-        //  </Card>
+        //  </TeamCard>
         */}
       </div>
     </div>

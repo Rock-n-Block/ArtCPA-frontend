@@ -1,14 +1,12 @@
 import { render } from '@testing-library/react';
 
-import { Card } from './Card';
-import { cardPropsMocked } from './Card.mock';
+import { TeamCard } from './TeamCard';
+// import { cardPropsMocked } from './TeamCard.mock';
 
-describe('Card', () => {
+describe('TeamCard', () => {
   it('should render', () => {
     const { container } = render(
-      <Card
-        {...cardPropsMocked}
-      />,
+      <TeamCard />,
     );
     expect(container).toMatchSnapshot();
   });

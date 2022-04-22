@@ -1,2 +1,2 @@
-export * from './Card';
+export * from './TeamCard';
 export * from './styles.module.scss';

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { FirstCard, SecondCard, ThirdCard, FourthCard } from 'assets/img/icons';
-import { Card } from 'components/Card';
+import { TeamCard } from 'components/TeamCard';
 
 import { Team } from './Team';
 
@@ -17,7 +17,7 @@ const data = [
 
 ];
 const cards = data.map((item) => (
-  <Card
+  <TeamCard
     image={item.image}
     personName={item.name}
     personPosition={item.position}

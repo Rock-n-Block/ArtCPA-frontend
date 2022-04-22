@@ -1,10 +1,10 @@
 import { FC, useEffect } from 'react';
 
 import cn from 'clsx';
-import { Card } from 'components/Card';
+// import { Card } from 'components/Card';
 import { CloseIcon } from 'assets/icons/icons/components';
 import { Text } from 'components/Typography';
-import { CardSize } from 'components/Card/Card.types';
+// import { CardSize } from 'components/Card/Card.types';
 import { Button } from 'components/Button';
 import styles from './styles.module.scss';
 
