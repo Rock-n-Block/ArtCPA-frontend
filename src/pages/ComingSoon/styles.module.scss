@@ -1,0 +1,49 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+
+.comingSoon { 
+  @include flexbox(center);
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  & > .header {
+    position: absolute;
+    top: 5vh;
+  }
+  & > .container{
+    height: 60%;
+    @include flexbox(space-between);
+    flex-direction: column;
+    & > .bodyText {
+      font-size: 128px;
+      line-height: 192px;
+      background: $colorGreenGradient700;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform:uppercase;
+    }
+  }
+}
+@include forDesktopSm {
+  .comingSoon {
+    @include flexbox(center);
+    & > .container {
+      @include flexbox(center);
+      height: 100%;
+      & > .title {
+        display: none;
+      }
+      & > .bodyText {
+        font-size: 60px;
+        line-height: inherit;
+      }
+      & > .returnButton {
+        position: absolute;
+        bottom: 5vh;
+      }
+    }
+  }
+}
