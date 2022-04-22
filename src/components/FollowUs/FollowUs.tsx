@@ -18,7 +18,7 @@ export const FollowUs: VFC<FollowUsProps> = ({ className }) => {
       <H2 className={cn(styles.title)} align="center">Follow us</H2>
       <div className={cn(styles.followUs, className)}>
         {linksData.map((card) => (
-          <a href={card.href} key={card.id}>
+          <a href={card.href} key={card.id} target="_blank" rel="noonpener noreferrer">
             <FollowCard name={card.name} icon={<card.icon />} />
           </a>
         ))}
