@@ -57,6 +57,7 @@
     "ethereum-types": "^3.2.0",
     "formik": "^2.2.9",
     "history": "^4.10.0",
+    "is-plain-object": "^5.0.0",
     "node-sass": "^6.0.0",
     "rc-dialog": "^8.6.0",
     "react": "17.0.2",

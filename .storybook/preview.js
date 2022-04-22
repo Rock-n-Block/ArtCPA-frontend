@@ -15,7 +15,7 @@ const MainDecorator = (story) => {
   return (
     <>
       <button onClick={handleSwitchTheme}>Change theme</button>
-      <div className={clsx(styles.app, { [styles.light]: islight })}>
+      <div className={clsx(styles.app, { [styles.light]: islight })} style={{ background: '#141417' }}>
         <Router>
           {story()}
         </Router>

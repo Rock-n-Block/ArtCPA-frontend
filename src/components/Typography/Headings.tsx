@@ -21,7 +21,7 @@ const createHeading = (type: HeadingType) => ({
   className = '',
   align = 'left',
   color = 'default',
-  weight = 'medium',
+  weight = 'normal',
   ...rest
 }: Props) => {
   const hProps = {
