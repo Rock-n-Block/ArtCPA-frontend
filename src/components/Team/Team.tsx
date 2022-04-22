@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { VFC } from 'react';
 
 import cn from 'clsx';
@@ -20,9 +21,12 @@ export const Team: VFC<TeamProps> = ({ className, cards }) => {
     <div className={cn(styles.team, className)}>
       <H1 weight="semiBold" align="center"> Team </H1>
       <div className={styles.cards}>
-        {cards && cards.map((card) => (
+        {cards && cards.map((card, index) => (
           <TeamCard
-            cardData={card}
+            key={index}
+            image={card.image}
+            personName={card.personName}
+            personPosition={card.personPosition}
             className="inputCard"
           />
         ))}
