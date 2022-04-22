@@ -33,7 +33,7 @@ export interface ButtonProps {
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   variant = 'outlined',
-  size = 'sm',
+  size = 'lg',
   className,
   type = 'button',
   disabled,
@@ -94,6 +94,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
           { [styles.startAdormentPadding]: startAdorment },
           { [styles.endAdormentPadding]: endAdorment },
           { [styles.bothAdormentsPadding]: endAdorment && startAdorment },
+          { [styles.noneAdormentsPadding]: !endAdorment && !startAdorment },
           className,
         ),
       },
