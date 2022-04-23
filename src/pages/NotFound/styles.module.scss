@@ -12,7 +12,7 @@
     position: absolute;
     top: 5vh;
   }
-  & > .container{
+  & > .container {
     height: 60%;
     @include flexbox(space-between);
     flex-direction: column;
@@ -28,9 +28,11 @@
         background-clip: text;
       }
       & > .textBody {
+        margin-top: revert;
         width: 70%;
       }
     }
+    
   }
 }
 @include forDesktopSm {
@@ -60,6 +62,11 @@
         & > .textBody {
           font-size: 14px;
         }
+      }
+      & > .returnButton {
+        position: absolute;
+        bottom: 5vh;
+        
       }
     }
   }

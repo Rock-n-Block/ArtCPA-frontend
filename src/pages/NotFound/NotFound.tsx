@@ -25,7 +25,7 @@ export const NotFound: VFC<NotFoundProps> = ({ className, onButtonClick }) => {
             you were looking for.
           </Text>
         </div>
-        <Button variant="filled" onClick={onButtonClick}> Go to home page </Button>
+        <Button variant="filled" onClick={onButtonClick} className={styles.returnButton}> Go to home page </Button>
       </div>
     </div>
   );
