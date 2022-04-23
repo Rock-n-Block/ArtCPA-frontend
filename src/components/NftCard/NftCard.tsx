@@ -13,12 +13,11 @@ export interface NftCardProps {
 
 export const NftCard: VFC<NftCardProps> = ({ className, image, title }) => {
   return (
-    <div className={cn(styles.nftCard, className)}>
-      <Card className={styles.card}>
-        <img src={image} alt={title} />
-        <H2 align="center" className={styles.title}>{title}</H2>
-        <Button size="lg" variant="filled" className={styles.viewButton}>VIEW</Button>
-      </Card>
-    </div>
+    <Card className={cn(className, styles.nftCard)}>
+      <img src={image} alt={title} />
+      <H2 align="center" className={styles.title}>{title}</H2>
+      <Button size="md" variant="filled" className={styles.viewButton}>VIEW</Button>
+    </Card>
+
   );
 };
