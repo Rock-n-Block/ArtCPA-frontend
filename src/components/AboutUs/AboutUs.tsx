@@ -12,8 +12,8 @@ export interface AboutUsProps {
 
 export const AboutUs: VFC<AboutUsProps> = ({ className }) => {
   return (
-    <div className={cn(styles.aboutUs, className)}>
-      <H1 align="center" className={styles.mainTitle}>About us</H1>
+    <>
+      <H1 align="center" className={cn(className, styles.mainTitle)}>About us</H1>
       <div className={styles.wrapperCard}>
         {aboutUsHelper.map((card) => (
           <Card size="sm" className={styles.cardItem}>
@@ -22,6 +22,6 @@ export const AboutUs: VFC<AboutUsProps> = ({ className }) => {
           </Card>
         ))}
       </div>
-    </div>
+    </>
   );
 };
