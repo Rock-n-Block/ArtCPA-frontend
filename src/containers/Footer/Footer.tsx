@@ -1,7 +1,7 @@
 import { VFC } from 'react';
-import { H3, H2, Button } from 'components';
+import { Button } from 'components';
 import cn from 'clsx';
-import { Coin } from 'assets/icons/icons';
+import { MainLogo } from 'components/MainLogo';
 import { footerLinks } from './links';
 import styles from './styles.module.scss';
 
@@ -12,16 +12,10 @@ export interface FooterProps {
 export const Footer: VFC<FooterProps> = ({ className }) => {
   return (
     <footer className={cn(styles.footer, className)}>
-      <div className={styles.coinWrapper}>
-        <Coin className={styles.coin} />
-        <div>
-          <H2>ArtCPAclub</H2>
-          <H3>Art & Blockchain</H3>
-        </div>
-      </div>
+      <MainLogo className={cn(styles.mainLogo)} />
       <div className={styles.linksWrapper}>
         {footerLinks.map((link) => (
-          <Button variant="text" href={link.href}>{link.name}</Button>
+          <Button variant="text" href={link.href} key={link.id}>{link.name}</Button>
         ))}
       </div>
     </footer>

@@ -14,6 +14,7 @@
 @import './component-variables/card';
 @import './component-variables/checkbox';
 @import './component-variables/contractCard';
+@import './component-variables/divider';
 
 :root {
   $colors: (
@@ -33,6 +34,7 @@
     $breadcrumbsColorsDefault,
     $contractCardColorDefault,
     $sliderColorDefault,
+    $dividerColorDefault
   );
   @each $key_name in $colors {
     @each $key_name_2, $value in $key_name {

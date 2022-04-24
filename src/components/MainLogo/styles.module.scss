@@ -16,3 +16,26 @@
   @include flexbox();
   flex-direction: column;
 }
+.noneContent {
+  @include forTablet {
+    display: none;
+  }
+}
+.textForTablet {
+  display: none;
+}
+.textForTablet {
+  @include forTablet {
+    display: block;
+  }
+}
+@include forTablet {
+  .mainLogo {
+    display: block;
+    text-align: center;
+    & > svg {
+      margin: auto
+    }
+   
+  }
+}
