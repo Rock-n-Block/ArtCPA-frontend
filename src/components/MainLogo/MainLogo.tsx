@@ -12,13 +12,13 @@ export interface MainLogoProps {
 
 export const MainLogo: VFC<MainLogoProps> = ({ className }) => {
   return (
-    <div className={cn(styles.mainLogo, className)}>
+    <div className={cn(styles.mainLogo)}>
       <MainLogoIcon />
-      <div className={styles.textContainer}>
+      <div className={cn(styles.textContainer, className, styles.noneContent)}>
         <H2 weight="semiBold">ArtCPAclub</H2>
         <Text size="l">Art & BlockChain</Text>
       </div>
-
+      <Text size="l" className={styles.textForTablet}>© Made with love by ArtCPAclub</Text>
     </div>
   );
 };
