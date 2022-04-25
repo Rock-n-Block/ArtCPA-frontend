@@ -100,7 +100,6 @@ export const Input:VFC<InputProps> = ({
             className={cn(
               styles.labelText,
               classNameLabel,
-              // { [styles.noneLabel]: value },
             )}
           >
             {label}

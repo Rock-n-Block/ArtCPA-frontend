@@ -38,10 +38,6 @@
   left: spacing(2);
   top: 50%;
 }
-// .input + .labelText:focus {
-//   display: none
-// }
-
 .textarea + .labelText {
   @extend .labelTextCommon;
   left: spacing(3);
