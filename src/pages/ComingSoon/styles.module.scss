@@ -8,10 +8,6 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  & > .header {
-    position: absolute;
-    top: 5vh;
-  }
   & > .container{
     height: 60%;
     @include flexbox(space-between);
