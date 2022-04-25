@@ -16,19 +16,10 @@
   @include flexbox();
   flex-direction: column;
 }
-.noneContent {
-  @include forTablet {
-    display: none;
-  }
-}
 .textForTablet {
   display: none;
 }
-.textForTablet {
-  @include forTablet {
-    display: block;
-  }
-}
+
 @include forTablet {
   .mainLogo {
     display: block;
@@ -36,6 +27,11 @@
     & > svg {
       margin: auto
     }
-   
   }
+  .textForTablet {
+    display: block
+  }
+  .noneContent {
+    display: none
+  }  
 }

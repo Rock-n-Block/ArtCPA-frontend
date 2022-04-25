@@ -13,13 +13,11 @@
   min-width: 320px;
 }
 @include forTablet {
-  .linksWrapper {
-    display:none
-  }
-}
-@include forTablet {
   .footer {
     @include flexbox
+  }
+  .linksWrapper {
+    display:none
   }
 }
 @include forDesktopSm {
