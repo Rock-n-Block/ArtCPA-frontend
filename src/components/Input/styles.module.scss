@@ -24,7 +24,7 @@
 
   &:focus-within .input + .labelText {
     @extend .labelTextFocusedCommon;
-    top: 14px;
+    display: none;
   }
 
   &:focus-within .textarea + .labelText {
@@ -38,9 +38,9 @@
   left: spacing(2);
   top: 50%;
 }
-.input + .noneLabel {
-  display: none
-}
+// .input + .labelText:focus {
+//   display: none
+// }
 
 .textarea + .labelText {
   @extend .labelTextCommon;
