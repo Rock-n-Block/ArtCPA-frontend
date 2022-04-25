@@ -5,14 +5,17 @@ import { Text, H3 } from 'components/Typography';
 
 import { MainLogo } from 'components/MainLogo';
 import { Button } from 'components/Button';
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 export interface NotFoundProps {
   className?: string;
-  onButtonClick: () => void;
 }
 
-export const NotFound: VFC<NotFoundProps> = ({ className, onButtonClick }) => {
+export const NotFound: VFC<NotFoundProps> = ({ className }) => {
+  const navigate = useNavigate();
+  const onButtonClick = () => navigate('/');
+
   return (
     <div className={cn(styles.notFound, className)}>
       <MainLogo className={styles.logo} />
@@ -25,7 +28,13 @@ export const NotFound: VFC<NotFoundProps> = ({ className, onButtonClick }) => {
             you were looking for.
           </Text>
         </div>
-        <Button variant="filled" onClick={onButtonClick} className={styles.returnButton}> Go to home page </Button>
+        <Button
+          variant="filled"
+          onClick={onButtonClick}
+          className={styles.returnButton}
+        >
+          Go to home page
+        </Button>
       </div>
     </div>
   );
