@@ -165,7 +165,8 @@
     "stylelint-config-standard": "^24.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "is-plain-object": "^5.0.0"
   },
   "resolutions": {
     "babel-loader": "8.1.0"
