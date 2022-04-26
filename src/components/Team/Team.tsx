@@ -10,11 +10,6 @@ import { TeamCard } from './components/Card';
 
 export interface TeamProps {
   className?: string;
-  cards?: {
-    image: string;
-    personName: string;
-    personPosition: string;
-  }[];
 }
 
 export const Team: VFC<TeamProps> = ({ className }) => {
