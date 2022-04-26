@@ -94,6 +94,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
           { [styles.startAdormentPadding]: startAdorment },
           { [styles.endAdormentPadding]: endAdorment },
           { [styles.bothAdormentsPadding]: endAdorment && startAdorment },
+          { [styles.addShadow]: !endAdorment && !startAdorment },
           className,
         ),
       },

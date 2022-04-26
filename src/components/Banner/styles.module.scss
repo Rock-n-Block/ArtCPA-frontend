@@ -1,0 +1,31 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.banner {
+  background: url('../../assets/img/icons/BannerBackgroundImg.png') no-repeat ;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  @include flexbox;
+  & > .container {
+    overflow: hidden;
+    max-width: 65%;
+    height: 100%;
+    @include flexbox;
+    flex-direction: column;
+    & > .bannerText {
+      overflow: hidden;
+      max-height: 80%;
+    }
+    & > button {
+      margin-top: 72px;
+    }
+  }
+}
+
+@include forDesktopSm {
+  .bannerText {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.team {
+  @include forDesktopSm {
+    & > h1 {
+      font-weight: 600;
+      font-size: 32px;
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  
+  @include forDesktopSm {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(230px, 1fr));
+    & > div > img {
+      max-width: 170px;
+      max-height: 230px;
+      }
+
+  }
+}
