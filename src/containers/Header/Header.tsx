@@ -1,47 +1,106 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button, Logo } from 'components';
 import { Link as RSLink } from 'react-scroll';
-import { useCallback, VFC } from 'react';
-import { Chains, WalletProviders } from 'types';
-import { MenuIcon } from 'assets/icons/icons';
+import { VFC, useEffect, useMemo, useState } from 'react';
+import { useWindowState } from 'hooks';
+import { useGetAccountInfo, logout } from '@elrondnetwork/dapp-core';
+import { useDispatch } from 'react-redux';
+import { updateUserState } from 'store/user/reducer';
+// @ts-ignore
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
 import styles from './styles.module.scss';
+import { MenuButton } from './components/MenuButton';
+import { ConnectButton } from './components/ConnectButton';
 
 export interface HeaderProps {
-  address: string;
-  disconnect: () => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onConnectWallet: (provider: any, newChain: any) => void;
-  onToggleChainType: () => void;
-  isHomePage: boolean;
-  isUserInfoLoading: boolean;
-  chainType: 'testnet' | 'mainnet';
+  className?: string;
 }
 
-export const Header: VFC<HeaderProps> = ({ address, disconnect, onConnectWallet, onToggleChainType, chainType }) => {
+export const Header: VFC<HeaderProps> = () => {
+  const { width } = useWindowState();
+  const dispatch = useDispatch();
+
+  const { address: elraddress } = useGetAccountInfo();
+
+  const isTablet = useMemo(() => {
+    return width < 1024;
+  }, [width]);
+
+  const isMoblie = useMemo(() => {
+    return width < 768;
+  }, [width]);
+
+  const [isConnectModalOpen, setConnectModalOpen] = useState(false);
+
+  const handleDisconnect = () => {
+    dispatch(updateUserState({
+      address: '',
+    }));
+    logout();
+  };
+
+  const closeModal = () => setConnectModalOpen(false);
+  const openModal = () => setConnectModalOpen(true);
+
+  useEffect(() => {
+    if (elraddress) {
+      dispatch(updateUserState({
+        address: elraddress,
+      }));
+    }
+    closeModal();
+  }, [dispatch, elraddress]);
+
   return (
-    <header className={styles.header}>
-      <Logo />
-      {homePageNavigation.map(({ label, anchorId, isOuterLink, href }) => {
-        if (isOuterLink) {
-          return (
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Button variant="text">{label}</Button>
-            </a>
-          );
-        }
-        return (
-          <RSLink smooth to={anchorId} key={anchorId} className={styles.navLink}>
-            <Button variant="text">{label}</Button>
-          </RSLink>
-        );
-      })}
-      <RSLink smooth to={HomePageAnchors.BUY}>
-        <Button>Buy CPA</Button>
-      </RSLink>
-      <Button variant="filled">Connect to wallet</Button>
-      <Button endAdorment={<MenuIcon />}>Menu</Button>
-    </header>
+    <>
+      <header className={styles.header}>
+        {isMoblie ? (
+          <>
+            <MenuButton isMobile />
+            <div>Coin</div>
+            <ConnectButton
+              isMobile
+              onCloseModal={closeModal}
+              onOpenModal={openModal}
+              onDisconnect={handleDisconnect}
+              address={elraddress}
+              isOpen={isConnectModalOpen}
+            />
+          </>
+        ) : (
+          <>
+            <Logo />
+            {!isTablet && (
+            <>
+              {homePageNavigation.map(({ label, anchorId, isOuterLink, link }) => {
+                if (isOuterLink) {
+                  return (
+                    <Button key={label} className={styles.headerNav} href={link} variant="text">{label}</Button>
+                  );
+                }
+                return (
+                  <RSLink key={label} smooth to={anchorId} className={styles.navLink}>
+                    <Button className={styles.headerNav} variant="text">{label}</Button>
+                  </RSLink>
+                );
+              })}
+            </>
+            )}
+            <RSLink smooth to={HomePageAnchors.BUY}>
+              <Button>Buy CPA</Button>
+            </RSLink>
+            <ConnectButton
+              isMobile={false}
+              onCloseModal={closeModal}
+              onOpenModal={openModal}
+              onDisconnect={handleDisconnect}
+              address={elraddress}
+              isOpen={isConnectModalOpen}
+            />
+            <MenuButton isMobile={false} />
+          </>
+        )}
+      </header>
+    </>
   );
 };

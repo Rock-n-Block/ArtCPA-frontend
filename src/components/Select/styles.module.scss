@@ -98,15 +98,14 @@
 
 :root .option {
   padding: spacing(1.25, 3);
-  background: var(--select-default-value-background) !important;
+  background: var(--select-default-value-background);
   transition: 0ms;
 
   & > span {
-    color: var(--select-default-value-color) !important;
+    color: var(--select-default-value-color);
   }
 
   &:hover {
-    background: var(--select-hover-value-background) !important;
     color: white;
 
     &.dark {
@@ -115,7 +114,7 @@
   }
 
   &.focused {
-    background-color: black;
+    background-color: var(--select-hover-value-background);;
   }
 
   &.dark {

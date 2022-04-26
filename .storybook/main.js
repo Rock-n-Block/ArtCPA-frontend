@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const fileLodaer = require("file-loader");
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
@@ -32,6 +33,7 @@ module.exports = {
         DEBUG: "true",
       })
     );
+    config.module.rules.map((rule) => console.log(rule));
     return config;
   },
 };

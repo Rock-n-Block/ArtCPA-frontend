@@ -15,7 +15,7 @@ import styles from './styles.module.scss';
 
 export interface ButtonProps {
   variant?: 'filled' | 'outlined' | 'outlined-secondary' | 'text' | 'filled-secondary';
-  size?: 'lg' | 'md' | 'sm';
+  size?: 'lg' | 'md' | 'sm' | 'noSize';
   type?: 'button' | 'submit';
   disabled?: boolean;
   style?: CSSProperties;

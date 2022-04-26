@@ -10,7 +10,7 @@ export default {
 
 const Template: ComponentStory<typeof Menu> = (args) => (
   <>
-    <Menu {...args} />
+    <Menu {...args} isOpen />
   </>
 );
 export const Default = Template.bind({});

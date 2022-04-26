@@ -2,5 +2,17 @@
 @import '../../../../assets/styles/mixins';
 
 .menu { 
+  min-width: unset;
+  min-height: unset;
+  width: 150px;
+  height: fit-content;
+  border-radius: 8px;
+  padding: spacing(3, 2);
 
+  @include flexbox(flex-start, flex-start);
+  flex-direction: column;
+}
+
+.navLink:not(:last-child) {
+  margin-bottom: spacing(2.5);
 }

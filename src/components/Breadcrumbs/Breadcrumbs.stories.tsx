@@ -13,7 +13,6 @@ const Template: ComponentStory<typeof Breadcrumbs> = () => (
     {
     breadcrumbsListMocked.map((props) => (
       <Breadcrumbs {...props} />
-
     ))
   }
   </>

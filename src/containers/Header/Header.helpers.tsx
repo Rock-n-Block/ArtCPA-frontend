@@ -5,7 +5,14 @@ export enum HomePageAnchors {
   BUY = 'buyBlockAnchor',
 }
 
-export const homePageNavigation = [
+export type HomePageNavElement = {
+  label: string;
+  anchorId?: HomePageAnchors;
+  isOuterLink?: boolean;
+  link?: string;
+};
+
+export const homePageNavigation: HomePageNavElement[] = [
   {
     label: 'Road map',
     anchorId: HomePageAnchors.ROAD_MAP,
@@ -13,7 +20,7 @@ export const homePageNavigation = [
   {
     label: 'Whitepaper',
     isOuterLink: true,
-    href: 'https://google.com',
+    link: 'https://google.com',
   },
   {
     label: 'Team',

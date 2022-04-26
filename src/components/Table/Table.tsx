@@ -149,6 +149,7 @@ export const Table: FC<TableProps> = React.forwardRef<HTMLDivElement, TableProps
                   {headerGroup.headers.map((column) => (
                     withSorting ? (
                       <th
+                        key={column}
                         className={cx(styles.th, classNameTitleCell)}
                         {...column.getHeaderProps(column.getSortByToggleProps({
                           style: {

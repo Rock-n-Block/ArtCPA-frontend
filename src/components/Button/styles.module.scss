@@ -6,6 +6,7 @@
   cursor: pointer;
   border-radius: 8px;
   @include flexbox();
+  transition: 0ms !important;
 
   
   &.outlined {
@@ -246,13 +247,19 @@
 .icon {
   width: fit-content;
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 8px;
   width: 48px;
   height: 48px;
   box-sizing: border-box;
   display: flex !important;
   justify-content: center;
   align-items: center;
+
+  &.noSize {
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+  }
 
   &.outlined {
     background: var(--icon-button-outlined-default-background);
@@ -363,33 +370,32 @@
   }
 
   &.filled-secondary {
-    border: $filled-secondary-button-border-width solid var(--filled-secondary-button-secondary-default-border);
-    color: var(--filled-secondary-button-secondary-default-font);
-    background: var(--filled-secondary-button-secondary-default-background);
+    border: $filled-secondary-button-border-width solid var(--icon-button-filled-secondary-default-border);
+    background: var(--icon-button-filled-secondary-default-background);
     & > svg > path {
-      fill: var(--filled-secondary-button-secondary-default-icon);
+      fill: var(--icon-button-filled-secondary-default-icon-color);
       transition: ease-in-out 200ms;
     }
     &:hover {
-      color: var(--filled-secondary-button-secondary-hover-font);
-      border: $filled-secondary-button-border-width solid var(--filled-secondary-button-secondary-hover-border);
+      border: $filled-secondary-button-border-width solid var(--icon-button-filled-secondary-hover-border);
+      background: var(--icon-button-filled-secondary-hover-background);
       &> svg > path {
-        fill: var(--filled-secondary-button-secondary-hover-icon);
+        fill: var(--icon-button-filled-secondary-hover-icon-color);
       }
     }
     &:active {
-      color: var(--filled-secondary-button-secondary-active-font);
-      border: $filled-secondary-button-border-width solid var(--filled-secondary-button-secondary-active-border);
+      border: $filled-secondary-button-border-width solid var(--icon-button-filled-secondary-active-border);
+      background: var(--icon-button-filled-secondary-active-background);
       &> svg > path {
-        fill: var(--filled-secondary-button-secondary-active-icon);
+        fill: var(--icon-button-filled-secondary-active-icon-color);
       }
     }
     &.disabled {
-      background: var(--filled-secondary-button-secondary-default-background);
+      background: var(--icon-button-filled-secondary-disabled-background);
       border: none;
 
       & > svg > path {
-        fill: var(--filled-secondary-button-secondary-default-icon);
+        fill: var(--icon-button-filled-secondary-disabled-icon-color);
       }
       
       &:hover {
@@ -409,7 +415,6 @@
           fill: var(--filled-secondary-button-secondary-default-icon);
         }
       }
-    
   }
 }
   &.outlined-secondary {

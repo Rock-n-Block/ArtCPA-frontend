@@ -2,6 +2,10 @@
 @import '../../assets/styles/mixins';
 @import '/src/assets/styles/component-variables/color-constants';
 
+* {
+  transition: 0ms !important;
+}
+
 .modalOutside {
   position: fixed;
   width: 100vw;
@@ -13,30 +17,41 @@
   }
 }
 
-.modalContent {
+.modal {
   position: fixed;
   display: block;
+  padding-top: spacing(6);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 60px 10px rgba;
   overflow: auto;
   bottom: 0;
   width: 100%;
-  -webkit-animation-name: slideIn;
-  -webkit-animation-duration: 0.4s;
-  animation-name: slideIn;
-  animation-duration: 0.4s
+  border: 1px solid $colorGreen600 !important;
+  border-radius: 8px !important;
+}
 
+.modalContent {
+  padding: spacing(3, 0, 0, 0);
 }
-.closed {
-  display: none;   
-}
+
 .modalHeader {
-  @include flexbox();
-  & > .closeButton {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-  }
+  width: 100%;
+  height: fit-content;
+  @include flexbox(space-between, center); 
+  padding-bottom: spacing(2);
+}
+
+.divider {
+  border-bottom: 1px solid $colorGreen600;
+  margin-bottom: spacing(2) !important;
+}
+
+.closeButton {
+  transform: translateX(6px);
+}
+
+.closed {
+  visibility: hidden;
+  z-index: -99999;
 }
