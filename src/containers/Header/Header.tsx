@@ -5,7 +5,7 @@ import { useWindowState } from 'hooks';
 import { useGetAccountInfo, logout } from '@elrondnetwork/dapp-core';
 import { useDispatch } from 'react-redux';
 import { updateUserState } from 'store/user/reducer';
-// @ts-ignore
+import { LogoIcon } from 'assets/img/icons';
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
 import styles from './styles.module.scss';
@@ -23,7 +23,7 @@ export const Header: VFC<HeaderProps> = () => {
   const { address: elraddress } = useGetAccountInfo();
 
   const isTablet = useMemo(() => {
-    return width < 1024;
+    return width < 1200;
   }, [width]);
 
   const isMoblie = useMemo(() => {
@@ -57,7 +57,7 @@ export const Header: VFC<HeaderProps> = () => {
         {isMoblie ? (
           <>
             <MenuButton isMobile />
-            <div>Coin</div>
+            <img src={LogoIcon} alt="coin" className={styles.coin} />
             <ConnectButton
               isMobile
               onCloseModal={closeModal}

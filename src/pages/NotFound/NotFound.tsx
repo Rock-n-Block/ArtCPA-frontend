@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { useEffect, VFC } from 'react';
 
 import cn from 'clsx';
 import { Text, H3 } from 'components/Typography';
@@ -15,6 +15,20 @@ export interface NotFoundProps {
 export const NotFound: VFC<NotFoundProps> = ({ className }) => {
   const navigate = useNavigate();
   const onButtonClick = () => navigate('/');
+
+  useEffect(() => {
+    const footers = document.getElementsByTagName('footer');
+    const headers = document.getElementsByTagName('header');
+    const oldFooterDisplay = footers[0].style.display;
+    const oldHeaderDisplay = headers[0].style.display;
+    footers[0].style.display = 'none';
+    headers[0].style.display = 'none';
+
+    return () => {
+      footers[0].style.display = oldFooterDisplay;
+      headers[0].style.display = oldHeaderDisplay;
+    };
+  }, []);
 
   return (
     <div className={cn(styles.notFound, className)}>

@@ -18,7 +18,6 @@ export const Logo: VFC<LogoProps> = ({ className }) => {
         <H2 weight="semiBold">ArtCPAclub</H2>
         <Text size="l">Art & BlockChain</Text>
       </div>
-      <Text size="l" className={styles.textForTablet}>© Made with love by ArtCPAclub</Text>
     </div>
   );
 };

@@ -9,10 +9,6 @@ import { content } from './Roadmap.helper';
 
 export interface RoadMapProps {
   className?: string;
-  content?: {
-    title: string;
-    points: string[];
-  }[]
 }
 
 function pad(d) {
@@ -24,8 +20,8 @@ export const RoadMap: VFC<RoadMapProps> = ({ className }) => {
     <div className={cn(styles.roadMap, className)}>
       <H1 className={styles.header} align="center" weight="bold">Road map</H1>
       {content.map((item, index) => (
-
-        <div className={styles.contentItems}>
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index} className={styles.contentItems}>
           {index === content.length - 1 && index !== 0 && (
             <div className={styles.dividerBetweenItems} />
           )}
@@ -47,7 +43,6 @@ export const RoadMap: VFC<RoadMapProps> = ({ className }) => {
               ))}
             </div>
           </div>
-
         </div>
       ))}
     </div>
