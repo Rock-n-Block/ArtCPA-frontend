@@ -115,7 +115,7 @@
   }
 
   &.focused {
-    background-color: black;
+    background-color: var(--select-hover-value-background);;
   }
 
   &.dark {

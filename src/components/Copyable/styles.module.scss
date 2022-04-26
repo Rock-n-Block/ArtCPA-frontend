@@ -1,0 +1,54 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.icon {
+  position: absolute;
+  right: spacing(2);
+  top: 50%;
+  height: 24px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: $colorWhite50;
+  & path {
+    fill: $colorGray40;
+  }
+
+  &:hover {
+    & > * {
+      fill: $colorGreen600;
+    }
+  }
+
+  &.transparent {
+    .path {
+      fill: transparent,
+    }
+  }
+}
+
+.copyableContainer {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 8px;
+  padding: spacing(1.5, 6, 1.5, 2.25);
+  height: 48px;
+  cursor: pointer;
+  & span {
+    color: $colorBlack400 !important;
+  }
+  @include flexbox();
+
+  &.transparent {
+    background: none;
+    border: none;
+  }
+
+  &.withBorder {
+    border: 1px solid $colorGray20;
+  }
+}

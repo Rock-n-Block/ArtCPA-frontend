@@ -24,6 +24,7 @@ type Props = {
   color?: Color,
   align?: Align,
   weight?: Weight,
+  noWrap?: boolean;
 };
 
 const Text: FC<PropsWithChildren<Props>> = ({
@@ -31,10 +32,11 @@ const Text: FC<PropsWithChildren<Props>> = ({
   children,
   className,
   style = { },
-  size = 's',
+  size = 'm',
   color = 'default',
   align = 'left',
   weight = 'medium',
+  noWrap = true,
 }) => (
   createElement(
     tag,
@@ -46,6 +48,7 @@ const Text: FC<PropsWithChildren<Props>> = ({
         styles[color],
         styles[align],
         styles[`${weight}Weight`],
+        { [styles.noWrap]: noWrap },
         className,
       ),
     },

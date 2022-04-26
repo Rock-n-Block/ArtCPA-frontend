@@ -5,7 +5,7 @@
   background: var(--card-default-background);
   border: 1px solid var(--card-default-border);
   display: inline-block;
-  padding: spacing(4.25);
+  padding: spacing(3);
   border-radius: var(--card-default-border-radius);
   margin: 0 auto;
   max-width: 350px;
@@ -25,6 +25,13 @@
 .lg {
   min-width: 500px;
   min-height: 350px;
+}
+
+.none {
+  min-height: 0;
+  min-width: 0;
+  width: fit-content;
+  height: fit-content;
 }
 
 .hoverEffect {

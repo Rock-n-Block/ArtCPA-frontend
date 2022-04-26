@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { CSSProperties, FC, RefObject } from 'react';
 
 import cn from 'clsx';
 
@@ -9,12 +9,16 @@ export interface CardProps {
   size?: CardSize;
   isHoverEffect?: boolean;
   className?: string;
+  style?: CSSProperties;
+  cardRef?: RefObject<HTMLDivElement>;
 }
 export const Card: FC<CardProps> = ({
   size = 'md',
   isHoverEffect = false,
   children,
   className,
+  style,
+  cardRef,
 }) => {
   return (
     <div
@@ -24,6 +28,8 @@ export const Card: FC<CardProps> = ({
         styles.wrapper,
         className,
       )}
+      style={style}
+      ref={cardRef}
     >
       {children}
     </div>
