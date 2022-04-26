@@ -5,7 +5,7 @@ import cn from 'clsx';
 import { H1, Text } from 'components/Typography';
 import { CheckIcon } from 'assets/icons/icons';
 import styles from './styles.module.scss';
-import { content } from '../../Roadmap.helper';
+import { content } from './Roadmap.helper';
 
 export interface RoadMapProps {
   className?: string;
