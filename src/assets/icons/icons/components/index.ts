@@ -1,5 +1,6 @@
 export * from './ToastifyIcons';
 export * from './Tokens';
+export { CheckIcon } from './RoadMap/CheckIcon';
 export { StarIcon } from './StarIcon';
 export { ChevronDown } from './ChevronDown';
 export { MenuIcon } from './MenuIcon';
