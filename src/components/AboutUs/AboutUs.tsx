@@ -3,6 +3,7 @@ import { VFC } from 'react';
 import cn from 'clsx';
 import { H1, H2, Text } from 'components';
 import { Card } from 'components/Card';
+import { WrapContainer } from 'components/WrapContainer';
 import { aboutUsHelper } from './AboutUs.helper';
 import styles from './styles.module.scss';
 
@@ -12,7 +13,7 @@ export interface AboutUsProps {
 
 export const AboutUs: VFC<AboutUsProps> = ({ className }) => {
   return (
-    <>
+    <WrapContainer>
       <H1 align="center" className={cn(className, styles.mainTitle)}>About us</H1>
       <div className={styles.wrapperCard}>
         {aboutUsHelper.map((card) => (
@@ -22,6 +23,6 @@ export const AboutUs: VFC<AboutUsProps> = ({ className }) => {
           </Card>
         ))}
       </div>
-    </>
+    </WrapContainer>
   );
 };

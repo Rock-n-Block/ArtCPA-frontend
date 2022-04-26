@@ -1,0 +1,9 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.wrapContainer { 
+    max-width: 1500px;
+    margin: 0 auto !important;
+    padding: spacing(10,6);
+    
+}

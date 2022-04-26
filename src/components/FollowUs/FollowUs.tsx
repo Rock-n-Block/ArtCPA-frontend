@@ -4,7 +4,7 @@ import cn from 'clsx';
 
 import { FollowCard } from 'components/FollowCard';
 import { H2 } from 'components';
-
+import { WrapContainer } from 'components/WrapContainer';
 import { linksData } from './linksData';
 import styles from './styles.module.scss';
 
@@ -14,7 +14,7 @@ export interface FollowUsProps {
 
 export const FollowUs: VFC<FollowUsProps> = ({ className }) => {
   return (
-    <>
+    <WrapContainer>
       <H2 className={cn(styles.title)} align="center">Follow us</H2>
       <div className={cn(styles.followUs, className)}>
         {linksData.map((card) => (
@@ -23,6 +23,6 @@ export const FollowUs: VFC<FollowUsProps> = ({ className }) => {
           </a>
         ))}
       </div>
-    </>
+    </WrapContainer>
   );
 };
