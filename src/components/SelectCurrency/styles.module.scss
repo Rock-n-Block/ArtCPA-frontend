@@ -1,0 +1,40 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.selectCurrency {
+  width: 180px;
+}
+
+.controlCurrency {
+  background: transparent !important;
+  border-radius: 8px !important;
+}
+.option {
+  background: transparent !important;
+  &:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+  }
+}
+
+.optionText {
+  color: white !important
+}
+
+// .menu {
+//   background: white !important;
+// }
+
+.menuList {
+  color: white !important;
+  
+  // background: white !important;
+  
+}
+.valueContainer {
+  color: white !important;
+  
+}
+.singleValue {
+  color: white !important;
+}
+

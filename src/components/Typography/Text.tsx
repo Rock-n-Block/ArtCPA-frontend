@@ -34,7 +34,7 @@ const Text: FC<PropsWithChildren<Props>> = ({
   size = 's',
   color = 'default',
   align = 'left',
-  weight = 'normal',
+  weight = 'medium',
 }) => (
   createElement(
     tag,

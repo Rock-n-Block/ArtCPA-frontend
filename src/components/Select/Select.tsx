@@ -11,8 +11,8 @@ import RSelect, {
   IndicatorsContainerProps,
   Props as ReactSelectProps, SingleValueProps, DropdownIndicatorProps,
 } from 'react-select';
-import { GroupBase } from 'react-select/dist/declarations/src/types';
-import { SelectComponents } from 'react-select/dist/declarations/src/components';
+import { GroupBase } from 'react-select/src/types';
+import { SelectComponents } from 'react-select/src/components';
 import { Text } from '..';
 import styles from './styles.module.scss';
 import { CustomStyles, OptionType } from './Select.types';
@@ -24,6 +24,7 @@ export interface SelectProps<
   IsMulti extends boolean = boolean,
   Group extends GroupBase<Option> = GroupBase<Option>,
 > extends ReactSelectProps<Option, IsMulti, Group> {
+  options?: OptionType[];
   label?: string;
   customLabel?: ReactElement;
   error?: string;
