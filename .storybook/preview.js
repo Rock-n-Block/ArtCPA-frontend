@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { addDecorator } from '@storybook/react';
 import clsx from 'clsx';
-// @ts-ignore
+
 import styles from '../src/assets/styles/index.scss';
 
 const MainDecorator = (story) => {
