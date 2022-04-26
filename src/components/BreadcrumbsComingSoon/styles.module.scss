@@ -1,0 +1,27 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.breadcrumb, .breadcrumbFirst, .breadcrumbLast {
+	list-style-type:none;
+	display: inline list-item;
+	color: var(--breadcrumbs-icon-default-color);
+	list-style-type: disc;
+	padding: 0;
+	margin-left: 8px;
+	& > a {
+		color: var(--breadcrumbs-default-color) !important;
+		&:hover {
+			color: var(--breadcrumbs-hover-color) !important;
+		}
+	}
+}
+.breadcrumbLast {
+	list-style-type:none;
+	& > a {
+		color: var(--breadcrumbs-default-last-item-color) !important;
+	}
+}
+.breadcrumbFirst {
+  list-style-type: none;
+	margin: 0;
+}
