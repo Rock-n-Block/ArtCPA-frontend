@@ -24,7 +24,7 @@
 
   &:focus-within .input + .labelText {
     @extend .labelTextFocusedCommon;
-    top: 14px;
+    display: none;
   }
 
   &:focus-within .textarea + .labelText {
@@ -35,10 +35,9 @@
 
 .input + .labelText {
   @extend .labelTextCommon;
-  left: spacing(2.5);
+  left: spacing(2);
   top: 50%;
 }
-
 .textarea + .labelText {
   @extend .labelTextCommon;
   left: spacing(3);
@@ -147,6 +146,25 @@
 
     &:not(:placeholder-shown) + .labelText {
       color: var(--input-error-label);
+    }
+  }
+  &.success {
+    background-color: var(--input-success-background);;
+    border: var(--input-success-border);
+    & ~ .endAdorment > svg > path {
+      fill: var(--input-success-icon);
+    }
+
+    & + .labelText {
+      color: var(--input-success-label);
+    }
+
+    &:focus-within + .labelText {
+      color: var(--input-success-label);
+    }
+
+    &:not(:placeholder-shown) + .labelText {
+      color: var(--input-success-label);
     }
   }
 

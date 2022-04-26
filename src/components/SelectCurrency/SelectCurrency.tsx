@@ -1,0 +1,35 @@
+/* eslint-disable global-require */
+import { VFC } from 'react';
+
+import cn from 'clsx';
+
+import { Select } from 'components/Select/Select';
+import { OptionType } from 'components/Select/Select.types';
+import styles from './styles.module.scss';
+
+export interface SelectCurrencyProps {
+  className?: string;
+  options?: OptionType[];
+  defaultValue?: OptionType;
+}
+
+export const SelectCurrency: VFC<SelectCurrencyProps> = ({ className, options }) => {
+  return (
+    <div className={cn(styles.selectCurrency, className)}>
+      <Select
+        options={options}
+        classNameValueContainer={styles.valueContainer}
+        classNameOptionText={styles.optionText}
+        classNameControl={styles.control}
+        classNameMenu={styles.menu}
+        classNameMenuList={styles.menuList}
+        classNameSelect={styles.selectClassName}
+        classNameOption={styles.option}
+        classNamePlaceholder={styles.placeholder}
+        classNameSingleValue={styles.singleValue}
+        classNameIndicatorsContainer={styles.indicatorsContainer}
+        classNameDropdownIndicator={styles.indicator}
+      />
+    </div>
+  );
+};

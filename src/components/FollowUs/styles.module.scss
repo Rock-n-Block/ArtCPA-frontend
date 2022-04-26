@@ -1,0 +1,14 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.followUs { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px,1fr));
+    gap: spacing(3);
+}
+.title {
+    padding-bottom: spacing(5.75);
+}
+.testBackground {
+    background-color: black;
+}

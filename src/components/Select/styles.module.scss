@@ -106,6 +106,7 @@
   }
 
   &:hover {
+    background: var(--select-hover-value-background);
     color: white;
 
     &.dark {

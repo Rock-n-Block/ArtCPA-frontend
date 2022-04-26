@@ -13,7 +13,8 @@ export type CustomStyles = {
 export type OptionType = {
   label: string,
   value: string | string[],
-  icon?: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon?: any,
   address?: string,
   decimals?: number,
 };

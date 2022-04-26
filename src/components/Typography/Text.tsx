@@ -35,7 +35,7 @@ const Text: FC<PropsWithChildren<Props>> = ({
   size = 'm',
   color = 'default',
   align = 'left',
-  weight = 'normal',
+  weight = 'medium',
   noWrap = true,
 }) => (
   createElement(
