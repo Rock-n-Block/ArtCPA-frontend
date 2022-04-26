@@ -1,0 +1,21 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.nftCollections { 
+   
+}
+
+.wrapperCard {
+    padding-top: spacing(5.75);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 432px);
+    gap: spacing(3);
+    width: 100%;
+    justify-content: center;
+}
+@include forTablet {
+    .wrapperCard {  
+      grid-template-columns: repeat(auto-fit, minmax(162px, 1fr));
+      gap: spacing(2);
+    }
+}
