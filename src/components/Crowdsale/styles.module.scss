@@ -1,0 +1,61 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.smainWrapper {
+    max-width: 659px;
+}
+.mainTitle {
+    padding-bottom: spacing(5.75);
+}
+.title {
+    margin-bottom: spacing(3) !important;
+}
+.crowdsale { 
+    background-color: var(--card-default-background);
+    padding: spacing(3, 2.75, 5, 2.75);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+}
+.progressBar {
+    margin-top: spacing(1) !important;
+    margin-bottom: spacing(3) !important;
+}
+
+.purchaseAmount {
+    @include flexbox(space-between);
+    margin-bottom: spacing(3) !important;
+}
+@include forTablet {
+    .purchaseAmount > p {
+        max-width: 120px;
+    }
+    .textUnderUnput p:first-child {
+        max-width:120px
+    }
+}
+.textUnderUnput {
+    @include flexbox(space-between);
+    margin-top: spacing(1) !important;
+    margin-bottom: spacing(3) !important;
+}
+.buyInfo {
+    background-color: var(--card-secondary-background);
+    padding: spacing(1.5, 3);
+    border-radius: 8px;
+    margin-bottom: spacing(3) !important
+}
+.buyButton {
+    align-self: center;
+}
+.wrapInputWithSelect {
+    position: relative;
+    @include flexbox(flex-end)
+}
+.inputs {
+    position: absolute;
+}
+
+.selects {
+    max-width: 30%;
+}
