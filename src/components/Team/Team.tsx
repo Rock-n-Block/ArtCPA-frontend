@@ -3,6 +3,7 @@ import { VFC } from 'react';
 
 import cn from 'clsx';
 
+import { FirstCard, SecondCard, ThirdCard, FourthCard } from 'assets/img/icons';
 import { H1 } from 'components/Typography';
 import styles from './styles.module.scss';
 import { TeamCard } from './components/Card';
@@ -16,12 +17,19 @@ export interface TeamProps {
   }[];
 }
 
-export const Team: VFC<TeamProps> = ({ className, cards }) => {
+export const Team: VFC<TeamProps> = ({ className }) => {
+  const data = [
+    { image: FirstCard, personName: 'Name', personPosition: 'Proffesion' },
+    { image: SecondCard, personName: 'Name', personPosition: 'Proffesion' },
+    { image: ThirdCard, personName: 'Name', personPosition: 'Proffesion' },
+    { image: FourthCard, personName: 'Name', personPosition: 'Proffesion' },
+
+  ];
   return (
     <div className={cn(styles.team, className)}>
       <H1 weight="semiBold" align="center"> Team </H1>
       <div className={styles.cards}>
-        {cards && cards.map((card, index) => (
+        {data && data.map((card, index) => (
           <TeamCard
             key={index}
             image={card.image}

@@ -5,6 +5,7 @@ import cn from 'clsx';
 import { H1, Text } from 'components/Typography';
 import { CheckIcon } from 'assets/icons/icons';
 import styles from './styles.module.scss';
+import { content } from '../../Roadmap.helper';
 
 export interface RoadMapProps {
   className?: string;
@@ -18,7 +19,7 @@ function pad(d) {
   return (d < 10) ? `0${d.toString()}` : d.toString();
 }
 
-export const RoadMap: VFC<RoadMapProps> = ({ className, content }) => {
+export const RoadMap: VFC<RoadMapProps> = ({ className }) => {
   return (
     <div className={cn(styles.roadMap, className)}>
       <H1 className={styles.header} align="center" weight="bold">Road map</H1>

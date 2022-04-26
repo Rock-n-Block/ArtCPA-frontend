@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { INetwork, IProvider, ISettings } from '@amfi/connect-wallet/dist/interface';
 
 export enum ChainsEnum {
   'Binance-Smart-Chain' = 'Binance-Smart-Chain',
