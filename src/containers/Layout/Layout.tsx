@@ -20,8 +20,6 @@ import { Switch } from 'components/Switch';
 import { Button } from 'components';
 import setNotification from 'utils/setNotification';
 import { useGetAccountInfo } from '@elrondnetwork/dapp-core';
-import { selectCurrencyPropsMocked } from 'components/SelectCurrency/SelectCurrency.mock';
-import { SelectCurrency } from 'components/SelectCurrency';
 import styles from './styles.module.scss';
 
 export interface LayoutProps {
@@ -100,7 +98,6 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             onToggleChainType={handleToggleChainType}
           />
         )}
-        <SelectCurrency {...selectCurrencyPropsMocked} />
         {children}
         {isNeedToShowHeaderFooter && <Footer />}
       </div>
