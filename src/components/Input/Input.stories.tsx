@@ -62,6 +62,16 @@ const Template: ComponentStory<typeof Input> = () => {
           isCorrect={isCorrect}
           onChange={onChange}
         />
+        <Input
+          id="id"
+          name="storybook"
+          label={placeholder}
+          success
+          disabled={disabled}
+          isCorrect={isCorrect}
+          onChange={onChange}
+          endAdorment={<StarIcon />}
+        />
       </div>
     </>
   );

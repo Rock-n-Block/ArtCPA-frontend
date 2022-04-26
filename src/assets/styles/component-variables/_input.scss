@@ -1,34 +1,39 @@
 $inputColorsDefault: (
-  "input-default-background":$colorBlack600,
+  "input-default-background":$colorBlack400,
   "input-default-label": $colorGrey600,
-  "input-default-border": 1px solid $colorBlack500,
+  "input-default-border": 1px solid $colorBlack200,
   "input-default-icon": $colorFrenchBlue,
 
-  "input-hover-background":$colorBlack600,
+  "input-hover-background":$colorBlack400,
   "input-hover-label": $colorGrey600,
-  "input-hover-border": 1px solid $colorGrey700,
-  "input-hover-icon": $colorFrenchBlue,
+  "input-hover-border": 1px solid $colorBlack100,
+  "input-hover-icon": $colorBlack100,
 
-  "input-active-background":$colorBlack600,
+  "input-active-background":$colorBlack400,
   "input-active-label": $colorGrey700,
-  "input-active-border": 1px solid $colorGreenAcid,
-  "input-active-caret": $colorGreenAcid,
-  "input-active-icon": $colorGreenAcid,
+  "input-active-border": 1px solid $colorBlack100,
+  "input-active-caret": $colorGrey400,
+  "input-active-icon": $colorBlack100,
 
-  "input-focus-background":$colorBlack600,
+  "input-focus-background":$colorBlack400,
   "input-focus-label": $colorGrey700,
-  "input-focus-border": 1px solid $colorGreenAcid,
-  "input-focus-icon": $colorGreenAcid,
+  "input-focus-border": 1px solid $colorBlack300,
+  "input-focus-icon": $colorBlack100,
 
-  "input-disabled-background":$colorBlack700,
+  "input-disabled-background":$colorBlack400,
   "input-disabled-label": $colorGrey700,
   "input-disabled-border": 1px solid $colorBlack700,
   "input-disabled-icon": $colorFrenchBlue,
 
-  "input-error-background":$colorBlack600,
+  "input-error-background":$colorBlack400,
   "input-error-label": $colorRed,
   "input-error-border": 1px solid $colorRed,
   "input-error-icon": $colorRed,
+
+  "input-success-background":$colorBlack400,
+  "input-success-label": $colorGreen200,
+  "input-success-border": 1px solid $colorGreen200,
+  "input-success-icon": $colorGreen200,
 );
 
 $inputColorsLight: (
