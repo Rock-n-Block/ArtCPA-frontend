@@ -6,4 +6,7 @@ export { Coin } from './Coin/Coin';
 export { Twitter } from './Twitter/Twitter';
 export { Telegram } from './Telegram/Telegram';
 export { Discord } from './Discord/Discord';
+export { Coin } from './Coin/Coin';
 export { MainLogoIcon } from './MainLogo';
+export { YouTubeLogo } from './YouTubeLogo/YouTubeLogo';
+export { Polygon } from './Polygon/Polygon';
