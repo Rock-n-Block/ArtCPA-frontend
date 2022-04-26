@@ -1,4 +1,4 @@
-import { useCallback, useState, VFC } from 'react';
+import { useState, VFC } from 'react';
 
 import cn from 'clsx';
 import { Button } from 'components';
@@ -7,16 +7,16 @@ import { YouTubeLogo, Polygon } from 'assets/icons/icons';
 import styles from './styles.module.scss';
 
 export interface MainVideoProps {
-  youtubeLink: string;
   className?: string;
 }
 
-export const MainVideo: VFC<MainVideoProps> = ({ className, youtubeLink }) => {
+export const MainVideo: VFC<MainVideoProps> = ({ className }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleButtonClick = useCallback(() => {
+  const handleButtonClick = () => {
     setIsClicked(true);
-  }, []);
+  };
+  const youtubeLink = 'https://www.youtube.com/embed/LHaxLygUgkE';
   return (
     <div className={cn(styles.mainVideo, className)}>
       {isClicked ? (
