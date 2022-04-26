@@ -1,8 +1,9 @@
 $cardColorDefault: (
-  'card-default-background': $colorBlack700,
+  'card-default-background': $colorBlack300,
   'card-default-border': $colorBlack600,
   'card-default-hover': $colorGreenAcid,
   'card-default-border-radius': 4px,
+  'card-default-border-green': $colorGreen600
 );
 $cardColorLight: (
   'card-default-background': $colorWhite,

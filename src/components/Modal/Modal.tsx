@@ -1,30 +1,31 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, RefObject } from 'react';
 
 import cn from 'clsx';
-import { Card } from 'components/Card';
+import { Card, Text, Button } from 'components';
 import { CloseIcon } from 'assets/icons/icons/components';
-import { Text } from 'components/Typography';
 import { CardSize } from 'components/Card/Card.types';
-import { Button } from 'components/Button';
 import styles from './styles.module.scss';
 
 export interface ModalProps {
   className?: string;
   isOpen: boolean;
+  divider?: boolean;
   onClose: (...args: unknown[]) => void;
   isBackground?: boolean;
   isDisabledScroll?: boolean;
   size?: CardSize;
   title?: string;
+  anchorOrigin?: RefObject<HTMLElement>;
 }
 
 export const Modal: FC<ModalProps> = ({
   children,
   className,
   isOpen,
+  divider = false,
   isBackground = true,
   isDisabledScroll = true,
-  title,
+  title = '',
   onClose,
   size,
 }) => {
@@ -36,6 +37,7 @@ export const Modal: FC<ModalProps> = ({
       body.style.setProperty('overflow', 'visible');
     }
   }, [isDisabledScroll, isOpen, size]);
+
   return (
     <>
       <div
@@ -49,18 +51,22 @@ export const Modal: FC<ModalProps> = ({
       <Card
         size={size}
         className={cn(
-          styles.modalContent,
+          styles.modal,
           { [styles.closed]: !isOpen },
           className,
         )}
       >
-        <div className={styles.modalHeader}>
-          <Text size="l">
+        <div className={cn(styles.modalHeader, { [styles.divider]: divider })}>
+          <Text size="l" weight="bold">
             {title}
           </Text>
-          <Button variant="text" className={styles.closeButton} onClick={onClose}>
-            <CloseIcon />
-          </Button>
+          <Button
+            icon={<CloseIcon />}
+            size="noSize"
+            variant="outlined"
+            className={styles.closeButton}
+            onClick={onClose}
+          />
         </div>
         {children}
       </Card>

@@ -11,7 +11,7 @@ enum SizeValues {
 }
 
 enum WeightValues {
-  normal,
+  medium,
   semiBold,
   bold,
 }

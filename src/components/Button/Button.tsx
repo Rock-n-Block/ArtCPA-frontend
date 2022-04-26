@@ -15,7 +15,7 @@ import styles from './styles.module.scss';
 
 export interface ButtonProps {
   variant?: 'filled' | 'outlined' | 'outlined-secondary' | 'text' | 'filled-secondary';
-  size?: 'lg' | 'md' | 'sm';
+  size?: 'lg' | 'md' | 'sm' | 'noSize';
   type?: 'button' | 'submit';
   disabled?: boolean;
   style?: CSSProperties;
@@ -94,6 +94,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
           { [styles.startAdormentPadding]: startAdorment },
           { [styles.endAdormentPadding]: endAdorment },
           { [styles.bothAdormentsPadding]: endAdorment && startAdorment },
+          { [styles.addShadow]: !endAdorment && !startAdorment },
           className,
         ),
       },

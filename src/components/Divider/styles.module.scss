@@ -1,0 +1,9 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $colorGreen600;
+  border: unset;
+}
