@@ -5,23 +5,31 @@
 	list-style-type:none;
 	display: inline list-item;
 	color: var(--breadcrumbs-icon-default-color);
-	list-style-type: disc;
 	padding: 0;
 	margin-left: 8px;
 	& > a {
-		color: var(--breadcrumbs-default-color) !important;
-		&:hover {
-			color: var(--breadcrumbs-hover-color) !important;
-		}
+		color: $colorWhite !important;
 	}
 }
 .breadcrumbLast {
 	list-style-type:none;
 	& > a {
-		color: var(--breadcrumbs-default-last-item-color) !important;
+		color: $colorGreen600 !important;
 	}
 }
 .breadcrumbFirst {
   list-style-type: none;
 	margin: 0;
 }
+
+ul {
+	display: flex;
+	padding: 0;
+	& > .container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 9px;
+	}
+}
+

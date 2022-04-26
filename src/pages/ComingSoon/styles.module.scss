@@ -8,6 +8,9 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  & > .breadcrumbs {
+    display: none;
+  }
   & > .container{
     height: 60%;
     @include flexbox(space-between);
@@ -26,6 +29,11 @@
 @include forDesktopSm {
   .comingSoon {
     @include flexbox(center);
+    & > .breadcrumbs {
+      display:unset;
+      position: absolute;
+      top: 10vh;
+    }
     & > .container {
       @include flexbox(center);
       height: 100%;
