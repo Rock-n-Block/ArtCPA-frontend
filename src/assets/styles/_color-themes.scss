@@ -15,6 +15,7 @@
 @import './component-variables/checkbox';
 @import './component-variables/contractCard';
 @import './component-variables/divider';
+@import './component-variables//progressBar';
 
 :root {
   $colors: (
@@ -34,7 +35,8 @@
     $breadcrumbsColorsDefault,
     $contractCardColorDefault,
     $sliderColorDefault,
-    $dividerColorDefault
+    $dividerColorDefault,
+    $barColorDefault
   );
   @each $key_name in $colors {
     @each $key_name_2, $value in $key_name {
