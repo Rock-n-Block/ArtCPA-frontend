@@ -1,19 +1,47 @@
+import { CRU, EFFORT, EGLD, JEX, MEX, ISET, USDC, ZPAY } from 'assets/icons/icons';
 import { SelectCurrencyProps } from './SelectCurrency';
 
 export const selectCurrencyPropsMocked: SelectCurrencyProps = {
   options: [
     {
-      value: 'LGDC',
-      label: 'LGDC',
-      icon: '../../assets/icons/icons/components/Checkbox/IconCheckmark.svg',
+      value: 'CRU',
+      label: 'CRU',
+      icon: <CRU />,
     },
     {
-      value: '456',
-      label: '456',
+      value: 'EFFORT',
+      label: 'EFFORT',
+      icon: <EFFORT />,
     },
     {
-      value: '789',
-      label: '789',
+      value: 'EGLD',
+      label: 'EGLD',
+      icon: <EGLD />,
+    },
+    {
+      value: 'JEX',
+      label: 'JEX',
+      icon: <JEX />,
+    },
+    {
+      value: 'MEX',
+      label: 'MEX',
+      icon: <MEX />,
+    },
+    {
+      value: 'ISET',
+      label: 'ISET',
+      icon: <ISET />,
+    },
+    {
+      value: 'USDC',
+      label: 'USDC',
+      icon: <USDC />,
+    },
+    {
+      value: 'ZPAY',
+      label: 'ZPAY',
+      icon: <ZPAY />,
     },
   ],
 };

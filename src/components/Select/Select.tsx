@@ -9,16 +9,15 @@ import RSelect, {
   MenuListProps,
   MenuProps,
   IndicatorsContainerProps,
-  Props as ReactSelectProps, SingleValueProps, DropdownIndicatorProps,
+  Props as ReactSelectProps, SingleValueProps, DropdownIndicatorProps, GroupBase,
 } from 'react-select';
-import { GroupBase } from 'react-select/src/types';
-import { SelectComponents } from 'react-select/src/components';
+import { SelectComponents } from 'react-select/dist/declarations/src/components';
 import { Text } from '..';
 import styles from './styles.module.scss';
 import { CustomStyles, OptionType } from './Select.types';
 
 const ROOT = document.querySelector('body');
-
+// @ts-expect-error: fix later
 export interface SelectProps<
   Option extends OptionType = OptionType,
   IsMulti extends boolean = boolean,
@@ -111,7 +110,7 @@ export const Select = ({
         classNameOption,
       )}
     >
-      {props.data.icon && <img src={props.data.icon} alt="icon" className={styles.iconOption} />}
+      {props.data.icon && <span className={styles.iconOption}>{props.data.icon}</span>}
       <Text
         {...props}
         tag="span"
@@ -183,7 +182,7 @@ export const Select = ({
       {...props}
       className={cn(styles.singleValue, classNameSingleValue)}
     >
-      {props.data.icon && <img src={props.data.icon} alt="icon" className={styles.iconOption} />}
+      {props.data.icon && <span className={styles.iconOption}>{props.data.icon}</span>}
       {children}
     </component.SingleValue>
   ), [classNameSingleValue]);

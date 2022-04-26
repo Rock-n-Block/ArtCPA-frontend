@@ -2,39 +2,58 @@
 @import '../../assets/styles/mixins';
 
 .selectCurrency {
-  width: 180px;
+  width: 100%;
 }
 
-.controlCurrency {
+.control {
   background: transparent !important;
   border-radius: 8px !important;
+  border: 1px solid $colorWhite20 !important;
+  & > div.valueContainer {
+    & > .singleValue {
+      color: $colorWhite !important;
+      padding-top: 0;
+      font-size: 25px;
+      line-height: 25px;
+      display: flex !important;
+      align-items: center !important;
+
+    }
+    & > div.placeholder {
+      padding-top: 12px;
+      display: none;
+    }
+  }
+  &:hover, &:focus, &:active, &.open {
+    border: 1px solid $colorWhite20 !important;
+  }
+  & > div.indicatorsContainer > svg > g > path {
+      fill: $colorWhite !important;
+    }
 }
 .option {
   background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
   &:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: $colorWhite15 !important;
   }
 }
 
 .optionText {
-  color: white !important
+  color: $colorWhite !important;
+  font-size: 25px !important;
+  line-height: 25px !important;
 }
 
-// .menu {
-//   background: white !important;
-// }
+.menuList, .menu {
+  scrollbar-width: thin;
+  border-radius: 8px !important;
+  border: 1px solid $colorWhite20 !important;
 
-.menuList {
-  color: white !important;
-  
-  // background: white !important;
-  
+  &:hover, &:focus, &:active, &.open {
+    border: 1px solid $colorWhite20 !important;
+  }
 }
-.valueContainer {
-  color: white !important;
-  
-}
-.singleValue {
-  color: white !important;
-}
+
 
