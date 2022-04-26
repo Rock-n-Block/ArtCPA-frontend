@@ -10,7 +10,7 @@ export default {
 
 const Template: ComponentStory<typeof Select> = (args) => {
   return (
-    <div style={{ padding: '50px' }}>
+    <div style={{ padding: '50px', height: '100vh' }}>
       <Select {...args} />
     </div>
   );

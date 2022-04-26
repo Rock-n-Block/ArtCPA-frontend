@@ -30,7 +30,6 @@ export const Team: VFC<TeamProps> = ({ className, cards }) => {
             className="inputCard"
           />
         ))}
-
       </div>
     </div>
   );

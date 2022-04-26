@@ -7,6 +7,7 @@
   border-top: 1px solid var(--dividerColorDefault);
   padding-top: spacing(7);
   padding-bottom: spacing(6);
+  transition: 0ms !important;
 }
 .linksWrapper {
   @include flexbox(space-between);

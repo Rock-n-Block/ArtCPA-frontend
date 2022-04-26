@@ -24,8 +24,8 @@ export const ComingSoon: VFC<ComingSoonProps> = ({ className, title }) => {
       path: '/Home',
     },
     {
-      label: 'MarketPlace',
-      path: '/MarketPlace',
+      label: title,
+      path: `/${title}`,
     },
   ];
   return (

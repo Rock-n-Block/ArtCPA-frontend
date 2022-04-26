@@ -1,11 +1,10 @@
 // eslint-disable-next-line
 import { Modal } from 'components/Modal';
-import { useCallback, useMemo, VFC } from 'react';
+import { useCallback, VFC } from 'react';
 
 import clsx from 'clsx';
-import userSelector from 'store/user/selectors';
 
-import { Modals, ModalsInitialState, State, UserState } from 'types/store';
+import { Modals, ModalsInitialState, State } from 'types/store';
 import modalsSelector from 'store/modals/selectors';
 import { useDispatch } from 'react-redux';
 import { setActiveModal } from 'store/modals/reducer';
@@ -23,7 +22,6 @@ export const NotificationModal: VFC<NotificationModalProps> = ({ className, ...p
   const dispatch = useDispatch();
 
   const { modalState } = useShallowSelector<State, ModalsInitialState>(modalsSelector.getModals);
-  const { chainType } = useShallowSelector<State, UserState>(userSelector.getUser);
 
   const closeModal = useCallback(() => {
     dispatch(
@@ -37,10 +35,10 @@ export const NotificationModal: VFC<NotificationModalProps> = ({ className, ...p
 
   const data = modalData[modalState.activeModal];
 
-  const scanerLink = useMemo(
-    () => (chainType === 'mainnet' ? `https://bscscan.com/tx/${modalState.txHash}` : `https://testnet.bscscan.com/tx/${modalState.txHash}`),
-    [chainType, modalState.txHash],
-  );
+  // const scanerLink = useMemo(
+  //   () => (chainType === 'mainnet' ? `https://bscscan.com/tx/${modalState.txHash}` : `https://testnet.bscscan.com/tx/${modalState.txHash}`),
+  //   [chainType, modalState.txHash],
+  // );
 
   return (
     <Modal isOpen={modalState.open} onClose={closeModal} className={clsx(styles.root, className)} {...props}>
@@ -63,7 +61,7 @@ export const NotificationModal: VFC<NotificationModalProps> = ({ className, ...p
           </div>
         )}
 
-        {modalState.activeModal === Modals.SendSuccess && <div className="">{scanerLink}</div>}
+        {modalState.activeModal === Modals.SendSuccess && <div className="">{123}</div>}
       </div>
     </Modal>
   );

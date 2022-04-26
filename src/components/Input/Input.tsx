@@ -22,6 +22,7 @@ export interface InputProps {
   classNameInputWrap?: string;
   classNameLabel?: string;
   error?: boolean | string;
+  success?: boolean;
   endAdorment?: ReactElement | string;
   disabled?: boolean;
   isCorrect?: boolean | '';
@@ -45,6 +46,7 @@ export const Input:VFC<InputProps> = ({
   classNameLabel,
   placeholder,
   error,
+  success,
   endAdorment,
   disabled = false,
   isCorrect = false,
@@ -83,6 +85,7 @@ export const Input:VFC<InputProps> = ({
             className: cn(
               styles[component],
               { [styles.error]: error },
+              { [styles.success]: success },
               { [styles.bigRightPadding]: error || isCorrect },
               classNameInput,
             ),

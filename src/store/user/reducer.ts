@@ -5,8 +5,6 @@ import { UserState } from 'types';
 const initialState: UserState = {
   address: '',
   balance: 0,
-  provider: '',
-  chainType: 'testnet',
 };
 
 export const userReducer = createSlice({

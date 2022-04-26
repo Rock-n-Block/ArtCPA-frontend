@@ -57,7 +57,7 @@
   color: var(--typography-error-color);;;
 }
 
-.normalWeight {
+.mediumWeight {
   font-weight: 400;
 }
 
@@ -67,4 +67,10 @@
 
 .boldWeight {
   font-weight: 700;
+}
+
+.noWrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

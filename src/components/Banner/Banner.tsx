@@ -3,14 +3,16 @@ import { VFC } from 'react';
 import cn from 'clsx';
 import { H1 } from 'components/Typography';
 import { Button } from 'components/Button';
+import { Link as RSLink } from 'react-scroll';
+
+import { HomePageAnchors } from 'containers/Header/Header.helpers';
 import styles from './styles.module.scss';
 
 export interface BannerProps {
   className?: string;
-  onButtonClick: (args: unknown) => void;
 }
 
-export const Banner: VFC<BannerProps> = ({ className, onButtonClick }) => {
+export const Banner: VFC<BannerProps> = ({ className }) => {
   return (
     <div className={cn(styles.banner, className)}>
       <div className={styles.container}>
@@ -19,7 +21,9 @@ export const Banner: VFC<BannerProps> = ({ className, onButtonClick }) => {
           and Blockchain blend together to unlock
           and enhance human potential.
         </H1>
-        <Button variant="filled" size="md" onClick={onButtonClick}> BUY CPA </Button>
+        <RSLink smooth to={HomePageAnchors.BUY} className={styles.navLink}>
+          <Button variant="filled" size="md"> BUY CPA </Button>
+        </RSLink>
       </div>
     </div>
   );
