@@ -23,8 +23,8 @@ export const RoadMap: VFC<RoadMapProps> = ({ className, content }) => {
     <div className={cn(styles.roadMap, className)}>
       <H1 className={styles.header} align="center" weight="bold">Road map</H1>
       {content.map((item, index) => (
-
-        <div className={styles.contentItems}>
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index} className={styles.contentItems}>
           {index === content.length - 1 && index !== 0 && (
             <div className={styles.dividerBetweenItems} />
           )}
@@ -46,7 +46,6 @@ export const RoadMap: VFC<RoadMapProps> = ({ className, content }) => {
               ))}
             </div>
           </div>
-
         </div>
       ))}
     </div>

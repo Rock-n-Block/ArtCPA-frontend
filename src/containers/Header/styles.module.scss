@@ -5,16 +5,23 @@
 .header {
   position: relative;
   @include flexbox(space-between, center);
-  background: #141417;
   padding: spacing(3, 6);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: 0ms !important;
 }
 
 .headerNav {
   transition: 0ms !important;
   &:hover {
-    filter: brightness(100%) !important;
     text-decoration: underline;
     text-decoration-color: $colorGreen600;
     text-underline-offset: 8px;
   }
+}
+
+.coin {
+  height: 48px;
+  width: 48px;
 }
