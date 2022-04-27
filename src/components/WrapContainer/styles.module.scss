@@ -7,3 +7,8 @@
     padding: spacing(10,6);
     
 }
+@include forTablet {
+    .wrapContainer {
+        padding: spacing(7,3);
+    }
+}
