@@ -7,7 +7,6 @@
   border-radius: 8px;
   @include flexbox();
   transition: 0ms !important;
-
   
   &.outlined {
     background: var(--button-outlined-default-background);
@@ -49,6 +48,7 @@
     border: $button-border-width solid var(--button-filled-default-border);
     color: var(--button-filled-default-color);
     background-origin: border-box;
+    box-shadow: 0px 8px 16px rgba(203, 206, 0, 0.28);
 
     .startAdorment > svg > path,
     .endAdorment > svg > path {

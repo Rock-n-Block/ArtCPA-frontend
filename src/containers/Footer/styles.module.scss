@@ -15,7 +15,8 @@
 }
 @include forTablet {
   .footer {
-    @include flexbox
+    @include flexbox;
+    padding-top: spacing(4);
   }
   .linksWrapper {
     display:none
