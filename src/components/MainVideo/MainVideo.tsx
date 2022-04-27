@@ -4,7 +4,6 @@ import cn from 'clsx';
 import { Button } from 'components';
 import { rectangle } from 'assets/img/icons';
 import { YouTubeLogo, Polygon } from 'assets/icons/icons';
-import { WrapContainer } from 'components/WrapContainer';
 import styles from './styles.module.scss';
 
 export interface MainVideoProps {
@@ -19,7 +18,7 @@ export const MainVideo: VFC<MainVideoProps> = ({ className }) => {
   };
   const youtubeLink = 'https://www.youtube.com/embed/LHaxLygUgkE';
   return (
-    <WrapContainer className={cn(styles.mainVideo, className)}>
+    <div className={cn(styles.mainVideo, className)}>
       {isClicked ? (
         <iframe
           width="100%"
@@ -39,6 +38,6 @@ export const MainVideo: VFC<MainVideoProps> = ({ className }) => {
           </Button>
         </div>
       )}
-    </WrapContainer>
+    </div>
   );
 };
