@@ -13,7 +13,7 @@ export interface LogoProps {
 export const Logo: VFC<LogoProps> = ({ className }) => {
   return (
     <div className={cn(styles.Logo, className)}>
-      <img src={LogoIcon} alt="logo" />
+      <img src={LogoIcon} alt="logo" className={styles.logoImg} />
       <div className={cn(styles.textContainer, styles.noneContent)}>
         <H2 weight="semiBold">ArtCPAclub</H2>
         <Text size="l">Art & BlockChain</Text>
