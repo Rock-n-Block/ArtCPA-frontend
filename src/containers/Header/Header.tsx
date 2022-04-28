@@ -27,7 +27,7 @@ export const Header: VFC<HeaderProps> = () => {
     return width < 1200;
   }, [width]);
 
-  const isMoblie = useMemo(() => {
+  const isMobile = useMemo(() => {
     return width < 768;
   }, [width]);
 
@@ -55,9 +55,9 @@ export const Header: VFC<HeaderProps> = () => {
   return (
     <>
       <header className={styles.header}>
-        {isMoblie ? (
+        {isMobile ? (
           <>
-            <MenuButton isMobile />
+            <MenuButton isMobile={isTablet} />
             <img src={LogoIcon} alt="coin" className={styles.coin} />
             <ConnectButton
               isMobile
@@ -88,7 +88,7 @@ export const Header: VFC<HeaderProps> = () => {
             </>
             )}
             <RSLink smooth to={HomePageAnchors.BUY}>
-              <Button>Buy CPA</Button>
+              <Button className={styles.buyButton}>Buy CPA</Button>
             </RSLink>
             <ConnectButton
               isMobile={false}
@@ -98,7 +98,7 @@ export const Header: VFC<HeaderProps> = () => {
               address={elraddress}
               isOpen={isConnectModalOpen}
             />
-            <MenuButton isMobile={false} />
+            <MenuButton isMobile={isTablet} />
           </>
         )}
       </header>

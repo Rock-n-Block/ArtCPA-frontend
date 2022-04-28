@@ -7,3 +7,10 @@
   flex-direction: column;
 }
 
+.menuButton {
+  color: $colorGreen600 !important;
+  &:hover {
+    color: $colorBlack400 !important;
+  }
+}
+

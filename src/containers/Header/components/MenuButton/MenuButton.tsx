@@ -34,6 +34,7 @@ export const MenuButton: VFC<MenuButtonProps> = ({ isMobile }) => {
           endAdorment={<MenuIcon />}
           onClick={openMenu}
           btnRef={menuButtonRef}
+          className={styles.menuButton}
         >
           Menu
         </Button>
