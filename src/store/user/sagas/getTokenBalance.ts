@@ -1,35 +1,19 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { call, put, select, takeLatest } from 'typed-redux-saga';
 import apiActions from 'store/api/actions';
 import userSelector from 'store/user/selectors';
 
-import { contractsConfig, ContractsNames } from 'config';
 import { getTokenAmountDisplay } from 'utils';
 
-import { Chains } from 'types';
 import { updateUserState } from '../reducer';
 
 import { getTokenBalance } from '../actions';
 import actionTypes from '../actionTypes';
 
-export function* getTokenBalanceSaga({ type, payload: { web3Provider, chainType } }: ReturnType<typeof getTokenBalance>) {
+export function* getTokenBalanceSaga({ type, payload: { web3Provider } }: ReturnType<typeof getTokenBalance>) {
   yield put(apiActions.request(type));
 
   try {
-    const data = contractsConfig.contracts[ContractsNames.token][chainType === 'mainnet' ? 'mainnet' : 'testnet'];
-    if (!data) throw new Error('Data is undefined');
-
-    const { abi: tokenAbi, address: tokenAddress } = data;
-    if (!tokenAddress) throw new Error('Token address is undefined');
-
-    const myAddress = yield* select(userSelector.getProp('address'));
-    const tokenContract = new web3Provider.eth.Contract(tokenAbi, tokenAddress[Chains.bsc]);
-    if (myAddress) {
-      const balance = (yield* call(tokenContract.methods.balanceOf(myAddress).call)) as string;
-      const decimals = (yield* call(tokenContract.methods.decimals().call)) as number;
-
-      yield put(updateUserState({ balance: getTokenAmountDisplay(balance, decimals) }));
-    }
-
     yield put(apiActions.success(type));
   } catch (err) {
     console.error(err);

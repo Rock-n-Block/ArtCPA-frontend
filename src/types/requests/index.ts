@@ -1,4 +1,3 @@
-import { IChainType } from 'types/connect';
 import Web3 from 'web3';
 
 export type BodyWithToken<T = never> = {
@@ -19,7 +18,6 @@ export type ApiResponse<T = never> = {
 
 export type GetTokenBalanceReq = {
   web3Provider: Web3;
-  chainType: IChainType;
 };
 
 export type UpdateUserInfoReq = {
