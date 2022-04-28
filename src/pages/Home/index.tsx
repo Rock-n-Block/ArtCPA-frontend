@@ -4,6 +4,7 @@ import { FollowUs } from 'components/FollowUs';
 import { MainVideo } from 'components/MainVideo';
 import { RoadMap } from 'components/RoadMap';
 import { NftCollections } from 'components/NftCollections';
+import { Crowdsale } from 'components/Crowdsale';
 import { Team } from 'components/Team';
 import { FC } from 'react';
 
@@ -13,6 +14,7 @@ const Home: FC = () => {
   return (
     <div className={s.homeWrapper}>
       <Banner />
+      <Crowdsale />
       <AboutUs />
       <MainVideo />
       <NftCollections />

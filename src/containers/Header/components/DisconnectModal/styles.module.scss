@@ -16,7 +16,7 @@
       position: absolute;
       right: 16px;
       & > svg > path {
-        fill: none;
+        fill: none !important;
       }
     }
   
