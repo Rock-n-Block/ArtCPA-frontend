@@ -10,7 +10,7 @@ import { updateUserState } from '../reducer';
 import { getTokenBalance } from '../actions';
 import actionTypes from '../actionTypes';
 
-export function* getTokenBalanceSaga({ type, payload: { web3Provider } }: ReturnType<typeof getTokenBalance>) {
+export function* getTokenBalanceSaga({ type }: ReturnType<typeof getTokenBalance>) {
   yield put(apiActions.request(type));
 
   try {
