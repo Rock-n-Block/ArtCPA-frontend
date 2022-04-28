@@ -11,13 +11,18 @@ export interface SelectCurrencyProps {
   className?: string;
   options?: OptionType[];
   defaultValue?: OptionType;
+  onChange?:(event) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value?: any
 }
 
-export const SelectCurrency: VFC<SelectCurrencyProps> = ({ className, options }) => {
+export const SelectCurrency: VFC<SelectCurrencyProps> = ({ className, options, onChange, value }) => {
   return (
     <div className={cn(styles.selectCurrency, className)}>
       <Select
         options={options}
+        value={value}
+        onChange={onChange}
         classNameValueContainer={styles.valueContainer}
         classNameOptionText={styles.optionText}
         classNameControl={styles.control}
