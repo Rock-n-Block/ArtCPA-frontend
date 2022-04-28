@@ -2,7 +2,7 @@
 @import '../../assets/styles/mixins';
 
 .Logo { 
-  @include flexbox(space-between, space-between);
+  @include flexbox(space-between);
   width: fit-content;
   & > svg {
     width: 60px;
@@ -11,6 +11,9 @@
     margin-bottom: auto;
     margin-right: 18px;
   } 
+}
+.logoImg {
+  margin-right: spacing(2);
 }
 .textContainer {
   @include flexbox();

@@ -1,7 +1,7 @@
 import { VFC } from 'react';
 import { useTimeLeft } from 'hooks/useTimeLeft';
 import cn from 'clsx';
-import { Text } from 'components';
+import { H2, Text } from 'components';
 import styles from './styles.module.scss';
 
 export interface CountdownProps {
@@ -29,7 +29,7 @@ export const Countdown: VFC<CountdownProps> = ({
     return (
       <Text className={cn(className, 'white s')}>
         <Text tag="span">
-          {hours}h:
+          {hours}h
         </Text>
         <Text tag="span">
           {minutes}m:
@@ -45,25 +45,25 @@ export const Countdown: VFC<CountdownProps> = ({
     <div className={cn(styles.countdown, styles.notCard, className)}>
       <div className={styles.timeBlock}>
         <Text>
-          {days}13
+          <H2>{days}</H2>
         </Text>
         <Text>Days</Text>
       </div>
       <div className={styles.timeBlock}>
         <Text>
-          {hours}
+          <H2>{hours}</H2>
         </Text>
         <Text>Hours</Text>
       </div>
       <div className={styles.timeBlock}>
         <Text>
-          {minutes}
+          <H2>{minutes}</H2>
         </Text>
         <Text>Minutes</Text>
       </div>
       <div className={styles.timeBlock}>
         <Text>
-          {seconds}
+          <H2>{seconds}</H2>
         </Text>
         <Text>Seconds</Text>
       </div>
