@@ -7,10 +7,14 @@
 .timeBlock {
     @include flexbox;
     flex-direction: column;
-    padding: spacing(1, 0);
+    padding: spacing(1,0);
     max-width: 115px;
-    height: 75px;
+    height: 85px;
     border-radius: spacing(1);
+    background-color: var(--card-default-background);
+    & p:last-child {
+        padding-bottom: spacing(1.5)
+    }
 }
 .notCard {
     display: grid;
