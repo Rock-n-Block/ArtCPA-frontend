@@ -7,15 +7,15 @@
 }
 .wrapperCard {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 20px;
+    justify-content: center;
   
 }
 .cardItem {
     background-color: var(--card-default-background);
     border-radius: 24px;
-    margin-right: 20px;
-    max-width: 600px;
+    max-width: 700px;
 }
 .title {
     padding-bottom: 20px;
