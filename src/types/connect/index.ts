@@ -1,3 +1,4 @@
+import { INetwork, IProvider, ISettings } from '@amfi/connect-wallet/dist/interface';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export enum ChainsEnum {

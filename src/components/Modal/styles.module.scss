@@ -14,7 +14,7 @@
   left: 0;
   &.backgroundColor {
     background: $colorWhite50;
-  }
+  };
 }
 
 .modal {
@@ -29,6 +29,7 @@
   width: 100%;
   border: 1px solid $colorGreen600 !important;
   border-radius: 8px !important;
+  background-color: var(--card-default-background-modal) !important;
 }
 
 .modalContent {

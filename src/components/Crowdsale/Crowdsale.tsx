@@ -5,6 +5,7 @@ import { H1, H2, Text, Button } from 'components';
 import { Input } from 'components/Input';
 import { ProgressBar } from 'components/ProgressBar';
 import { SelectCurrency } from 'components/SelectCurrency';
+import { WrapContainer } from 'components/WrapContainer';
 import styles from './styles.module.scss';
 
 export interface CrowdsaleProps {
@@ -22,7 +23,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   };
 
   return (
-    <div className={styles.smainWrapper}>
+    <WrapContainer className={styles.mainWrapper}>
       <H1 align="center" className={styles.mainTitle}>Crowdsale</H1>
       <div className={cn(styles.crowdsale, className)}>
         <H2 align="center" className={styles.title}>2nd stage is live!</H2>
@@ -70,6 +71,6 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
         </div>
         <Button variant="filled" className={styles.buyButton}>BUY CPA</Button>
       </div>
-    </div>
+    </WrapContainer>
   );
 };

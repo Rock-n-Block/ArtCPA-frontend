@@ -5,6 +5,7 @@ import cn from 'clsx';
 
 import { FirstCard, SecondCard, ThirdCard, FourthCard } from 'assets/img/icons';
 import { H1 } from 'components/Typography';
+import { WrapContainer } from 'components/WrapContainer';
 import styles from './styles.module.scss';
 import { TeamCard } from './components/Card';
 
@@ -21,7 +22,7 @@ export const Team: VFC<TeamProps> = ({ className }) => {
 
   ];
   return (
-    <div className={cn(styles.team, className)}>
+    <WrapContainer className={cn(styles.team, className)}>
       <H1 weight="semiBold" align="center"> Team </H1>
       <div className={styles.cards}>
         {data && data.map((card, index) => (
@@ -34,6 +35,6 @@ export const Team: VFC<TeamProps> = ({ className }) => {
           />
         ))}
       </div>
-    </div>
+    </WrapContainer>
   );
 };

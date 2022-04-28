@@ -6,7 +6,7 @@ import { useGetAccountInfo, logout } from '@elrondnetwork/dapp-core';
 import { useDispatch } from 'react-redux';
 import { updateUserState } from 'store/user/reducer';
 import { LogoIcon } from 'assets/img/icons';
-// import { WrapContainer } from 'components/WrapContainer';
+import { WrapContainer } from 'components/WrapContainer';
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
 import styles from './styles.module.scss';
@@ -53,7 +53,7 @@ export const Header: VFC<HeaderProps> = () => {
   }, [dispatch, elraddress]);
 
   return (
-    <>
+    <WrapContainer>
       <header className={styles.header}>
         {isMoblie ? (
           <>
@@ -102,6 +102,6 @@ export const Header: VFC<HeaderProps> = () => {
           </>
         )}
       </header>
-    </>
+    </WrapContainer>
   );
 };
