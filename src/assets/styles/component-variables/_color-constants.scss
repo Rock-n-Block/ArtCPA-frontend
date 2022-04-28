@@ -2,20 +2,13 @@
   $colorGreenGradient: linear-gradient(90deg, #291AED 0%, #C59AFC 100%);
   $colorGreenAcid: #8A7FF6;
   $colorGreen700: #E9D9FE;
-  $colorGreenGradient700: linear-gradient(180deg, #E1E365 0%, #CBCE00 100%);
-  $colorGreenGradient600: linear-gradient(180deg, #ABF6A5 0%, #72FC66 100%);
-  $colorGreen600: #E1E365;
-  $colorGreen500:  #8DFA84;
+
   // Dark
   $colorBlackBG: #111215;
   $colorBlack700: #191A1D;
   $colorBlack600: #1E2023;
   $colorBlack500: #25272E;
-  $colorBlack400: #141417;
-  $colorBlack300: rgba(255, 255, 255, 0.08);
-  $colorBlack200: rgba(52, 47, 27, 0.2);
-  $colorBlack100: rgba(255, 255, 255, 0.06);
-  $colorBlack50: rgba(255, 255, 255, 0.02);
+
   // Light
   $colorGrey700: #64656A;
   $colorGrey600: #C4C4C4;
@@ -28,7 +21,6 @@
   $colorYellow: #F3CE5D;
   $colorRed: #FF4040;
   $colorGreen: #6CDC13;
-  $colorGreen200: #70FF00;
   $colorWhite: #FFFFFF;
 
 // Complex
@@ -60,8 +52,6 @@
   $colorBerryHead: #A60E49;
   $colorGullGrey: #5A5956;
   $colorDupont: #1F1F1F;
-  $colorWhite20: rgba(255, 255, 255, 0.2);
-  $colorWhite15: rgba(255, 255, 255, 0.15);
   $colorWhite50: rgba(0,0,0,.5);
   $colorWhite25: rgba(0, 0, 0, 0.25);
   $colorGradientPurple: linear-gradient(90deg, #BF8FFB 0%, #877EF6 100%);
@@ -81,9 +71,23 @@ $colorGray60: #9CA3B0;
 $colorGray80: #F9FAFB;
 
 $colorWhite: #FFFFFF;
+$colorGreen200: #70FF00;
 
 
+$colorGreenGradient700: linear-gradient(180deg, #E1E365 0%, #CBCE00 100%);
+$colorGreenGradient600: linear-gradient(180deg, #ABF6A5 0%, #72FC66 100%);
+$colorGreen600: #E1E365;
+$colorGreen500:  #8DFA84;
+
+// dark 
+
+$colorBlack400: #141417;
+$colorBlack300: rgba(255, 255, 255, 0.08);
+$colorBlack200: rgba(52, 47, 27, 0.2);
+$colorBlack100: rgba(255, 255, 255, 0.06);
+$colorBlack50: rgba(255, 255, 255, 0.02);
 
 
-
+$colorWhite20: rgba(255, 255, 255, 0.2);
+$colorWhite15: rgba(255, 255, 255, 0.15);
 
