@@ -18,7 +18,7 @@ export const AboutUs: VFC<AboutUsProps> = ({ className }) => {
         {aboutUsHelper.map((card) => (
           <Card size="sm" className={styles.cardItem} key={card.id}>
             <H2 className={styles.title}>{card.title}</H2>
-            <Text size="m">{card.description}</Text>
+            <Text size="m" className={styles.description} noWrap={false}>{card.description}</Text>
           </Card>
         ))}
       </div>
