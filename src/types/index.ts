@@ -15,5 +15,6 @@ export enum WalletProviders {
   metamask = 'MetaMask',
 }
 
+export type DateLike = string | number | Date;
 export type Nullable<T> = null | T;
 export type Optinable<T> = undefined | T;
