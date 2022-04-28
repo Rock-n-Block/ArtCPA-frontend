@@ -13,4 +13,8 @@ export const routes = {
     root: '/dex',
     title: 'DEX',
   },
+  crowdsale: {
+    root: '/crowdsale',
+    title: 'Crowdsale',
+  },
 };

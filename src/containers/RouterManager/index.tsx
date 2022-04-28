@@ -13,6 +13,7 @@ export const RouteManager: FC = () => {
       <Route path={routes.marketplace.root} element={<ComingSoon title={routes.marketplace.title} />} />
       <Route path={routes.dex.root} element={<ComingSoon title={routes.dex.title} />} />
       <Route path={routes.staking.root} element={<ComingSoon title={routes.staking.title} />} />
+      <Route path={routes.crowdsale.root} element={<ComingSoon title={routes.crowdsale.title} />} />
     </Routes>
   );
 };
