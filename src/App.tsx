@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable @typescript-eslint/indent */
 import { FC } from 'react';
 import '@elrondnetwork/dapp-core/dist/index.css';
 

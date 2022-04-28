@@ -1,6 +1,7 @@
 import { RefObject, VFC } from 'react';
 import { Button, Modal } from 'components';
 import { Link as RSLink } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 import cn from 'clsx';
 
@@ -47,27 +48,42 @@ export const Menu: VFC<MenuProps> = ({
       {isMobile && tableMenuNavLink.map(({ label, link, isOuterLink, anchorId }: HomePageNavElement) => {
         if (isOuterLink) {
           return (
-            <Button key={label} className={styles.headerNav} href={link} variant="text">{label}</Button>
+            <Button
+              key={label}
+              className={cn(styles.headerNav, styles.navLink)}
+              href={link}
+              variant="text"
+              onClick={onClose}
+            >
+              {label}
+            </Button>
           );
         }
 
         if (anchorId) {
           return (
-            <RSLink key={label} smooth to={anchorId} className={styles.navLink}>
+            <RSLink
+              key={label}
+              smooth
+              to={anchorId}
+              className={styles.navLink}
+              onClick={onClose}
+            >
               <Button className={styles.headerNav} variant="text">{label}</Button>
             </RSLink>
           );
         }
 
         return (
-          <Button
-            key={label}
-            variant="text"
-            to={link}
-            className={styles.navLink}
-          >
-            {label}
-          </Button>
+          <Link to={link} className={styles.navLink}>
+            <Button
+              key={label}
+              variant="text"
+              onClick={onClose}
+            >
+              {label}
+            </Button>
+          </Link>
         );
       })}
     </Modal>

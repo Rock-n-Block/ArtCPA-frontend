@@ -5,6 +5,7 @@ import cn from 'clsx';
 
 import { H1 } from 'components/Typography';
 import { WrapContainer } from 'components/WrapContainer';
+import { HomePageAnchors } from 'containers/Header/Header.helpers';
 import styles from './styles.module.scss';
 import { TeamCard } from './components/Card';
 import { teamData } from './Team.helpers';
@@ -15,7 +16,7 @@ export interface TeamProps {
 
 export const Team: VFC<TeamProps> = ({ className }) => {
   return (
-    <WrapContainer className={cn(styles.team, className)}>
+    <WrapContainer name={HomePageAnchors.TEAM} className={cn(styles.team, className)}>
       <H1 weight="semiBold" align="center"> Team </H1>
       <div className={styles.cards}>
         {teamData.map((card, index) => (
