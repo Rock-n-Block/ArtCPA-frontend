@@ -3,7 +3,9 @@ import { VFC } from 'react';
 import cn from 'clsx';
 
 import { H1, Text } from 'components/Typography';
+import { WrapContainer } from 'components/WrapContainer';
 import { CheckIcon } from 'assets/icons/icons';
+import { HomePageAnchors } from 'containers/Header/Header.helpers';
 import styles from './styles.module.scss';
 import { content } from './Roadmap.helper';
 
@@ -17,7 +19,7 @@ function pad(d) {
 
 export const RoadMap: VFC<RoadMapProps> = ({ className }) => {
   return (
-    <div className={cn(styles.roadMap, className)}>
+    <WrapContainer name={HomePageAnchors.ROAD_MAP} className={cn(styles.roadMap, className)}>
       <H1 className={styles.header} align="center" weight="bold">Road map</H1>
       {content.map((item, index) => (
         // eslint-disable-next-line react/no-array-index-key
@@ -45,6 +47,6 @@ export const RoadMap: VFC<RoadMapProps> = ({ className }) => {
           </div>
         </div>
       ))}
-    </div>
+    </WrapContainer>
   );
 };

@@ -1,9 +1,11 @@
 import { useState, VFC } from 'react';
 
+import { HomePageAnchors } from 'containers/Header/Header.helpers';
 import cn from 'clsx';
 import { H1, H2, Text, Button } from 'components';
 import { Input } from 'components/Input';
 import { ProgressBar } from 'components/ProgressBar';
+import { WrapContainer } from 'components/WrapContainer';
 import { SelectCurrency } from 'components/SelectCurrency';
 import styles from './styles.module.scss';
 
@@ -22,7 +24,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   };
 
   return (
-    <div className={styles.smainWrapper}>
+    <WrapContainer name={HomePageAnchors.BUY} className={styles.smainWrapper}>
       <H1 align="center" className={styles.mainTitle}>Crowdsale</H1>
       <div className={cn(styles.crowdsale, className)}>
         <H2 align="center" className={styles.title}>2nd stage is live!</H2>
@@ -70,6 +72,6 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
         </div>
         <Button variant="filled" className={styles.buyButton}>BUY CPA</Button>
       </div>
-    </div>
+    </WrapContainer>
   );
 };

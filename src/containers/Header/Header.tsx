@@ -6,7 +6,6 @@ import { useGetAccountInfo, logout } from '@elrondnetwork/dapp-core';
 import { useDispatch } from 'react-redux';
 import { updateUserState } from 'store/user/reducer';
 import { LogoIcon } from 'assets/img/icons';
-// import { WrapContainer } from 'components/WrapContainer';
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
 import styles from './styles.module.scss';
@@ -27,7 +26,7 @@ export const Header: VFC<HeaderProps> = () => {
     return width < 1200;
   }, [width]);
 
-  const isMoblie = useMemo(() => {
+  const isMobile = useMemo(() => {
     return width < 768;
   }, [width]);
 
@@ -53,55 +52,53 @@ export const Header: VFC<HeaderProps> = () => {
   }, [dispatch, elraddress]);
 
   return (
-    <>
-      <header className={styles.header}>
-        {isMoblie ? (
+    <header className={styles.header}>
+      {isMobile ? (
+        <>
+          <MenuButton isMobile={isTablet} />
+          <img src={LogoIcon} alt="coin" className={styles.coin} />
+          <ConnectButton
+            isMobile
+            onCloseModal={closeModal}
+            onOpenModal={openModal}
+            onDisconnect={handleDisconnect}
+            address={elraddress}
+            isOpen={isConnectModalOpen}
+          />
+        </>
+      ) : (
+        <>
+          <Logo />
+          {!isTablet && (
           <>
-            <MenuButton isMobile />
-            <img src={LogoIcon} alt="coin" className={styles.coin} />
-            <ConnectButton
-              isMobile
-              onCloseModal={closeModal}
-              onOpenModal={openModal}
-              onDisconnect={handleDisconnect}
-              address={elraddress}
-              isOpen={isConnectModalOpen}
-            />
-          </>
-        ) : (
-          <>
-            <Logo />
-            {!isTablet && (
-            <>
-              {homePageNavigation.map(({ label, anchorId, isOuterLink, link }) => {
-                if (isOuterLink) {
-                  return (
-                    <Button key={label} className={styles.headerNav} href={link} variant="text">{label}</Button>
-                  );
-                }
+            {homePageNavigation.map(({ label, anchorId, isOuterLink, link }) => {
+              if (isOuterLink) {
                 return (
-                  <RSLink key={label} smooth to={anchorId} className={styles.navLink}>
-                    <Button className={styles.headerNav} variant="text">{label}</Button>
-                  </RSLink>
+                  <Button key={label} className={styles.headerNav} href={link} variant="text">{label}</Button>
                 );
-              })}
-            </>
-            )}
-            <RSLink smooth to={HomePageAnchors.BUY}>
-              <Button>Buy CPA</Button>
-            </RSLink>
-            <ConnectButton
-              isMobile={false}
-              onCloseModal={closeModal}
-              onOpenModal={openModal}
-              onDisconnect={handleDisconnect}
-              address={elraddress}
-              isOpen={isConnectModalOpen}
-            />
-            <MenuButton isMobile={false} />
+              }
+              return (
+                <RSLink key={label} smooth to={anchorId} delay={0} className={styles.navLink}>
+                  <Button className={styles.headerNav} variant="text">{label}</Button>
+                </RSLink>
+              );
+            })}
           </>
-        )}
-      </header>
-    </>
+          )}
+          <RSLink smooth to={HomePageAnchors.BUY}>
+            <Button className={styles.buyButton}>Buy CPA</Button>
+          </RSLink>
+          <ConnectButton
+            isMobile={false}
+            onCloseModal={closeModal}
+            onOpenModal={openModal}
+            onDisconnect={handleDisconnect}
+            address={elraddress}
+            isOpen={isConnectModalOpen}
+          />
+          <MenuButton isMobile={isTablet} />
+        </>
+      )}
+    </header>
   );
 };

@@ -48,20 +48,20 @@ $iconButtonColorsDefault: (
   "icon-button-filled-disabled-icon-color": $colorGray80,
   ////filled-secondary
   //background
-  "icon-button-filled-secondary-default-background": $colorGray40,
+  "icon-button-filled-secondary-default-background": $colorGray80,
   "icon-button-filled-secondary-hover-background": $colorGreen600,
   "icon-button-filled-secondary-active-background": $colorGreen600,
-  "icon-button-filled-secondary-disabled-background": $colorGray40,
+  "icon-button-filled-secondary-disabled-background": $colorGray80,
   //border
-  "icon-button-filled-secondary-default-border": $colorGray40,
+  "icon-button-filled-secondary-default-border": $colorGray80,
   "icon-button-filled-secondary-hover-border": $colorGreen600,
   "icon-button-filled-secondary-active-border": $colorGreen600,
-  "icon-button-filled-secondary-disabled-border": $colorGray40,
+  "icon-button-filled-secondary-disabled-border": $colorGray80,
   //icon
-  "icon-button-filled-secondary-default-icon-color": $colorGray20,
+  "icon-button-filled-secondary-default-icon-color": $colorGrayIcon,
   "icon-button-filled-secondary-hover-icon-color": $colorBlack400,
   "icon-button-filled-secondary-active-icon-color": $colorBlack400,
-  "icon-button-filled-secondary-disabled-icon-color": $colorGray20,
+  "icon-button-filled-secondary-disabled-icon-color": $colorGrayIcon,
 );
 
 $iconButtonColorsLight: (
