@@ -1,10 +1,11 @@
 import { VFC } from 'react';
 
-import { Button } from 'components/Button';
+import { Button, Text } from 'components';
 
 import { WalletIcon } from 'assets/icons/icons';
 import { ConnectModal } from '../ConnectModal';
 import { DisconnectModal } from '../DisconnectModal';
+import styles from './styles.module.scss';
 
 export interface ConnectButtonProps {
   isOpen: boolean;
@@ -36,8 +37,9 @@ export const ConnectButton: VFC<ConnectButtonProps> = ({
         <Button
           onClick={onOpenModal}
           variant="filled"
+          className={styles.connectButton}
         >
-          Connect to wallet
+          {address.length ? <Text noWrap>{address}</Text> : 'Connect wallet'}
         </Button>
       )}
       {address.length ? (
