@@ -21,7 +21,7 @@
 }
 
 @include forTablet {
-  .mainLogo {
+  .Logo {
     display: block;
     text-align: center;
     & > svg {
@@ -29,7 +29,8 @@
     }
   }
   .textForTablet {
-    display: block
+    display: block;
+    padding-top: spacing(3);
   }
   .noneContent {
     display: none
