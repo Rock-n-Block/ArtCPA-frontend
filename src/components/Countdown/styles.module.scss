@@ -1,0 +1,32 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.countdown { 
+    
+}
+.timeBlock {
+    @include flexbox;
+    flex-direction: column;
+    padding: spacing(1, 0);
+    max-width: 115px;
+    height: 75px;
+    border-radius: spacing(1);
+}
+.notCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(94px, 1fr));
+    gap: spacing(1.5);
+    padding-bottom: spacing(3);
+}
+@include forTablet {
+    .timeBlock {
+        max-width: 68px;
+        height: 68;
+    }
+    .notCard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(54px, 1fr));
+        gap: spacing(1.5);
+        padding-bottom: spacing(3);
+    }
+}

@@ -6,6 +6,7 @@ import { H1, H2, Text, Button } from 'components';
 import { Input } from 'components/Input';
 import { ProgressBar } from 'components/ProgressBar';
 import { WrapContainer } from 'components/WrapContainer';
+import { Countdown } from 'components/Countdown';
 import { SelectCurrency } from 'components/SelectCurrency';
 import styles from './styles.module.scss';
 
@@ -28,7 +29,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       <H1 align="center" className={styles.mainTitle}>Crowdsale</H1>
       <div className={cn(styles.crowdsale, className)}>
         <H2 align="center" className={styles.title}>2nd stage is live!</H2>
-        <Text>CPA tokens sold:</Text>
+        <Countdown endAuction={1900000000} auctionEndText="endAuction" />
+        <Text>CPA tokens sold на CPA tokens available:</Text>
         <ProgressBar
           text="45 000 000 000"
           className={styles.progressBar}
