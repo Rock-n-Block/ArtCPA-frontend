@@ -12,9 +12,9 @@ export interface FooterProps {
 
 export const Footer: VFC<FooterProps> = ({ className }) => {
   return (
-    <WrapContainer className={cn(styles.footer, className)}>
-      <footer>
-        <Logo className={cn(styles.mainLogo)} />
+    <WrapContainer>
+      <footer className={cn(styles.footer, className)}>
+        <Logo />
         <div className={styles.linksWrapper}>
           {footerLinks.map((link) => (
             <Button variant="text" href={link.href} key={link.id}>{link.name}</Button>
