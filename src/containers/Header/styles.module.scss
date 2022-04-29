@@ -4,10 +4,10 @@
 
 .header {
   position: relative;
-  @include flexbox(space-between, center);
+  @include flexbox(space-between,center);
   padding: spacing(3, 6);
   position: absolute;
-  top: 0;
+  left: 0; right: 0;
   width: 100%;
   transition: 0ms !important;
 }

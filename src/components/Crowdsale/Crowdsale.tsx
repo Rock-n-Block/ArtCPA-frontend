@@ -39,8 +39,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           currentValue={18000000000}
         />
         <div className={styles.purchaseAmount}>
-          <Text>Minimal purchase amount: <Text>1 500 EGLD</Text></Text>
-          <Text align="right">Max purchase amount: <Text align="right">1 500 EGLD</Text></Text>
+          <Text noWrap={false}>Minimal purchase amount: <Text>1 500 EGLD</Text></Text>
+          <Text noWrap={false} align="right">Max purchase amount: <Text align="right">1 500 EGLD</Text></Text>
         </div>
         <div className={styles.wrapInputWithSelect}>
           <Input
@@ -57,7 +57,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           />
         </div>
         <div className={styles.textUnderUnput}>
-          <Text color="secondary">Your EGLD balance 10000 EGLD</Text>
+          <Text color="secondary" noWrap={false}>Your EGLD balance 10000 EGLD</Text>
           <Text color="secondary">1 EGLD = 160$</Text>
         </div>
         <div className={styles.wrapInputWithSelect}>
@@ -69,11 +69,11 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           <Button size="sm" variant="filled-secondary" startAdorment={<Coin width="30" height="30" />} className={styles.CPAbtn}>CPA</Button>
         </div>
         <div className={styles.textUnderUnput}>
-          <Text color="secondary">Your CPA balance 10000 CPA</Text>
+          <Text color="secondary" noWrap={false}>Your CPA balance 10000 CPA</Text>
           <Text color="secondary">1 CPA = 0.04$</Text>
         </div>
         <div className={styles.buyInfo}>
-          <Text align="center">You buy ArtCPAclub Tokens by sending EGLD to the contract</Text>
+          <Text noWrap={false} align="center">You buy ArtCPAclub Tokens by sending EGLD to the contract</Text>
         </div>
         <Button variant="filled" className={styles.buyButton} size="md">BUY CPA</Button>
       </div>
