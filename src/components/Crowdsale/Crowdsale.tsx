@@ -8,6 +8,7 @@ import { ProgressBar } from 'components/ProgressBar';
 import { WrapContainer } from 'components/WrapContainer';
 import { Countdown } from 'components/Countdown';
 import { SelectCurrency } from 'components/SelectCurrency';
+import { CRU } from 'assets/icons/icons';
 import styles from './styles.module.scss';
 
 export interface CrowdsaleProps {
@@ -15,8 +16,12 @@ export interface CrowdsaleProps {
 }
 
 export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
-  const [input, setInput] = useState('');
-  const [select, setSelect] = useState();
+  const [input, setInput] = useState('EGLD');
+  const [select, setSelect] = useState({
+    value: 'CRU',
+    label: 'CRU',
+    icon: <CRU />,
+  });
   const handleCnahgeInput = (event) => {
     setInput(event.target.value);
   };
