@@ -79,7 +79,8 @@ export const Input:VFC<InputProps> = ({
             type,
             name,
             value,
-            placeholder: component === 'input' ? ' ' : placeholder,
+            placeholder,
+            // placeholder: component === 'input' ? ' ' : placeholder,
             autoComplete,
             disabled,
             className: cn(

@@ -8,7 +8,6 @@
   color: var(--input-default-label);
   transition: 200ms ease-out;
   background: var(--input-default-background);
-  opacity: 0.2;
 }
 
 .labelTextFocusedCommon {
@@ -70,13 +69,14 @@
   height: 56px;
   padding: spacing(2, 2.5);
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: 200ms all;
   font-size: 16px;
 
   background: var(--input-default-background);
   border: var(--input-default-border);
   color: var(--typography-default-color);
+  opacity: 0.5;
 
   &:hover {
     background: var(--input-hover-background);
@@ -122,9 +122,9 @@
     color: var(--typography-default-color);
   }
 
-  // &::placeholder {
-  //   color: white;
-  // }
+  &::placeholder {
+    color: white;
+  }
 
   &:disabled {
     cursor: not-allowed;

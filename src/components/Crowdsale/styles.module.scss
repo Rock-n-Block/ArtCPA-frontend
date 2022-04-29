@@ -25,6 +25,10 @@
 .purchaseAmount {
     @include flexbox(space-between);
     margin-bottom: spacing(3) !important;
+
+    & > p {
+        color:var(--typography-green-color)
+    }
 }
 @include forTablet {
     .purchaseAmount > p {
@@ -58,4 +62,9 @@
 
 .selects {
     max-width: 30%;
+    background-color: var(--input-default-background);
+}
+.CPAbtn {
+    z-index: 1;
+    margin-right: spacing(0.5) !important;
 }
