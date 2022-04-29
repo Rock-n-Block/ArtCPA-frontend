@@ -45,6 +45,7 @@
   "dependencies": {
     "@elrondnetwork/dapp-core": "^1.1.11",
     "@elrondnetwork/erdjs": "^10.1.2",
+    "@fontsource/poppins": "^4.5.5",
     "@fontsource/roboto": "^4.5.5",
     "@reduxjs/toolkit": "^1.6.2",
     "axios": "^0.26.0",
@@ -55,6 +56,7 @@
     "formik": "^2.2.9",
     "history": "^4.10.0",
     "node-sass": "^6.0.0",
+    "poppins-font": "^1.0.1",
     "rc-dialog": "^8.6.0",
     "react": "17.0.2",
     "react-copy-to-clipboard": "^5.0.4",

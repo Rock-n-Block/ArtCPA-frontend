@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import '@fontsource/roboto';
+import '@fontsource/poppins';
 
 import App from 'App';
 import store from './store/configureStore';
