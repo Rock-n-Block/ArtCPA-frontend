@@ -42,30 +42,30 @@ export const Countdown: VFC<CountdownProps> = ({
   }
 
   return(
-    <div className={cn(styles.countdown, styles.notCard, className)}>
+    <div className={cn(styles.notCard, className)}>
       <div className={styles.timeBlock}>
         <Text>
           <H2 weight="mediumHeight">{days}</H2>
         </Text>
-        <Text weight="mediumHeight">Days</Text>
+        <Text weight="mediumHeight" className={styles.time}>Days</Text>
       </div>
       <div className={styles.timeBlock}>
         <Text>
           <H2 weight="mediumHeight">{hours}</H2>
         </Text>
-        <Text weight="mediumHeight">Hours</Text>
+        <Text weight="mediumHeight" className={styles.time}>Hours</Text>
       </div>
       <div className={styles.timeBlock}>
         <Text>
           <H2 weight="mediumHeight">{minutes}</H2>
         </Text>
-        <Text weight="mediumHeight">Minutes</Text>
+        <Text weight="mediumHeight" className={styles.time}>Minutes</Text>
       </div>
       <div className={styles.timeBlock}>
         <Text>
           <H2 weight="mediumHeight">{seconds}</H2>
         </Text>
-        <Text weight="mediumHeight">Seconds</Text>
+        <Text weight="mediumHeight" className={styles.time}>Seconds</Text>
       </div>
     </div>
   );

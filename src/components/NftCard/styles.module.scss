@@ -9,7 +9,7 @@
     border: 1px solid var(--card-default-border-green);
     @include flexbox;
     flex-direction: column;
-    & img {
+    & .imgCard {
         width: 100%;
     }
 }

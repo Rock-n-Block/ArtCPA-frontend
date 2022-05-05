@@ -32,10 +32,10 @@ export const MainVideo: VFC<MainVideoProps> = ({ className }) => {
         />
       ) : (
         <div className={styles.preview}>
-          <img src={rectangle} alt="video preview" />
+          <img src={rectangle} alt="video preview" className={styles.preview} />
           <Button className={styles.button} variant="text" onClick={handleButtonClick}>
             <YouTubeLogo />
-            <Polygon />
+            <Polygon className={styles.polygon} />
           </Button>
         </div>
       )}

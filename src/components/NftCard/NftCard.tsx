@@ -14,7 +14,7 @@ export interface NftCardProps {
 export const NftCard: VFC<NftCardProps> = ({ className, image, title }) => {
   return (
     <Card className={cn(className, styles.nftCard)}>
-      <img src={image} alt={title} />
+      <img src={image} alt={title} className={styles.imgCard} />
       <H2 align="center" className={styles.title} weight="semiBold">{title}</H2>
       <Button size="md" variant="filled" className={styles.viewButton}>VIEW</Button>
     </Card>

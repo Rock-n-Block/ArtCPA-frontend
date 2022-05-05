@@ -39,8 +39,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           currentValue={18000000000}
         />
         <div className={styles.purchaseAmount}>
-          <Text noWrap={false}>Minimal purchase amount: <Text>1 500 EGLD</Text></Text>
-          <Text noWrap={false} align="right">Max purchase amount: <Text align="right">1 500 EGLD</Text></Text>
+          <Text noWrap={false} className={styles.purschAmount}>Minimal purchase amount: <Text>1 500 EGLD</Text></Text>
+          <Text noWrap={false} align="right" className={styles.purschAmount}>Max purchase amount: <Text align="right">1 500 EGLD</Text></Text>
         </div>
         <div className={styles.wrapInputWithSelect}>
           <Input

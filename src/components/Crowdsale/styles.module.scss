@@ -26,10 +26,10 @@
     @include flexbox(space-between);
     margin-bottom: spacing(3) !important;
 
-    & > p {
+    & > .purschAmount {
         color:var(--typography-green-color);
     }
-    & > p:first-child {
+    & > .purschAmount:first-child {
         min-width: 130px;
     }
 }
