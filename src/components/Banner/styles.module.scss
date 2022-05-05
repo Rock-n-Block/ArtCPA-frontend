@@ -4,7 +4,6 @@
 .banner {
   background: url('../../assets/img/icons/BannerBackgroundImg.png') no-repeat ;
   background-size: cover;
-  width: 100vw;
   height: 100vh;
   overflow: hidden;
   @include flexbox;

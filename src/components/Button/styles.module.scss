@@ -189,7 +189,7 @@
 
   .endAdorment {
     display: flex;
-    margin-left: spacing(1);
+    margin-left: spacing(4);
   }
 
   &.lg {
@@ -199,7 +199,7 @@
     line-height: 24px;
 
     &.endAdormentPadding {
-      padding: spacing(2, 2, 2, 3);
+      padding: spacing(2, 2.5, 2, 3);
     }
     &.startAdormentPadding {
       padding: spacing(2, 3, 2, 2);
@@ -210,7 +210,7 @@
   }
 
   &.md {
-    padding: spacing(1, 4);
+    padding: spacing(1, 7);
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
@@ -236,7 +236,8 @@
       padding: spacing(1, 1, 1, 1.5);
     }
     &.startAdormentPadding {
-      padding: spacing(1, 1.5, 1, 1);
+      padding: spacing(1, 2.5, 1, 2);
+      font-size: 20px;
     }
     &.bothAdormentsPadding {
       padding: spacing(1);

@@ -1,14 +1,10 @@
 @import '../../assets/styles/variables';
 @import '../../assets/styles/mixins';
 
-.nftCollections { 
-   
-}
-
 .wrapperCard {
     padding-top: spacing(5.75);
     display: grid;
-    grid-template-columns: repeat(auto-fit, 432px);
+    grid-template-columns: repeat(auto-fit, 400px);
     gap: spacing(3);
     width: 100%;
     justify-content: center;
