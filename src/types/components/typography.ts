@@ -11,7 +11,9 @@ enum SizeValues {
 }
 
 enum WeightValues {
+  light,
   medium,
+  mediumHeight,
   semiBold,
   bold,
 }

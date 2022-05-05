@@ -27,9 +27,9 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
 
   return (
     <WrapContainer name={HomePageAnchors.BUY} className={styles.smainWrapper}>
-      <H1 align="center" className={styles.mainTitle}>Crowdsale</H1>
+      <H1 align="center" className={styles.mainTitle} weight="bold">Crowdsale</H1>
       <div className={cn(styles.crowdsale, className)}>
-        <H2 align="center" className={styles.title}>2nd stage is live!</H2>
+        <H2 align="center" className={styles.title} weight="semiBold">2nd stage is live!</H2>
         <Countdown endAuction={1800000000} auctionEndText="endAuction" />
         <Text>CPA tokens available:</Text>
         <ProgressBar

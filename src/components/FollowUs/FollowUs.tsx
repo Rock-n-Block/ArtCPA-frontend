@@ -15,7 +15,7 @@ export interface FollowUsProps {
 export const FollowUs: VFC<FollowUsProps> = ({ className }) => {
   return (
     <WrapContainer>
-      <H2 className={cn(styles.title)} align="center">Follow us</H2>
+      <H2 className={cn(styles.title)} align="center" weight="semiBold">Follow us</H2>
       <div className={cn(styles.followUs, className)}>
         {linksData.map((card) => (
           <a href={card.href} key={card.id} target="_blank" rel="noonpener noreferrer">
