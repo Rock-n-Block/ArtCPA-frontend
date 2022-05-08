@@ -4,7 +4,6 @@
 .banner {
   background: url('../../assets/img/icons/BannerBackgroundImg.png') no-repeat ;
   background-size: cover;
-  width: 100vw;
   height: 100vh;
   overflow: hidden;
   @include flexbox;
@@ -13,18 +12,16 @@
     max-width: 65%;
     height: 100%;
     @include flexbox;
+    gap: 71px;
     flex-direction: column;
     & > .bannerText {
       overflow: hidden;
       max-height: 80%;
     }
-    & > button {
-      margin-top: 72px;
-    }
   }
 }
 
-@include forDesktopSm {
+@media screen and (max-width: 550px) {
   .bannerText {
     font-size: 22px;
   }

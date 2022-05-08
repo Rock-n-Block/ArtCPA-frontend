@@ -57,8 +57,14 @@
   color: var(--typography-error-color);;;
 }
 
+.lightWeight {
+  font-weight: 300;
+}
 .mediumWeight {
   font-weight: 400;
+}
+.mediumHeightWeight {
+  font-weight: 500;
 }
 
 .semiBoldWeight {

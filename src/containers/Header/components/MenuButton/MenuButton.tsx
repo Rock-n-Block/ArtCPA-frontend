@@ -5,6 +5,7 @@ import { Button } from 'components/Button';
 import { MenuIcon } from 'assets/icons/icons';
 import { Menu } from 'containers/Header/components';
 import { Nullable } from 'types';
+import cn from 'clsx';
 import styles from './styles.module.scss';
 
 export interface MenuButtonProps {
@@ -44,6 +45,7 @@ export const MenuButton: VFC<MenuButtonProps> = ({ isMobile }) => {
         isOpen={isMenuOpen}
         onClose={closeMenu}
         isMobile={isMobile}
+        className={cn({ [styles.menuModal]: !isMobile })}
       />
     </div>
   );

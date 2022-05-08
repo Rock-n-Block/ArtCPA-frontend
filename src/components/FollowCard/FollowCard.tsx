@@ -15,7 +15,7 @@ export const FollowCard: FC<FollowCardProps> = ({ className, name, icon }) => {
     <div className={cn(styles.followCard, className)}>
       <div className={styles.svgWrap} />
       {icon}
-      <H3 className={styles.name}>{name}</H3>
+      <H3 className={styles.name} weight="semiBold">{name}</H3>
     </div>
   );
 };

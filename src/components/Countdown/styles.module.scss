@@ -1,9 +1,6 @@
 @import '../../assets/styles/variables';
 @import '../../assets/styles/mixins';
 
-.countdown { 
-    
-}
 .timeBlock {
     @include flexbox;
     flex-direction: column;
@@ -12,7 +9,7 @@
     height: 85px;
     border-radius: spacing(1);
     background-color: var(--card-default-background);
-    & p:last-child {
+    & .time:last-child {
         padding-bottom: spacing(1.5)
     }
 }

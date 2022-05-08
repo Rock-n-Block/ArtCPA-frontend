@@ -8,7 +8,7 @@ import { ProgressBar } from 'components/ProgressBar';
 import { WrapContainer } from 'components/WrapContainer';
 import { Countdown } from 'components/Countdown';
 import { SelectCurrency } from 'components/SelectCurrency';
-import { CRU } from 'assets/icons/icons';
+import { CRU, Coin } from 'assets/icons/icons';
 import styles from './styles.module.scss';
 
 export interface CrowdsaleProps {
@@ -22,20 +22,20 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
     label: 'CRU',
     icon: <CRU />,
   });
-  const handleCnahgeInput = (event) => {
+  const handleChangeInput = (event) => {
     setInput(event.target.value);
   };
-  const handleCnahgeSelect = (event) => {
+  const handleChangeSelect = (event) => {
     setSelect(event);
   };
 
   return (
     <WrapContainer name={HomePageAnchors.BUY} className={styles.smainWrapper}>
-      <H1 align="center" className={styles.mainTitle}>Crowdsale</H1>
+      <H1 align="center" className={styles.mainTitle} weight="bold">Crowdsale</H1>
       <div className={cn(styles.crowdsale, className)}>
-        <H2 align="center" className={styles.title}>2nd stage is live!</H2>
+        <H2 align="center" className={styles.title} weight="semiBold">2nd stage is live!</H2>
         <Countdown endAuction={1800000000} auctionEndText="endAuction" />
-        <Text>CPA tokens sold на CPA tokens available:</Text>
+        <Text>CPA tokens available:</Text>
         <ProgressBar
           text="45 000 000 000"
           className={styles.progressBar}
@@ -43,41 +43,43 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           currentValue={18000000000}
         />
         <div className={styles.purchaseAmount}>
-          <Text color="secondary">Minimal purchase amount: <Text>1 500 EGlD</Text></Text>
-          <Text color="secondary" align="right">Max purchase amount: <Text align="right">1 500 EGlD</Text></Text>
+          <Text noWrap={false} className={styles.purschAmount}>Minimal purchase amount: <Text>1 500 EGLD</Text></Text>
+          <Text noWrap={false} align="right" className={styles.purschAmount}>Max purchase amount: <Text align="right">1 500 EGLD</Text></Text>
         </div>
         <div className={styles.wrapInputWithSelect}>
           <Input
             name="egld"
             value={input}
-            onChange={handleCnahgeInput}
+            onChange={handleChangeInput}
             className={styles.inputs}
+            placeholder="Send"
           />
           <SelectCurrency
             className={styles.selects}
-            onChange={handleCnahgeSelect}
+            onChange={handleChangeSelect}
             value={select}
           />
         </div>
         <div className={styles.textUnderUnput}>
-          <Text>Your EGLD balance 10000 EGLD</Text>
-          <Text>1 EGLD = 160$</Text>
+          <Text color="secondary" noWrap={false}>Your EGLD balance 10000 EGLD</Text>
+          <Text color="secondary">1 EGLD = 160$</Text>
         </div>
         <div className={styles.wrapInputWithSelect}>
           <Input
             name="cpa"
             className={styles.inputs}
+            placeholder="Recive"
           />
-          <SelectCurrency className={styles.selects} />
+          <Button size="sm" variant="filled-secondary" startAdorment={<Coin width="30" height="30" />} className={styles.CPAbtn}>CPA</Button>
         </div>
         <div className={styles.textUnderUnput}>
-          <Text>Your CPA balance 10000 CPA</Text>
-          <Text>1 CPA = 0.04$</Text>
+          <Text color="secondary" noWrap={false}>Your CPA balance 10000 CPA</Text>
+          <Text color="secondary">1 CPA = 0.04$</Text>
         </div>
         <div className={styles.buyInfo}>
-          <Text align="center">You buy ArtCPAclub Tokens by sending EGLD to the contract</Text>
+          <Text noWrap={false} align="center">You buy ArtCPAclub Tokens by sending EGLD to the contract</Text>
         </div>
-        <Button variant="filled" className={styles.buyButton}>BUY CPA</Button>
+        <Button variant="filled" className={styles.buyButton} size="md">BUY CPA</Button>
       </div>
     </WrapContainer>
   );

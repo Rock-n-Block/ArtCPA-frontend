@@ -5,6 +5,7 @@ import { useWindowState } from 'hooks';
 import { useGetAccountInfo, logout } from '@elrondnetwork/dapp-core';
 import { useDispatch } from 'react-redux';
 import { updateUserState } from 'store/user/reducer';
+import { WrapContainer } from 'components/WrapContainer';
 import { LogoIcon } from 'assets/img/icons';
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
@@ -52,7 +53,7 @@ export const Header: VFC<HeaderProps> = () => {
   }, [dispatch, elraddress]);
 
   return (
-    <header className={styles.header}>
+    <WrapContainer className={styles.header}>
       {isMobile ? (
         <>
           <MenuButton isMobile={isTablet} />
@@ -99,6 +100,6 @@ export const Header: VFC<HeaderProps> = () => {
           <MenuButton isMobile={isTablet} />
         </>
       )}
-    </header>
+    </WrapContainer>
   );
 };

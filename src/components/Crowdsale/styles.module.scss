@@ -25,13 +25,20 @@
 .purchaseAmount {
     @include flexbox(space-between);
     margin-bottom: spacing(3) !important;
+
+    & > .purschAmount {
+        color:var(--typography-green-color);
+    }
+    & > .purschAmount:first-child {
+        min-width: 130px;
+    }
 }
 @include forTablet {
     .purchaseAmount > p {
         max-width: 120px;
     }
     .textUnderUnput p:first-child {
-        max-width:120px
+        max-width:150px
     }
 }
 .textUnderUnput {
@@ -43,7 +50,7 @@
     background-color: var(--card-secondary-background);
     padding: spacing(1.5, 3);
     border-radius: 8px;
-    margin-bottom: spacing(3) !important
+    margin-bottom: spacing(3) !important;
 }
 .buyButton {
     align-self: center;
@@ -58,4 +65,9 @@
 
 .selects {
     max-width: 30%;
+    background-color: var(--input-default-background);
+}
+.CPAbtn {
+    z-index: 1;
+    margin-right: spacing(0.5) !important;
 }

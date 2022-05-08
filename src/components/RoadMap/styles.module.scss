@@ -73,6 +73,7 @@
         @include flexbox(space-between, center);
         flex-wrap: wrap;
         width: 100%;
+        gap: 28px;
         @include forDesktopSm {
           @include flexbox(center, center);
           flex-direction: column;
@@ -91,7 +92,7 @@
           }
           & > p {
             line-break: anywhere;
-            
+            text-align: left;
           }
           & > svg {
             min-width: 24px;

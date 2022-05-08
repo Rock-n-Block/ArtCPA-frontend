@@ -14,7 +14,7 @@ export interface NftCollectionsProps {
 export const NftCollections: VFC<NftCollectionsProps> = ({ className }) => {
   return (
     <WrapContainer className={cn(styles.nftCollections, className)}>
-      <H1 align="center">NFT Collections</H1>
+      <H1 align="center" weight="bold">NFT Collections</H1>
       <div className={styles.wrapperCard}>
         {NftCollectionsHelper.map((nftCard) => (
           <NftCard image={nftCard.image} title={nftCard.title} />

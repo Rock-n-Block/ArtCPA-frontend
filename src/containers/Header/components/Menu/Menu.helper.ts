@@ -2,10 +2,6 @@ import { homePageNavigation } from 'containers/Header/Header.helpers';
 
 export const menuNavLinks = [
   {
-    label: 'Crowdsale',
-    link: '/crowdsale',
-  },
-  {
     label: 'Marketplace',
     link: '/marketplace',
   },
@@ -20,6 +16,10 @@ export const menuNavLinks = [
 ];
 
 export const tableMenuNavLink = [
+  {
+    label: 'Buy CPA',
+    link: '/crowdsale',
+  },
   ...menuNavLinks,
   ...homePageNavigation,
 ];
