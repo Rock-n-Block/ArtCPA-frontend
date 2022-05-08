@@ -33,7 +33,7 @@ export const ComingSoon: VFC<ComingSoonProps> = ({ className, title }) => {
       <BreadcrumbsComingSoon paths={paths} className={styles.breadcrumbs} />
       <div className={styles.container}>
         <H1 weight="bold" align="center" className={styles.title}>{title}</H1>
-        <Text weight="bold" className={styles.bodyText} align="center"> Coming soon </Text>
+        <Text noWrap={false} weight="bold" className={styles.bodyText} align="center"> Coming soon </Text>
         <Button variant="filled" className={styles.returnButton} onClick={onButtonClick}> Go to home page </Button>
       </div>
     </div>

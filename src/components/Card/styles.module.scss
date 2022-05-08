@@ -39,3 +39,12 @@
     border: 1px solid var(--card-default-hover);
   }
 }
+
+
+@include forTablet{
+  .lg,
+  .md,
+  .sm{
+    min-width: 100%;
+  }
+}
