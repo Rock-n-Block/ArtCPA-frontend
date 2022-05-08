@@ -1,4 +1,4 @@
-import { useState, VFC } from 'react';
+import { useState, VFC, useCallback } from 'react';
 
 import { HomePageAnchors } from 'containers/Header/Header.helpers';
 import cn from 'clsx';
@@ -16,18 +16,25 @@ export interface CrowdsaleProps {
 }
 
 export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
-  const [input, setInput] = useState('EGLD');
+  const [sendInput, setSendInput] = useState('');
+  const [receiveInput, setReceiveInput] = useState('');
   const [select, setSelect] = useState({
     value: 'CRU',
     label: 'CRU',
     icon: <CRU />,
   });
-  const handleChangeInput = (event) => {
-    setInput(event.target.value);
-  };
-  const handleChangeSelect = (event) => {
+
+  const handleChangeSendInput = useCallback((event) => {
+    setSendInput(event.target.value);
+  }, []);
+
+  const handleChangeReceiveInput = useCallback((event) => {
+    setReceiveInput(event.target.value);
+  }, []);
+
+  const handleChangeSelect = useCallback((event) => {
     setSelect(event);
-  };
+  }, []);
 
   return (
     <WrapContainer name={HomePageAnchors.BUY} className={styles.smainWrapper}>
@@ -43,14 +50,14 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           currentValue={18000000000}
         />
         <div className={styles.purchaseAmount}>
-          <Text noWrap={false} className={styles.purschAmount}>Minimal purchase amount: <Text>1 500 EGLD</Text></Text>
-          <Text noWrap={false} align="right" className={styles.purschAmount}>Max purchase amount: <Text align="right">1 500 EGLD</Text></Text>
+          <Text noWrap={false} className={styles.purschAmount}>Minimal purchase amount: <Text>1 500 {select.value}</Text></Text>
+          <Text noWrap={false} align="right" className={styles.purschAmount}>Max purchase amount: <Text align="right">1 500 {select.value}</Text></Text>
         </div>
         <div className={styles.wrapInputWithSelect}>
           <Input
-            name="egld"
-            value={input}
-            onChange={handleChangeInput}
+            name="send"
+            value={sendInput}
+            onChange={handleChangeSendInput}
             className={styles.inputs}
             placeholder="Send"
           />
@@ -61,14 +68,16 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           />
         </div>
         <div className={styles.textUnderUnput}>
-          <Text color="secondary" noWrap={false}>Your EGLD balance 10000 EGLD</Text>
-          <Text color="secondary">1 EGLD = 160$</Text>
+          <Text color="secondary" noWrap={false}>Your {select.value} balance 10000 {select.value}</Text>
+          <Text color="secondary">1 {select.value} = 160$</Text>
         </div>
         <div className={styles.wrapInputWithSelect}>
           <Input
-            name="cpa"
+            name="receive"
             className={styles.inputs}
-            placeholder="Recive"
+            placeholder="Receive"
+            value={receiveInput}
+            onChange={handleChangeReceiveInput}
           />
           <Button size="sm" variant="filled-secondary" startAdorment={<Coin width="30" height="30" />} className={styles.CPAbtn}>CPA</Button>
         </div>
@@ -77,7 +86,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           <Text color="secondary">1 CPA = 0.04$</Text>
         </div>
         <div className={styles.buyInfo}>
-          <Text noWrap={false} align="center">You buy ArtCPAclub Tokens by sending EGLD to the contract</Text>
+          <Text noWrap={false} align="center">You buy ArtCPAclub Tokens by sending {select.value} to the contract</Text>
         </div>
         <Button variant="filled" className={styles.buyButton} size="md">BUY CPA</Button>
       </div>
