@@ -1,0 +1,22 @@
+@import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/mixins';
+
+.extension-login_noExtensionButtonWrapper{
+    background: var(--button-outlined-default-background) !important;
+    border: $button-border-width solid var(--button-outlined-default-border) !important;
+    color: var(--button-outlined-default-color) !important;
+    transition: 200ms ease-in-out !important;
+    margin: 0.2rem 1rem !important;
+
+    &:hover {
+      background: var(--button-outlined-hover-background) !important;
+      border: $button-border-width solid var(--button-outlined-hover-border) !important;
+      color: var(--button-outlined-hover-color) !important;
+    }
+
+    &:active {
+      background: var(--button-outlined-active-background) !important;
+      border: $button-border-width solid var(--button-outlined-active-border) !important;
+      color: var(--button-outlined-active-color) !important;
+    }
+}
