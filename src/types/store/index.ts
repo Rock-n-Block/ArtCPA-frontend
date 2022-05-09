@@ -1,8 +1,10 @@
 import type { Dispatch as DispatchReact } from 'react';
+import { TCrowdSale } from './crowdsale';
 import { ModalsInitialState } from './modals';
 import { UserState } from './user';
 
 export * from './user';
+export * from './crowdsale';
 export * from './ui';
 export * from './modals';
 
@@ -13,4 +15,5 @@ export type Dispatch = DispatchReact<{ type: string }>;
 export type State = {
   user: UserState;
   modals: ModalsInitialState;
+  crowdSale: TCrowdSale,
 };
