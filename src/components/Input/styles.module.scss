@@ -77,6 +77,7 @@
   border: var(--input-default-border);
   color: var(--typography-default-color);
   opacity: 0.5;
+  transition: 200ms ease-in-out !important;
 
   &:hover {
     background: var(--input-hover-background);
