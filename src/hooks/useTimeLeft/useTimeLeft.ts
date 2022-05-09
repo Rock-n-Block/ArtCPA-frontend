@@ -24,11 +24,19 @@ export const useTimeLeft = (endTime:DateLike):Nullable<ITimeLeft> => {
     let timeLeft:Nullable<ITimeLeft> = null;
 
     if (difference > 0) {
+      let timeTracker = difference;
+      const days = Math.floor(timeTracker / DAY);
+      timeTracker -= days * DAY;
+      const hours = Math.floor(timeTracker / HOUR);
+      timeTracker -= hours * HOUR;
+      const minutes = Math.floor(timeTracker / MINUTE);
+      timeTracker -= minutes * MINUTE;
+      const seconds = Math.floor(timeTracker / SECONDS);
       timeLeft = {
-        days: Math.floor(difference / DAY),
-        hours: Math.floor((difference / HOUR)),
-        minutes: Math.floor((difference / MINUTE) % 60),
-        seconds: Math.floor((difference / SECONDS) % 60),
+        days,
+        hours,
+        minutes,
+        seconds,
       };
     }
 

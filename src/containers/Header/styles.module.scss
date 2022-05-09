@@ -29,3 +29,15 @@
 .buyButton {
   max-width: 200px;
 }
+
+@include forDesktopSm{
+  .header{
+    padding: spacing(3, 4);
+  }
+}
+
+@include forTablet{
+  .header{
+    padding: spacing(3);
+  }
+}
