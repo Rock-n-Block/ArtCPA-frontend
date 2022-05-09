@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { updateUserState } from 'store/user/reducer';
 import { WrapContainer } from 'components/WrapContainer';
 import { LogoIcon } from 'assets/img/icons';
+import { useInteraction } from 'containers/Interaction';
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
 import styles from './styles.module.scss';
@@ -22,6 +23,7 @@ export const Header: VFC<HeaderProps> = () => {
   const dispatch = useDispatch();
 
   const { address: elraddress } = useGetAccountInfo();
+  const { currentProvider } = useInteraction();
 
   const isTablet = useMemo(() => {
     return width < 1200;
@@ -45,12 +47,13 @@ export const Header: VFC<HeaderProps> = () => {
 
   useEffect(() => {
     if (elraddress) {
+      currentProvider.doGetGeneric(`accounts/${elraddress}/tokens`).then((res) => console.log(res));
       dispatch(updateUserState({
         address: elraddress,
       }));
     }
     closeModal();
-  }, [dispatch, elraddress]);
+  }, [currentProvider, dispatch, elraddress]);
 
   return (
     <WrapContainer className={styles.header}>

@@ -17,7 +17,7 @@ const DAY = HOUR * 24;
  *     seconds:number;
  * } | null
  */
-export const useTimeLeft = (endTime:DateLike):Nullable<ITimeLeft> => {
+export const useTimeLeft = (endTime:DateLike, onTimerOut?: () => void):Nullable<ITimeLeft> => {
   const calculateTimeLeft = ():ITimeLeft => {
     const dateEndTime = new Date(endTime);
     const difference = +dateEndTime - Date.now();
@@ -38,8 +38,9 @@ export const useTimeLeft = (endTime:DateLike):Nullable<ITimeLeft> => {
         minutes,
         seconds,
       };
+    } else {
+      onTimerOut?.();
     }
-
     return timeLeft;
   };
 

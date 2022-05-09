@@ -2,7 +2,7 @@ import { useGetAccountInfo, useGetNetworkConfig } from '@elrondnetwork/dapp-core
 import { ProxyNetworkProvider } from '@elrondnetwork/erdjs-network-providers/out';
 import { Address, ContractFunction, ResultsParser, SmartContract, SmartContractAbi, TypedOutcomeBundle, TypedValue } from '@elrondnetwork/erdjs/out';
 import { contracts, EContracts } from 'config';
-import { createContext, FC, useContext, useCallback, useMemo } from 'react';
+import { createContext, FC, useContext, useCallback, useMemo, useRef } from 'react';
 
 export type TCallMethodProperties = {
   contract: EContracts,
@@ -19,6 +19,7 @@ interface IInteractionContext {
   canMakeCallRequest: boolean;
   sendMethod: TSendMethod;
   canMakeSendRequest: boolean;
+  currentProvider: ProxyNetworkProvider;
 }
 
 const InteractionContext = createContext<IInteractionContext>({} as IInteractionContext);
@@ -26,6 +27,8 @@ const InteractionContext = createContext<IInteractionContext>({} as IInteraction
 const InteractionProvider: FC = ({ children }) => {
   const { address: userAddress } = useGetAccountInfo();
   const { network: { apiAddress } } = useGetNetworkConfig();
+
+  const currentProvider = useRef(new ProxyNetworkProvider(apiAddress)).current;
 
   const canMakeCallRequest = useMemo(() => Boolean(apiAddress), [apiAddress]);
   const canMakeSendRequest = useMemo(() => Boolean(canMakeCallRequest && userAddress), [canMakeCallRequest, userAddress]);
@@ -42,7 +45,7 @@ const InteractionProvider: FC = ({ children }) => {
         args,
       });
 
-      const proxyProvider = new ProxyNetworkProvider(apiAddress);
+      const proxyProvider = currentProvider;
       const queryResponse = await proxyProvider.queryContract(query);
 
       const resultsParser = new ResultsParser();
@@ -52,11 +55,11 @@ const InteractionProvider: FC = ({ children }) => {
       return result;
     }
     return null;
-  }, [apiAddress, canMakeCallRequest]);
+  }, [canMakeCallRequest, currentProvider]);
 
   const sendMethod = useCallback<TSendMethod>(() => {}, []);
 
-  const values = useMemo(() => ({ callMethod, canMakeCallRequest, sendMethod, canMakeSendRequest }), [callMethod, sendMethod, canMakeCallRequest, canMakeSendRequest]);
+  const values = useMemo(() => ({ callMethod, canMakeCallRequest, sendMethod, canMakeSendRequest, currentProvider }), [callMethod, sendMethod, canMakeCallRequest, canMakeSendRequest, currentProvider]);
 
   return(
     <InteractionContext.Provider value={values}>
