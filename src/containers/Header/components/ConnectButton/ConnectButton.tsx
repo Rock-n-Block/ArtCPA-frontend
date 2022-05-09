@@ -39,7 +39,7 @@ export const ConnectButton: VFC<ConnectButtonProps> = ({
           variant="filled"
           className={styles.connectButton}
         >
-          {address.length ? <Text noWrap>{address}</Text> : 'Connect wallet'}
+          <Text>{address.length ? address : 'Connect wallet'}</Text>
         </Button>
       )}
       {address.length ? (
