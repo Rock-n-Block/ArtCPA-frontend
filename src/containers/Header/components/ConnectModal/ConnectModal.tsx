@@ -6,7 +6,9 @@ import { DappUI } from '@elrondnetwork/dapp-core';
 
 import cn from 'clsx';
 
+import { hasElrondExtension } from 'utils';
 import styles from './styles.module.scss';
+import './styles.scss';
 
 const {
   ExtensionLoginButton,
@@ -37,10 +39,10 @@ export const ConnectModal: VFC<ConnectModalProps> = ({
       title="Connect a wallet"
       size="none"
     >
-      <ExtensionLoginButton />
-      <WebWalletLoginButton />
-      <LedgerLoginButton />
-      <WalletConnectLoginButton />
+      <ExtensionLoginButton callbackRoute="/" buttonClassName={hasElrondExtension ? styles.connectButton : 'extension-login_noExtensionButtonWrapper'} />
+      <WebWalletLoginButton callbackRoute="/" buttonClassName={styles.connectButton} />
+      <LedgerLoginButton callbackRoute="/" buttonClassName={styles.connectButton} />
+      <WalletConnectLoginButton callbackRoute="/" buttonClassName={styles.connectButton} />
     </Modal>
   );
 };

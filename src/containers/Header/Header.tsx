@@ -1,13 +1,13 @@
 import { Button, Logo } from 'components';
 import { Link as RSLink } from 'react-scroll';
-import { VFC, useEffect, useMemo, useState } from 'react';
+import { VFC, useEffect, useMemo, useState, useCallback } from 'react';
 import { useWindowState } from 'hooks';
 import { useGetAccountInfo, logout } from '@elrondnetwork/dapp-core';
 import { useDispatch } from 'react-redux';
 import { updateUserState } from 'store/user/reducer';
 import { WrapContainer } from 'components/WrapContainer';
 import { LogoIcon } from 'assets/img/icons';
-import { useInteraction } from 'containers/Interaction';
+import { useElrondApi } from 'containers/ElrondAPI';
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
 import styles from './styles.module.scss';
@@ -23,7 +23,7 @@ export const Header: VFC<HeaderProps> = () => {
   const dispatch = useDispatch();
 
   const { address: elraddress } = useGetAccountInfo();
-  const { currentProvider } = useInteraction();
+  const { getAccountsTokens } = useElrondApi();
 
   const isTablet = useMemo(() => {
     return width < 1200;
@@ -42,18 +42,23 @@ export const Header: VFC<HeaderProps> = () => {
     logout();
   };
 
-  const closeModal = () => setConnectModalOpen(false);
-  const openModal = () => setConnectModalOpen(true);
+  const closeModal = useCallback(() => setConnectModalOpen(false), []);
+  const openModal = useCallback(() => setConnectModalOpen(true), []);
+
+  const getUserData = useCallback(async (address: string) => {
+    const userTokens = await getAccountsTokens();
+    dispatch(updateUserState({
+      address,
+      tokens: userTokens,
+    }));
+  }, [dispatch, getAccountsTokens]);
 
   useEffect(() => {
     if (elraddress) {
-      currentProvider.doGetGeneric(`accounts/${elraddress}/tokens`).then((res) => console.log(res));
-      dispatch(updateUserState({
-        address: elraddress,
-      }));
+      getUserData(elraddress);
     }
     closeModal();
-  }, [currentProvider, dispatch, elraddress]);
+  }, [closeModal, dispatch, elraddress, getUserData]);
 
   return (
     <WrapContainer className={styles.header}>

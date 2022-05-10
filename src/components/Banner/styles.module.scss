@@ -22,7 +22,12 @@
 }
 
 @media screen and (max-width: 550px) {
-  .bannerText {
-    font-size: 22px;
+  .banner{
+    & > .container{
+      max-width: 85%;
+    }
+    &Text {
+      font-size: 22px;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { useGetAccountInfo, useGetNetworkConfig } from '@elrondnetwork/dapp-core';
-import { ProxyNetworkProvider } from '@elrondnetwork/erdjs-network-providers/out';
+import { ApiNetworkProvider, ProxyNetworkProvider } from '@elrondnetwork/erdjs-network-providers/out';
 import { Address, ContractFunction, ResultsParser, SmartContract, SmartContractAbi, TypedOutcomeBundle, TypedValue } from '@elrondnetwork/erdjs/out';
 import { contracts, EContracts } from 'config';
 import { createContext, FC, useContext, useCallback, useMemo, useRef } from 'react';
@@ -20,6 +20,7 @@ interface IInteractionContext {
   sendMethod: TSendMethod;
   canMakeSendRequest: boolean;
   currentProvider: ProxyNetworkProvider;
+  currentApiProvider: ApiNetworkProvider;
 }
 
 const InteractionContext = createContext<IInteractionContext>({} as IInteractionContext);
@@ -29,6 +30,7 @@ const InteractionProvider: FC = ({ children }) => {
   const { network: { apiAddress } } = useGetNetworkConfig();
 
   const currentProvider = useRef(new ProxyNetworkProvider(apiAddress)).current;
+  const currentApiProvider = useRef(new ApiNetworkProvider(apiAddress)).current;
 
   const canMakeCallRequest = useMemo(() => Boolean(apiAddress), [apiAddress]);
   const canMakeSendRequest = useMemo(() => Boolean(canMakeCallRequest && userAddress), [canMakeCallRequest, userAddress]);
@@ -59,7 +61,7 @@ const InteractionProvider: FC = ({ children }) => {
 
   const sendMethod = useCallback<TSendMethod>(() => {}, []);
 
-  const values = useMemo(() => ({ callMethod, canMakeCallRequest, sendMethod, canMakeSendRequest, currentProvider }), [callMethod, sendMethod, canMakeCallRequest, canMakeSendRequest, currentProvider]);
+  const values = useMemo(() => ({ callMethod, canMakeCallRequest, sendMethod, canMakeSendRequest, currentProvider, currentApiProvider }), [callMethod, sendMethod, canMakeCallRequest, canMakeSendRequest, currentProvider, currentApiProvider]);
 
   return(
     <InteractionContext.Provider value={values}>

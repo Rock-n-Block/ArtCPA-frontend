@@ -21,14 +21,16 @@ const ContractProvider:FC = ({ children }) => {
 
   const requestCurrentStage = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage', implementInterface: ['Adder'] });
+    const normalizedValue = firstValue.valueOf();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch(updateCrowdSaleStage(camelize(firstValue.valueOf() as any) as any));
+    dispatch(updateCrowdSaleStage(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
   }, [callMethod, dispatch]);
 
   const requestStageTimeLeft = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage_left_time', implementInterface: ['Adder'] });
+    const normalizedValue = firstValue.valueOf();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch(updateStageTimeLeft(camelize(firstValue.valueOf() as any) as any));
+    dispatch(updateStageTimeLeft(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
   }, [callMethod, dispatch]);
 
   const requestAllowedTokensMap = useCallback(async () => {

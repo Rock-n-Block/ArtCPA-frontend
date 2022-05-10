@@ -1,3 +1,4 @@
+import { TSingleUserToken } from 'types/store/user';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { UserState } from 'types';
@@ -5,6 +6,7 @@ import { UserState } from 'types';
 const initialState: UserState = {
   address: '',
   balance: 0,
+  tokens: [],
 };
 
 export const userReducer = createSlice({
@@ -15,6 +17,10 @@ export const userReducer = createSlice({
       ...state,
       ...action.payload,
     }),
+    updateUserTokens: (state, action: PayloadAction<TSingleUserToken[]>) => ({
+      ...state,
+      tokens: action.payload,
+    }),
     disconnectWalletState: () => {
       localStorage.removeItem('walletconnect');
       return {
@@ -24,6 +30,6 @@ export const userReducer = createSlice({
   },
 });
 
-export const { disconnectWalletState, updateUserState } = userReducer.actions;
+export const { disconnectWalletState, updateUserState, updateUserTokens } = userReducer.actions;
 
 export default userReducer.reducer;
