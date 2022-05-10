@@ -9,5 +9,6 @@ export type TSingleUserToken = {
 export type UserState = {
   address: string;
   balance: string | number;
+  key: string;
   tokens: TSingleUserToken[];
 };
