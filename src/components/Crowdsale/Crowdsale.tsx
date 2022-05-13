@@ -24,7 +24,6 @@ import { useDispatch } from 'react-redux';
 import { buyToken, getCurrentStage } from 'store/crowdsale/actions';
 import { useContractMethods, useInteraction } from 'containers';
 import { BytesValue } from '@elrondnetwork/erdjs/out';
-import { toast } from 'react-toastify';
 import styles from './styles.module.scss';
 
 export interface CrowdsaleProps {
@@ -151,21 +150,39 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
 
   const handleChangeSendInput = useCallback((event) => {
     const sendValue = parseFloat(event.target.value) || 0;
-    if(payableTokenBalance.isGreaterThanOrEqualTo(sendValue) && new BigNumber(sendValue).isLessThanOrEqualTo(maximumLimit)) {
-      const receiveAmount = sendValue * payableTokenToMainToken;
-      setReceiveInput(receiveAmount.toString());
-      setSendInput(event.target.value);
+
+    const receiveAmount = sendValue * payableTokenToMainToken;
+    setReceiveInput(receiveAmount.toString());
+    setSendInput(event.target.value);
+  }, [payableTokenToMainToken]);
+
+  const sendErrors = useMemo(() => {
+    const errors = [];
+    if(!Object.is(parseFloat(sendInput), NaN)) {
+      if(new BigNumber(sendInput).isGreaterThanOrEqualTo(maximumLimit)) {
+        errors.push('Send amount is greater than max limit');
+      }
     }
-  }, [maximumLimit, payableTokenBalance, payableTokenToMainToken]);
+    return errors;
+  }, [maximumLimit, sendInput]);
 
   const handleChangeReceiveInput = useCallback((event) => {
     const receiveValue = parseFloat(event.target.value) || 0;
-    if(payableTokenBalance.isGreaterThanOrEqualTo(receiveValue * mainTokenToPayableToken) && new BigNumber(receiveValue * mainTokenToPayableToken).isLessThanOrEqualTo(maximumLimit)) {
-      const sendAmount = receiveValue * mainTokenToPayableToken;
-      setSendInput(sendAmount.toString());
-      setReceiveInput(event.target.value);
+
+    const sendAmount = receiveValue * mainTokenToPayableToken;
+    setSendInput(sendAmount.toString());
+    setReceiveInput(event.target.value);
+  }, [mainTokenToPayableToken]);
+
+  const receiveErrors = useMemo(() => {
+    const errors = [];
+    if(!Object.is(parseFloat(receiveInput), NaN)) {
+      if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isGreaterThanOrEqualTo(maximumLimit)) {
+        errors.push('Receive amount is greater than max limit');
+      }
     }
-  }, [mainTokenToPayableToken, maximumLimit, payableTokenBalance]);
+    return errors;
+  }, [mainTokenToPayableToken, maximumLimit, receiveInput]);
 
   const isStageSoldOut = useMemo(() => {
     if(stage) {
@@ -192,7 +209,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
             token: selectedFullInfo.address,
             amount: sendInput,
             decimals: +selectedFullInfo.decimals,
-          }).then((result) => (result ? toast.success('Transaction has been sent successfully') : toast.error('Sending error, please, try again later'))).finally(() => setIsFetching(false));
+          }).finally(() => setIsFetching(false));
         },
       }));
     }
@@ -203,6 +220,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
     requestStageTimeLeft();
     dispatch(getCurrentStage());
   }, [dispatch, requestCurrentStage, requestStageTimeLeft]);
+
+  const allowToCrowd = useMemo(() => parseFloat(receiveInput) < 0 || isFetching || Object.is(parseFloat(receiveInput), NaN) || parseFloat(sendInput) > maximumLimit || sendErrors.length !== 0 || receiveErrors.length !== 0, [isFetching, maximumLimit, receiveErrors.length, receiveInput, sendErrors.length, sendInput]);
 
   return (
     <WrapContainer name={HomePageAnchors.BUY} className={styles.smainWrapper}>
@@ -232,6 +251,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
                   onChange={handleChangeSendInput}
                   className={styles.inputs}
                   placeholder="Send"
+                  type="number"
+                  error={sendErrors.join(',')}
                 />
                 <SelectCurrency
                   className={styles.selects}
@@ -251,6 +272,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
                   placeholder="Receive"
                   value={receiveInput}
                   onChange={handleChangeReceiveInput}
+                  error={receiveErrors.join(',')}
+                  type="number"
                 />
                 <Button size="sm" variant="filled-secondary" startAdorment={<Coin width="30" height="30" />} className={styles.CPAbtn}>{MainToken.symbol}</Button>
               </div>
@@ -266,7 +289,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
               <div className={styles.buyInfo}>
                 <Text noWrap={false} align="center">You buy ArtCPAclub Tokens by sending {select.value} to the contract</Text>
               </div>
-              <Button disabled={parseFloat(receiveInput) < 0 || isFetching || Object.is(parseFloat(receiveInput), NaN) || parseFloat(sendInput) > maximumLimit} variant="filled" className={styles.buyButton} size="md" onClick={onBuyClickHandler}>BUY {MainToken.symbol}</Button>
+              <Button disabled={allowToCrowd} variant="filled" className={styles.buyButton} size="md" onClick={onBuyClickHandler}>BUY {MainToken.symbol}</Button>
             </>
           )
             : <Text noWrap={false} align="center">{stage.stageNumber.toString()} is sold out!</Text>}

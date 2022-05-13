@@ -77,7 +77,6 @@
   border: var(--input-default-border);
   color: var(--typography-default-color);
   opacity: 0.5;
-  transition: 200ms ease-in-out !important;
 
   &:hover {
     background: var(--input-hover-background);
@@ -100,7 +99,6 @@
     & ~ .endAdorment > svg > path {
       fill: var(--input-focus-icon);
     }
-    padding-top: spacing(3);
   }
 
   &:focus {
@@ -110,7 +108,6 @@
     outline: none;
     box-shadow: none;
     caret-color: var(--input-active-caret);
-    padding-top: spacing(3);
     transition: 0s;
     & ~ .endAdorment > svg > path {
       fill: var(--input-focus-icon);
@@ -189,15 +186,16 @@
 }
 
 .textError {
-  position: absolute;
-  width: 100%;
+  position: relative;
   display: inline-block;
-
-  margin-top: 3px;
-
-  text-align: right;
+  top: -35px;
+  left: 50%;
   font-size: 10px;
   color: red;
+  transform: translateX(-50%);
+  justify-self: flex-start;
+  width: 100%;
+  text-align: center;
 }
 
 .icon {
@@ -216,12 +214,10 @@
   transition: 200ms;
 
   &:focus {
-    padding-top: spacing(4);
     transition: 200ms;
   }
 
   &:not(:placeholder-shown) {
-    padding-top: spacing(4);
     & + .labelText {
       top: 20px;
       color: var(--input-active-label)
