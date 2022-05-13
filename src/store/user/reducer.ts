@@ -8,6 +8,7 @@ const initialState: UserState = {
   balance: 0,
   key: '',
   tokens: [],
+  nfts: [],
 };
 
 export const userReducer = createSlice({
@@ -22,6 +23,10 @@ export const userReducer = createSlice({
       ...state,
       tokens: action.payload,
     }),
+    updateUserNfts: (state, action: PayloadAction<string[]>) => ({
+      ...state,
+      nfts: action.payload,
+    }),
     disconnectWalletState: () => {
       localStorage.removeItem('walletconnect');
       return {
@@ -31,6 +36,6 @@ export const userReducer = createSlice({
   },
 });
 
-export const { disconnectWalletState, updateUserState, updateUserTokens } = userReducer.actions;
+export const { disconnectWalletState, updateUserState, updateUserTokens, updateUserNfts } = userReducer.actions;
 
 export default userReducer.reducer;

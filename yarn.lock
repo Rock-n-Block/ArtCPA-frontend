@@ -1774,10 +1774,10 @@
     tweetnacl "1.0.3"
     uuid "8.3.2"
 
-"@elrondnetwork/erdjs@^10.2.2":
-  version "10.2.2"
-  resolved "https://registry.yarnpkg.com/@elrondnetwork/erdjs/-/erdjs-10.2.2.tgz#0c14f67329d87f29ce8709d85bdbe13d14407326"
-  integrity sha512-ojn7wNI/Jfd77dDnFLK+BKVZDgAy8r6/DTiypWN1sZcG420LU/M+kn63CVVINAjXJthyNgk3M8jtyEQvt8rwEg==
+"@elrondnetwork/erdjs@^10.2.4":
+  version "10.2.4"
+  resolved "https://registry.yarnpkg.com/@elrondnetwork/erdjs/-/erdjs-10.2.4.tgz#c7930344143893581ac40116b8d60d33b46f17d9"
+  integrity sha512-QcxGuAhsv8oQpBhai/PNfUMLTYUqM32IcSU7NvtpPKRiDrAMbVyyvDdllR9jefJGVUVBKPjerWNG9TucSqGfUw==
   dependencies:
     "@elrondnetwork/transaction-decoder" "0.1.0"
     bech32 "1.1.4"

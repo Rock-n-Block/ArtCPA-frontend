@@ -11,4 +11,5 @@ export type UserState = {
   balance: string | number;
   key: string;
   tokens: TSingleUserToken[];
+  nfts: string[];
 };

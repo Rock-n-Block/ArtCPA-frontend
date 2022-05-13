@@ -1,9 +1,15 @@
-import { BigNumber } from 'bignumber.js';
+import { ReactElement } from 'react';
 
 export type TSingleToken = {
-  name: string,
-  decimals: BigNumber,
+  symbol: string,
+  address: string,
+  decimals: string,
+  price: string,
 };
+
+export type TSingleTokenWithIcon = {
+  icon: ReactElement
+} & TSingleToken;
 
 export type TTokensState = {
   tokens: TSingleToken[],

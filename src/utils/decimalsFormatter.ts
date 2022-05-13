@@ -4,12 +4,12 @@ import { BigNumber } from 'bignumber.js';
 const { decimals: mainDecimals } = MainToken;
 const BIG_TEN = new BigNumber(10);
 
-export const withDecimals = (value: BigNumber, decimals = mainDecimals) => {
+export const withDecimals = (value: BigNumber, decimals = new BigNumber(mainDecimals)) => {
   return value.multipliedBy(BIG_TEN.pow(decimals));
 };
 
-export const withoutDecimals = (value: BigNumber, decimals = mainDecimals) => {
-  return value.div(BIG_TEN.pow(decimals));
+export const withoutDecimals = (value: BigNumber, decimals = new BigNumber(mainDecimals)) => {
+  return value.dividedBy(BIG_TEN.pow(decimals));
 };
 
 type TDecimalNumberProperties = {

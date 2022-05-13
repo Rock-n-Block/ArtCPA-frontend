@@ -11,6 +11,11 @@ const initialState: TCrowdSaleState = {
     leftTokens: new BigNumber(0),
   },
   stageTimeLeft: new BigNumber(0),
+  stageTokenPrice: new BigNumber(0),
+  stageLimits: {
+    minimum: new BigNumber(40),
+    maximum: new BigNumber(40000),
+  },
 };
 
 export const crowdSaleReducer = createSlice({
@@ -29,9 +34,13 @@ export const crowdSaleReducer = createSlice({
       ...state,
       stageTimeLeft: action.payload,
     }),
+    updateStageTokenPrice: (state, action: PayloadAction<BigNumber>) => ({
+      ...state,
+      stageTokenPrice: action.payload,
+    }),
   },
 });
 
-export const { updateCrowdSaleState, updateCrowdSaleStage, updateStageTimeLeft } = crowdSaleReducer.actions;
+export const { updateCrowdSaleState, updateCrowdSaleStage, updateStageTimeLeft, updateStageTokenPrice } = crowdSaleReducer.actions;
 
 export default crowdSaleReducer.reducer;

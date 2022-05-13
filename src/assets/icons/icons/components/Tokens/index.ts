@@ -6,3 +6,4 @@ export { JEX } from './JEX';
 export { MEX } from './MEX';
 export { USDC } from './USDC';
 export { ZPAY } from './ZPAY';
+export { ASH } from './ASH';

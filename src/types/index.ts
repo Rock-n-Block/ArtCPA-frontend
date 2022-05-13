@@ -1,5 +1,6 @@
 export * from './store';
 export * from './components';
+export * from './api';
 
 export interface IModalProps {
   className?: string;

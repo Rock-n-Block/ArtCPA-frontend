@@ -1,13 +1,14 @@
 import { AbiRegistry } from '@elrondnetwork/erdjs/out';
-import BigNumber from 'bignumber.js';
 import { TSingleToken } from 'types';
 import { CrowdSaleABI } from './abi/crowdsale.abi';
 
 export const isDev = true;
 
 export const MainToken: TSingleToken = {
-  name: 'CPA',
-  decimals: new BigNumber(6),
+  symbol: 'CPA',
+  address: 'CPA-123456',
+  decimals: '6',
+  price: '',
 };
 
 export enum EContracts{

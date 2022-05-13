@@ -49,6 +49,7 @@
 .buyInfo {
     background-color: var(--card-secondary-background);
     padding: spacing(1.5, 3);
+    margin-top: spacing(1.5) !important;
     border-radius: 8px;
     margin-bottom: spacing(3) !important;
 }
