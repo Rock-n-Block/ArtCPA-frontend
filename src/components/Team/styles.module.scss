@@ -11,20 +11,23 @@
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: spacing(3);
-  padding-top: spacing(5.75);
-  
-  @include forDesktopSm {
-    display: grid;
-    gap: spacing(2);
-    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(230px, 1fr));
-    & > div > img {
-      max-width: 162px;
-      max-height: 230px;
-      }
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px !important;
+  .cardWrapper{
+    padding: 10px;
+    flex: 0 0 25%;
+    @include forDesktopMiddle{
+      flex: 0 0 33.333%;
+    }
+    @include forDesktopSm{
+      flex: 0 0 50%;
+    }
+    @include forTablet{
+      flex: 0 0 100%;
+    }
   }
 }

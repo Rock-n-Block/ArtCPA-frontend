@@ -14,7 +14,7 @@ export const TeamCard: VFC<TeamCardProps> = ({ className, image, personName, per
 }) => {
   return (
     <div className={cn(className, styles.root)}>
-      <img src={image} alt="Person" />
+      <img src={image} alt="Person" className={styles.avatar} />
       <H3 weight="semiBold">{personName}</H3>
       <Text size="m">{personPosition}</Text>
     </div>
