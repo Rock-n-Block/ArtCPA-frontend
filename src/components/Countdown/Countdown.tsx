@@ -9,6 +9,7 @@ export interface CountdownProps {
   auctionEndText: string;
   isNftCard?: boolean;
   className?: string;
+  onTimerOut?: () => void;
 }
 
 export const Countdown: VFC<CountdownProps> = ({
@@ -16,8 +17,9 @@ export const Countdown: VFC<CountdownProps> = ({
   auctionEndText,
   isNftCard = false,
   className,
+  onTimerOut,
 }) => {
-  const timeLeft = useTimeLeft(endAuction * 1000);
+  const timeLeft = useTimeLeft(endAuction * 1000, onTimerOut);
 
   if (!timeLeft) {
     return <Text tag="span" align="center">{auctionEndText}</Text>;

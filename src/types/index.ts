@@ -1,8 +1,6 @@
 export * from './store';
 export * from './components';
-
-export type TNullable<T> = T | null;
-export type TOptionable<T> = T | undefined;
+export * from './api';
 
 export interface IModalProps {
   className?: string;

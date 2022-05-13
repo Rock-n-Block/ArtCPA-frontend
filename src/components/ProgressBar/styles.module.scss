@@ -6,6 +6,7 @@
     position: relative;
     display: flex;
     overflow: hidden;
+    height: spacing(6);
 }
 .title {
     width: 100%;
@@ -19,5 +20,4 @@
 .progress {
     background: var(--progress-bar-default-background);
     height: 100%;
-    padding: spacing(3);
 }

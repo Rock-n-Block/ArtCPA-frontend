@@ -1733,6 +1733,17 @@
     react-bootstrap "2.0.3"
     swr "1.1.2"
 
+"@elrondnetwork/erdjs-network-providers@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@elrondnetwork/erdjs-network-providers/-/erdjs-network-providers-0.1.5.tgz#dbee664c0c17120c0e53bd33f540588dc59e2351"
+  integrity sha512-7NGoU2rBZk1NkxaO2hIs/4eN8ZYEOWYOkDCpTc35diEOoHjkk13Ov+6qtNjkyKbWn5bnEjdtwMKddc6ilwwR9Q==
+  dependencies:
+    axios "0.24.0"
+    bech32 "1.1.4"
+    bignumber.js "9.0.1"
+    buffer "6.0.3"
+    json-bigint "1.0.0"
+
 "@elrondnetwork/erdjs@9.1.0":
   version "9.1.0"
   resolved "https://registry.npmjs.org/@elrondnetwork/erdjs/-/erdjs-9.1.0.tgz"
@@ -1763,10 +1774,10 @@
     tweetnacl "1.0.3"
     uuid "8.3.2"
 
-"@elrondnetwork/erdjs@^10.1.2":
-  version "10.1.2"
-  resolved "https://registry.npmjs.org/@elrondnetwork/erdjs/-/erdjs-10.1.2.tgz"
-  integrity sha512-E4g2ztE7g9pYTKhnBaAym0QAknx251OWGnjUilqwezDaCUsJZ3X6Y84tg9IJwmP72DPpr365f4y6PgmG2mChZQ==
+"@elrondnetwork/erdjs@^10.2.4":
+  version "10.2.4"
+  resolved "https://registry.yarnpkg.com/@elrondnetwork/erdjs/-/erdjs-10.2.4.tgz#c7930344143893581ac40116b8d60d33b46f17d9"
+  integrity sha512-QcxGuAhsv8oQpBhai/PNfUMLTYUqM32IcSU7NvtpPKRiDrAMbVyyvDdllR9jefJGVUVBKPjerWNG9TucSqGfUw==
   dependencies:
     "@elrondnetwork/transaction-decoder" "0.1.0"
     bech32 "1.1.4"

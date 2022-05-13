@@ -5,7 +5,7 @@
  * This file was automatically generated.
  */
 
-export enum State {
+export enum RequestState {
   Pending = 'Pending',
   Failed = 'Failed',
   Committed = 'Committed',

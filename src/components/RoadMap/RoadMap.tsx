@@ -40,7 +40,7 @@ export const RoadMap: VFC<RoadMapProps> = ({ className }) => {
               {item.points.map((point) => (
                 <div className={styles.point}>
                   <CheckIcon />
-                  <Text size="m" noWrap={false} align="center"> {point} </Text>
+                  <Text size="m" className={styles.text} noWrap={false} align="center"> {point} </Text>
                 </div>
               ))}
             </div>

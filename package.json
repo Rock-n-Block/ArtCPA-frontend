@@ -44,7 +44,8 @@
   },
   "dependencies": {
     "@elrondnetwork/dapp-core": "^1.1.11",
-    "@elrondnetwork/erdjs": "^10.1.2",
+    "@elrondnetwork/erdjs": "^10.2.4",
+    "@elrondnetwork/erdjs-network-providers": "^0.1.5",
     "@fontsource/poppins": "^4.5.5",
     "@fontsource/roboto": "^4.5.5",
     "@reduxjs/toolkit": "^1.6.2",
