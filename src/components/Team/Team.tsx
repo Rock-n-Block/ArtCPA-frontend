@@ -14,6 +14,8 @@ export interface TeamProps {
   className?: string;
 }
 
+const avatarClasses = [styles.first, styles.second, styles.third, styles.fourth];
+
 export const Team: VFC<TeamProps> = ({ className }) => {
   return (
     <WrapContainer name={HomePageAnchors.TEAM} className={cn(styles.team, className)}>
@@ -26,7 +28,7 @@ export const Team: VFC<TeamProps> = ({ className }) => {
               image={card.image}
               personName={card.personName}
               personPosition={card.personPosition}
-              className={cn(styles.card, 'inputCard')}
+              className={cn(styles.card, avatarClasses[index], 'inputCard')}
             />
           </div>
         ))}

@@ -6,6 +6,8 @@ import { rectangle } from 'assets/img/icons';
 import { WrapContainer } from 'components/WrapContainer';
 import { YouTubeLogo, Polygon } from 'assets/icons/icons';
 import styles from './styles.module.scss';
+// @ts-ignore
+import src from '../../assets/Nature-Elements-by-CP.mp4';
 
 export interface MainVideoProps {
   className?: string;
@@ -17,19 +19,13 @@ export const MainVideo: VFC<MainVideoProps> = ({ className }) => {
   const handleButtonClick = () => {
     setIsClicked(true);
   };
-  const youtubeLink = 'https://www.youtube.com/embed/LHaxLygUgkE';
   return (
     <WrapContainer className={cn(styles.mainVideo, className)}>
       {isClicked ? (
-        <iframe
-          width="100%"
-          height="100%"
-          src={`${youtubeLink}?autoplay=1`}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        <video controls className={styles.video}>
+          <source src={src} />
+          <track kind="captions" />
+        </video>
       ) : (
         <div className={styles.preview}>
           <img src={rectangle} alt="video preview" className={styles.preview} />
