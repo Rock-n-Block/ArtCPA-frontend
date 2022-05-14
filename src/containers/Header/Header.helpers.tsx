@@ -1,3 +1,6 @@
+// @ts-ignore
+import whitepaper from '../../assets/ArtCPA_Whitepaper.pdf';
+
 export enum HomePageAnchors {
   ROAD_MAP = 'roadMapBlockAnchor',
   WHITE_PAPER = 'whitepaperBlockAnchor',
@@ -20,7 +23,7 @@ export const homePageNavigation: HomePageNavElement[] = [
   {
     label: 'Whitepaper',
     isOuterLink: true,
-    link: 'https://google.com',
+    link: whitepaper,
   },
   {
     label: 'Team',

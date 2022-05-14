@@ -79,7 +79,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   }, []);
 
   const tokensBought = useMemo(() => {
-    if(stage.totalTokens) {
+    if(stage?.totalTokens) {
       const { leftTokens, totalTokens } = stage;
       return decimalNumber({ value: totalTokens.minus(leftTokens) });
     }
@@ -127,7 +127,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   }, [selectedFullInfo, stageTokenPrice]);
 
   const minimumLimit = useMemo(() => {
-    if(stageLimits.minimum && selectedFullInfo?.price && stage.leftTokens) {
+    if(stageLimits.minimum && selectedFullInfo?.price && stage?.leftTokens) {
       const { leftTokens } = stage;
       const leftWithoutDecimals = decimalNumber({ value: leftTokens });
       const leftInPayableToken = leftWithoutDecimals.multipliedBy(mainTokenToPayableToken);
@@ -138,7 +138,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   }, [mainTokenToPayableToken, selectedFullInfo, stage, stageLimits.minimum]);
 
   const maximumLimit = useMemo(() => {
-    if(stageLimits.maximum && selectedFullInfo?.price && stage.leftTokens) {
+    if(stageLimits.maximum && selectedFullInfo?.price && stage?.leftTokens) {
       const { leftTokens } = stage;
       const leftWithoutDecimals = decimalNumber({ value: leftTokens });
       const leftInPayableToken = leftWithoutDecimals.multipliedBy(mainTokenToPayableToken);
@@ -185,7 +185,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   }, [mainTokenToPayableToken, maximumLimit, receiveInput]);
 
   const isStageSoldOut = useMemo(() => {
-    if(stage) {
+    if(stage?.leftTokens) {
       const { leftTokens } = stage;
       return leftTokens.isEqualTo(0);
     }

@@ -11,6 +11,7 @@ import {
 
 import cn from 'clsx';
 
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 export interface ButtonProps {
@@ -48,12 +49,20 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   onMouseOver = () => {},
   children,
 }) => {
+  const navigator = useNavigate();
   const creationData = useMemo(() => {
     if (to) {
       return {
-        tag: 'a',
+        tag: 'button',
         props: {
-          to,
+          type,
+          ref: btnRef,
+          onClick: (e: never) => {
+            onClick(e);
+            navigator(to);
+          },
+          onMouseLeave,
+          onMouseOver,
         },
       };
     }
