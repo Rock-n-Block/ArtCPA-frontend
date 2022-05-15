@@ -25,6 +25,7 @@ import { buyToken, getCurrentStage } from 'store/crowdsale/actions';
 import { useContractMethods, useInteraction } from 'containers';
 import { BytesValue } from '@elrondnetwork/erdjs/out';
 import styles from './styles.module.scss';
+import { OwnerMenu } from './components/OwnerMenu';
 
 export interface CrowdsaleProps {
   className?: string;
@@ -295,6 +296,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
             : <Text noWrap={false} align="center">{stage.stageNumber.toString()} is sold out!</Text>}
         </>
         )}
+        <OwnerMenu stage={stage} />
       </div>
     </WrapContainer>
   );

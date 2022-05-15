@@ -88,7 +88,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
         onMouseOver,
       },
     };
-  }, [to, href, type, btnRef, onClick, onMouseLeave, onMouseOver]);
+  }, [to, href, type, btnRef, onClick, onMouseLeave, onMouseOver, navigator]);
 
   return (
     createElement(

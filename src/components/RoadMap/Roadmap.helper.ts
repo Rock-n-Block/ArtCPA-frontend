@@ -1,5 +1,5 @@
 export const content = [{
-  title: 'Quater 1/2022',
+  title: 'Quarter 1/2022',
   points: ['Pre-sale phase 1 ~ 21st March at 20:00 UTC on JEXchange IDO~Completed',
     'Whitepaper Release ~ Achieved',
     'Rewards for Community ~ Started 06 March ~ Ongoing',
@@ -13,7 +13,7 @@ export const content = [{
   ],
 },
 {
-  title: 'Quater 2/2022',
+  title: 'Quarter 2/2022',
   points: [
     'Pre-sale phases 2,3&4 ~ Planned',
     'Launch 3rd Collection ~ Launched',
@@ -21,7 +21,7 @@ export const content = [{
   ],
 },
 {
-  title: 'Quater 3/2022',
+  title: 'Quarter 3/2022',
   points: [
     'Pre-sale phases 5,6&7 ~ Planned',
     'Launch 4th Collection ~ Planned',
@@ -29,7 +29,7 @@ export const content = [{
   ],
 },
 {
-  title: 'Quater 4/2022',
+  title: 'Quarter 4/2022',
   points: [
     'Launch Market Feature  ~ Planned',
     'Listing on JEXchange ~ Planned',

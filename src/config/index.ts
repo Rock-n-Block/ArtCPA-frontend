@@ -28,3 +28,7 @@ export const contracts:TContracts = {
     abi: CrowdSaleABI,
   },
 };
+
+export const getContract = (contract: EContracts) => {
+  return contracts[contract];
+};

@@ -2,10 +2,10 @@
 import whitepaper from '../../assets/ArtCPA_Whitepaper.pdf';
 
 export enum HomePageAnchors {
-  ROAD_MAP = 'roadMapBlockAnchor',
-  WHITE_PAPER = 'whitepaperBlockAnchor',
-  TEAM = 'teamBlockAnchor',
-  BUY = 'buyBlockAnchor',
+  ROAD_MAP = '/#roadMapBlockAnchor',
+  WHITE_PAPER = '/#whitepaperBlockAnchor',
+  TEAM = '/#teamBlockAnchor',
+  BUY = '/#buyBlockAnchor',
 }
 
 export type HomePageNavElement = {

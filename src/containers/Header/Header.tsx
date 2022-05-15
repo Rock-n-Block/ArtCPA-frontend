@@ -1,5 +1,4 @@
 import { Button, Logo } from 'components';
-import { Link as RSLink } from 'react-scroll';
 import { VFC, useEffect, useMemo, useState, useCallback } from 'react';
 import { useWindowState } from 'hooks';
 import { useGetAccountInfo, logout } from '@elrondnetwork/dapp-core';
@@ -8,6 +7,7 @@ import { updateUserState } from 'store/user/reducer';
 import { WrapContainer } from 'components/WrapContainer';
 import { LogoIcon } from 'assets/img/icons';
 import { useElrondApi } from 'containers/ElrondAPI';
+import { Link } from 'react-router-dom';
 import { HomePageAnchors, homePageNavigation } from './Header.helpers';
 
 import styles from './styles.module.scss';
@@ -87,16 +87,16 @@ export const Header: VFC<HeaderProps> = () => {
                 );
               }
               return (
-                <RSLink key={label} smooth to={anchorId} delay={0} className={styles.navLink}>
+                <Link key={label} to={anchorId} className={styles.navLink}>
                   <Button className={styles.headerNav} variant="text">{label}</Button>
-                </RSLink>
+                </Link>
               );
             })}
           </>
           )}
-          <RSLink smooth to={HomePageAnchors.BUY}>
+          <Link to={HomePageAnchors.BUY}>
             <Button className={styles.buyButton}>Buy CPA</Button>
-          </RSLink>
+          </Link>
           <ConnectButton
             isMobile={false}
             onCloseModal={closeModal}

@@ -1,6 +1,6 @@
 import { RefObject, VFC } from 'react';
 import { Button, Modal } from 'components';
-import { Link as RSLink } from 'react-scroll';
+// import { Link as RSLink } from 'react-scroll';
 import { Link } from 'react-router-dom';
 
 import cn from 'clsx';
@@ -40,6 +40,7 @@ export const Menu: VFC<MenuProps> = ({
             variant="text"
             to={link}
             className={styles.navLink}
+            onClick={onClose}
           >
             {label}
           </Button>
@@ -62,15 +63,14 @@ export const Menu: VFC<MenuProps> = ({
 
         if (anchorId) {
           return (
-            <RSLink
+            <Link
               key={label}
-              smooth
               to={anchorId}
               className={styles.navLink}
               onClick={onClose}
             >
               <Button className={styles.headerNav} variant="text">{label}</Button>
-            </RSLink>
+            </Link>
           );
         }
 

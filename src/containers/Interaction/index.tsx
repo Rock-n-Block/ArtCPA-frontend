@@ -84,7 +84,7 @@ const InteractionProvider: FC = ({ children }) => {
         const tx = appliedContract.methodsExplicit[method](args).withNonce(userAccount.nonce).withGasLimit(600000000).withValue(TokenPayment.egldFromAmount(isNativePayment ? amount : 0))
           .withChainID('T');
 
-        if(!isNativePayment) {
+        if(!isNativePayment && token) {
           tx.withSingleESDTTransfer(TokenPayment.fungibleFromAmount(token, amount, decimals));
         }
 
