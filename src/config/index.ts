@@ -5,8 +5,8 @@ import { CrowdSaleABI } from './abi/crowdsale.abi';
 export const isDev = true;
 
 export const MainToken: TSingleToken = {
-  symbol: 'CPA',
-  address: 'CPA-123456',
+  symbol: 'WUSDC',
+  address: 'WUSDC-553207',
   decimals: '6',
   price: '',
 };

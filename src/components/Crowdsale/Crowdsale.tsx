@@ -163,9 +163,12 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       if(new BigNumber(sendInput).isGreaterThanOrEqualTo(maximumLimit)) {
         errors.push('Send amount is greater than max limit');
       }
+      if(new BigNumber(parseFloat(sendInput)).isLessThan(minimumLimit)) {
+        errors.push('Send amount is lower than min limit');
+      }
     }
     return errors;
-  }, [maximumLimit, sendInput]);
+  }, [maximumLimit, minimumLimit, sendInput]);
 
   const handleChangeReceiveInput = useCallback((event) => {
     const receiveValue = parseFloat(event.target.value) || 0;
@@ -181,9 +184,12 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isGreaterThanOrEqualTo(maximumLimit)) {
         errors.push('Receive amount is greater than max limit');
       }
+      if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isLessThan(minimumLimit)) {
+        errors.push('Receive amount is lower than min limit');
+      }
     }
     return errors;
-  }, [mainTokenToPayableToken, maximumLimit, receiveInput]);
+  }, [mainTokenToPayableToken, maximumLimit, minimumLimit, receiveInput]);
 
   const isStageSoldOut = useMemo(() => {
     if(stage?.leftTokens) {
@@ -242,8 +248,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           {!isStageSoldOut ? (
             <>
               <div className={styles.purchaseAmount}>
-                <Text noWrap={false} className={styles.purschAmount}>Min purchase amount: <Text>{minimumLimit} {select.label}</Text></Text>
-                <Text noWrap={false} align="right" className={styles.purschAmount}>Max purchase amount: <Text align="right">{maximumLimit} {select.label}</Text></Text>
+                <Text noWrap={false} className={styles.purschAmount}>Min purchase amount: <Text>{new BigNumber(minimumLimit).decimalPlaces(5).toString()} {select.label}</Text></Text>
+                <Text noWrap={false} align="right" className={styles.purschAmount}>Max purchase amount: <Text align="right">{new BigNumber(maximumLimit).decimalPlaces(5).toString()} {select.label}</Text></Text>
               </div>
               <div className={styles.wrapInputWithSelect}>
                 <Input
@@ -263,8 +269,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
                 />
               </div>
               <div className={styles.textUnderUnput}>
-                <Text color="secondary" noWrap={false}>Your {select.value} balance {payableTokenBalance.toFixed(5)} {select.label}</Text>
-                <Text color="secondary">1 {select.label} = {selectedFullInfo?.price}$</Text>
+                <Text color="secondary" noWrap={false}>Your {select.value} balance {payableTokenBalance.decimalPlaces(5).toString()} {select.label}</Text>
+                <Text color="secondary">1 {select.label} = {new BigNumber(selectedFullInfo?.price || 0).decimalPlaces(5).toString()}$</Text>
               </div>
               <div className={styles.wrapInputWithSelect}>
                 <Input
@@ -279,8 +285,8 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
                 <Button size="sm" variant="filled-secondary" startAdorment={<Coin width="30" height="30" />} className={styles.CPAbtn}>{MainToken.symbol}</Button>
               </div>
               <div className={styles.textUnderUnput}>
-                <Text color="secondary" noWrap={false}>Your {MainToken.address} balance {mainTokenBalance.toFixed(5)} {MainToken.symbol}</Text>
-                <Text color="secondary">1 {MainToken.symbol} = {stageTokenPrice.toString()}$</Text>
+                <Text color="secondary" noWrap={false}>Your {MainToken.address} balance {mainTokenBalance.decimalPlaces(5).toString()} {MainToken.symbol}</Text>
+                <Text color="secondary">1 {MainToken.symbol} = {stageTokenPrice.decimalPlaces(5).toString()}$</Text>
               </div>
               {userNfts.length > 0 && (
               <div>
