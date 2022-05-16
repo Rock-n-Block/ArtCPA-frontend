@@ -107,11 +107,11 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
     if(payableTokenInfo) {
       return decimalNumber({ value: new BigNumber(payableTokenInfo.balance), decimals: new BigNumber(payableTokenInfo.decimals) });
     }
-    if(select.value === 'EGLD') {
+    if(select.value === 'EGLD' && address) {
       return decimalNumber({ value: new BigNumber(balance), decimals: new BigNumber(18) });
     }
     return new BigNumber(0);
-  }, [balance, select.value, userTokens]);
+  }, [address, balance, select.value, userTokens]);
 
   const mainTokenToPayableToken = useMemo(() => {
     if(selectedFullInfo?.price) {

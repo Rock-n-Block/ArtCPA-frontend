@@ -3,9 +3,9 @@ import { VFC } from 'react';
 import cn from 'clsx';
 import { H1 } from 'components/Typography';
 import { Button } from 'components/Button';
-import { Link as RSLink } from 'react-scroll';
 
 import { HomePageAnchors } from 'containers/Header/Header.helpers';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 export interface BannerProps {
@@ -21,9 +21,9 @@ export const Banner: VFC<BannerProps> = ({ className }) => {
           and Blockchain blend together to unlock
           and enhance human potential.
         </H1>
-        <RSLink smooth to={HomePageAnchors.BUY} className={styles.navLink}>
+        <Link to={HomePageAnchors.BUY} className={styles.navLink}>
           <Button variant="filled" size="md"> BUY CPA </Button>
-        </RSLink>
+        </Link>
       </div>
     </div>
   );

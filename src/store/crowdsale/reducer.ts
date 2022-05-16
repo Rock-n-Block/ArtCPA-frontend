@@ -13,8 +13,8 @@ const initialState: TCrowdSaleState = {
   stageTimeLeft: new BigNumber(0),
   stageTokenPrice: new BigNumber(0),
   stageLimits: {
-    minimum: new BigNumber(40),
-    maximum: new BigNumber(40000),
+    minimum: new BigNumber(0.1),
+    maximum: new BigNumber(10),
   },
 };
 

@@ -4,7 +4,7 @@ import cn from 'clsx';
 import { Logo } from 'components/Logo';
 import { WrapContainer } from 'components/WrapContainer';
 import { homePageNavigation } from 'containers/Header/Header.helpers';
-import { Link as RSLink } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 export interface FooterProps {
@@ -24,9 +24,9 @@ export const Footer: VFC<FooterProps> = ({ className }) => {
               );
             }
             return (
-              <RSLink key={label} smooth to={anchorId} delay={0} className={styles.navLink}>
+              <Link key={label} to={anchorId} className={styles.navLink}>
                 <Button className={styles.headerNav} variant="text">{label}</Button>
-              </RSLink>
+              </Link>
             );
           })}
         </div>
