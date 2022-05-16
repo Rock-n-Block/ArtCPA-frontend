@@ -39,10 +39,10 @@ export const ConnectButton: VFC<ConnectButtonProps> = ({
           variant="filled"
           className={styles.connectButton}
         >
-          <Text>{address.length ? address : 'Connect wallet'}</Text>
+          <Text>{address?.length ? address : 'Connect wallet'}</Text>
         </Button>
       )}
-      {address.length ? (
+      {address?.length ? (
         <DisconnectModal
           address={address}
           isOpen={isOpen}
