@@ -24,7 +24,7 @@ type TContracts = {
 
 export const contracts:TContracts = {
   [EContracts.crowdSale]: {
-    address: isDev ? 'erd1qqqqqqqqqqqqqpgqzndquqemkylnmwcpu6vkf8pt6umnypgap0wqyduahe' : 'erd1qqqqqqqqqqqqqpgqzndquqemkylnmwcpu6vkf8pt6umnypgap0wqyduahe',
+    address: isDev ? 'erd1qqqqqqqqqqqqqpgq638hwduyr523mg840ft4m6usp7aldhefp0wq8l6hzg' : 'erd1qqqqqqqqqqqqqpgq638hwduyr523mg840ft4m6usp7aldhefp0wq8l6hzg',
     abi: CrowdSaleABI,
   },
 };
