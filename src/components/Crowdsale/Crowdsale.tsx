@@ -160,7 +160,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   const sendErrors = useMemo(() => {
     const errors = [];
     if(!Object.is(parseFloat(sendInput), NaN)) {
-      if(new BigNumber(sendInput).isGreaterThanOrEqualTo(maximumLimit)) {
+      if(new BigNumber(sendInput).isGreaterThan(maximumLimit)) {
         errors.push('Send amount is greater than max limit');
       }
       if(new BigNumber(parseFloat(sendInput)).isLessThan(minimumLimit)) {
@@ -181,7 +181,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   const receiveErrors = useMemo(() => {
     const errors = [];
     if(!Object.is(parseFloat(receiveInput), NaN)) {
-      if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isGreaterThanOrEqualTo(maximumLimit)) {
+      if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isGreaterThan(maximumLimit)) {
         errors.push('Receive amount is greater than max limit');
       }
       if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isLessThan(minimumLimit)) {
