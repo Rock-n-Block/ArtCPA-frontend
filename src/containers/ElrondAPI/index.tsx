@@ -28,6 +28,8 @@ interface IElrondApiContext {
   getAccountsNFTs: (address?: string) => Promise<any>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getContractInfo: (contract: EContracts) => Promise<any>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getContractBalance: (contract: EContracts) => Promise<any>
 }
 
 const ElrondApiContext = createContext<IElrondApiContext>({} as IElrondApiContext);
@@ -62,7 +64,16 @@ const ElrondApiProvider: FC = ({ children }) => {
     return null;
   }, [blockChainProxy]);
 
-  const values = useMemo(() => ({ getAccountsTokens, getAccountsNFTs, getContractInfo }), [getAccountsTokens, getAccountsNFTs, getContractInfo]);
+  const getContractBalance = useCallback(async (contract: EContracts) => {
+    const reqContract = getContract(contract);
+    const data = await axios.get(`${blockChainProxy}/${replaceVariables(blockChainEndpoints.getAddressInfo, { address: reqContract.address })}/esdt`);
+    if(data.status === 200) {
+      return data.data;
+    }
+    return null;
+  }, [blockChainProxy]);
+
+  const values = useMemo(() => ({ getAccountsTokens, getAccountsNFTs, getContractInfo, getContractBalance }), [getAccountsTokens, getAccountsNFTs, getContractInfo, getContractBalance]);
 
   return (
     <ElrondApiContext.Provider value={values}>

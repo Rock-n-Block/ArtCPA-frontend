@@ -12,7 +12,7 @@ import { Coin } from 'assets/icons/icons';
 import { useShallowSelector } from 'hooks';
 import crowdSaleSelector from 'store/crowdsale/selector';
 import BigNumber from 'bignumber.js';
-import { decimalNumber } from 'utils';
+import { decimalNumber, validateOnlyNumbers } from 'utils';
 import { EContracts, MainToken } from 'config';
 import userSelector from 'store/user/selectors';
 import tokensSelector from 'store/tokens/selector';
@@ -133,7 +133,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       const leftWithoutDecimals = decimalNumber({ value: leftTokens });
       const leftInPayableToken = leftWithoutDecimals.multipliedBy(mainTokenToPayableToken);
       const rawLimit = Math.ceil(stageLimits.minimum.div(selectedFullInfo.price).toNumber());
-      return leftInPayableToken.isLessThan(rawLimit) ? leftInPayableToken.toNumber() - leftInPayableToken.toNumber() / 1000 : rawLimit;
+      return leftInPayableToken.isLessThan(rawLimit) ? leftInPayableToken.toNumber() - leftInPayableToken.toNumber() / 2 : rawLimit;
     }
     return 0;
   }, [mainTokenToPayableToken, selectedFullInfo, stage, stageLimits.minimum]);
@@ -150,11 +150,13 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   }, [mainTokenToPayableToken, selectedFullInfo, stage, stageLimits.maximum]);
 
   const handleChangeSendInput = useCallback((event) => {
-    const sendValue = parseFloat(event.target.value) || 0;
+    if(validateOnlyNumbers(event.target.value)) {
+      const sendValue = parseFloat(event.target.value) || 0;
 
-    const receiveAmount = sendValue * payableTokenToMainToken;
-    setReceiveInput(receiveAmount.toString());
-    setSendInput(event.target.value);
+      const receiveAmount = sendValue * payableTokenToMainToken;
+      setReceiveInput(receiveAmount.toString());
+      setSendInput(event.target.value);
+    }
   }, [payableTokenToMainToken]);
 
   const sendErrors = useMemo(() => {
@@ -171,11 +173,13 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
   }, [maximumLimit, minimumLimit, sendInput]);
 
   const handleChangeReceiveInput = useCallback((event) => {
-    const receiveValue = parseFloat(event.target.value) || 0;
+    if(validateOnlyNumbers(event.target.value)) {
+      const receiveValue = parseFloat(event.target.value) || 0;
 
-    const sendAmount = receiveValue * mainTokenToPayableToken;
-    setSendInput(sendAmount.toString());
-    setReceiveInput(event.target.value);
+      const sendAmount = receiveValue * mainTokenToPayableToken;
+      setSendInput(sendAmount.toString());
+      setReceiveInput(event.target.value);
+    }
   }, [mainTokenToPayableToken]);
 
   const receiveErrors = useMemo(() => {
@@ -216,7 +220,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
             token: selectedFullInfo.address,
             amount: sendInput,
             decimals: +selectedFullInfo.decimals,
-          }).finally(() => setIsFetching(false));
+          }).then(() => dispatch(getCurrentStage())).finally(() => setIsFetching(false));
         },
       }));
     }
@@ -237,7 +241,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
         <H2 align="center" className={styles.title} weight="semiBold">{stage ? `${stage.stageNumber.toString()} stage is live!` : `${MainToken.symbol} crowdsale is over`}</H2>
         {stage && (
         <>
-          <Countdown endAuction={stageEndTimestamp} auctionEndText="endAuction" onTimerOut={onTimerOut} />
+          <Countdown endAuction={stageEndTimestamp} auctionEndText="" onTimerOut={onTimerOut} />
           <Text>{MainToken.symbol} tokens available:</Text>
           <ProgressBar
             text={decimalNumber({ value: stage.totalTokens }).toString()}
@@ -258,7 +262,6 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
                   onChange={handleChangeSendInput}
                   className={styles.inputs}
                   placeholder="Send"
-                  type="number"
                   error={sendErrors.join(',')}
                 />
                 <SelectCurrency
@@ -280,7 +283,6 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
                   value={receiveInput}
                   onChange={handleChangeReceiveInput}
                   error={receiveErrors.join(',')}
-                  type="number"
                 />
                 <Button size="sm" variant="filled-secondary" startAdorment={<Coin width="30" height="30" />} className={styles.CPAbtn}>{MainToken.symbol}</Button>
               </div>

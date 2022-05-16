@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { DateLike, Nullable } from 'types';
 import { ITimeLeft } from './useTimeLeft.types';
 
@@ -18,11 +18,11 @@ const DAY = HOUR * 24;
  * } | null
  */
 export const useTimeLeft = (endTime:DateLike, onTimerOut?: () => void):Nullable<ITimeLeft> => {
-  const calculateTimeLeft = ():ITimeLeft => {
-    const dateEndTime = new Date(endTime);
-    const difference = +dateEndTime - Date.now();
-    let timeLeft:Nullable<ITimeLeft> = null;
+  const timer = useRef<NodeJS.Timer | null>(null);
+  const [timeLeft, setTimeLeft] = useState<Nullable<ITimeLeft>>(null);
 
+  const calculateTimeLeft = useCallback(() => {
+    const difference = +endTime - Date.now();
     if (difference > 0) {
       let timeTracker = difference;
       const days = Math.floor(timeTracker / DAY);
@@ -32,29 +32,27 @@ export const useTimeLeft = (endTime:DateLike, onTimerOut?: () => void):Nullable<
       const minutes = Math.floor(timeTracker / MINUTE);
       timeTracker -= minutes * MINUTE;
       const seconds = Math.floor(timeTracker / SECONDS);
-      timeLeft = {
+      setTimeLeft({
         days,
         hours,
         minutes,
         seconds,
-      };
-    } else {
-      onTimerOut?.();
+      });
+    } else if (timer.current) {
+      clearInterval(timer.current);
+      setTimeout(() => {
+        onTimerOut?.();
+      }, 5000);
     }
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState<Nullable<ITimeLeft>>(calculateTimeLeft());
+  }, [endTime, onTimerOut]);
 
   useEffect(() => {
-    const timeOut = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => {
-      clearTimeout(timeOut);
-    };
-  });
+    if(!timer.current && +endTime > Date.now()) {
+      timer.current = setInterval(() => {
+        calculateTimeLeft();
+      }, 1000);
+    }
+  }, [calculateTimeLeft, endTime]);
 
   return timeLeft;
 };
