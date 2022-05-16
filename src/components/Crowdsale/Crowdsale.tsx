@@ -296,7 +296,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
               <div className={styles.buyInfo}>
                 <Text noWrap={false} align="center">You buy ArtCPAclub Tokens by sending {select.value} to the contract</Text>
               </div>
-              <Button disabled={allowToCrowd} variant="filled" className={styles.buyButton} size="md" onClick={onBuyClickHandler}>BUY {MainToken.symbol}</Button>
+              <Button disabled={allowToCrowd || !address} variant="filled" className={styles.buyButton} size="md" onClick={onBuyClickHandler}>BUY {MainToken.symbol}</Button>
             </>
           )
             : <Text noWrap={false} align="center">{stage.stageNumber.toString()} is sold out!</Text>}
