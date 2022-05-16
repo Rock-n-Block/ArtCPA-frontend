@@ -51,7 +51,7 @@ const ContractProvider:FC = ({ children }) => {
       return stageInfo;
     });
     const totalAmount = stagesInfo.reduce((acc, val) => acc.plus(val.total_tokens), new BigNumber(0));
-    await sendMethod({ contract: EContracts.crowdSale, method: 'transfer_by_owner', args: [], token: MainToken.address, decimals: decimalNumber({ value: new BigNumber(totalAmount), format: 'without' }).toNumber(), amount: totalAmount });
+    await sendMethod({ contract: EContracts.crowdSale, method: 'transfer_by_owner', args: [], token: MainToken.address, decimals: +MainToken.decimals, amount: decimalNumber({ value: new BigNumber(totalAmount), format: 'without' }).toString() });
   }, [requestAllStages, sendMethod]);
 
   const withdraw = useCallback(async () => {
@@ -69,8 +69,8 @@ const ContractProvider:FC = ({ children }) => {
         return stageInfo;
       });
       const totalAmount = stagesInfo.reduce((acc, val) => acc.plus(val.left_tokens), new BigNumber(0));
-      console.log(totalAmount);
-      // dispatch(updateCrowdSaleStage({...camelize(firstValue.valueOf() as any), }));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      dispatch(updateCrowdSaleStage({ totalTokens: totalAmount.plus(firstValue.valueOf().total_tokens), stageNumber: 6, leftTokens: totalAmount.plus(firstValue.valueOf().left_tokens) } as any));
     } else {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       dispatch(updateCrowdSaleStage(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
