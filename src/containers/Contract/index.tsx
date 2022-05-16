@@ -64,7 +64,7 @@ const ContractProvider:FC = ({ children }) => {
     const normalizedValue = firstValue.valueOf();
     if(new BigNumber(normalizedValue?.stage_number).toNumber() === 6 && normalizedValue) {
       const [stages] = await requestAllStages();
-      const stagesInfo = stages.map((stage) => {
+      const stagesInfo = stages.slice(1, -1).map((stage) => {
         const [, stageInfo] = stage;
         return stageInfo;
       });
