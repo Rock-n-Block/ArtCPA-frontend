@@ -6,7 +6,7 @@ import { createContext, FC, useCallback, useContext, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateCrowdSaleStage, updateStageTimeLeft } from 'store/crowdsale';
 import { setTokens } from 'store/tokens/reducer';
-import { camelize } from 'utils';
+import { camelize, decimalNumber } from 'utils';
 
 interface IContractContext {
   requestCurrentStage: () => Promise<void>;
@@ -24,13 +24,6 @@ const ContractProvider:FC = ({ children }) => {
   const dispatch = useDispatch();
 
   const { callMethod, sendMethod } = useInteraction();
-
-  const requestCurrentStage = useCallback(async () => {
-    const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage', implementInterface: ['Adder'] });
-    const normalizedValue = firstValue.valueOf();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch(updateCrowdSaleStage(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
-  }, [callMethod, dispatch]);
 
   const requestStageTimeLeft = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage_left_time', implementInterface: ['Adder'] });
@@ -58,13 +51,31 @@ const ContractProvider:FC = ({ children }) => {
       return stageInfo;
     });
     const totalAmount = stagesInfo.reduce((acc, val) => acc.plus(val.total_tokens), new BigNumber(0));
-    await sendMethod({ contract: EContracts.crowdSale, method: 'transfer_by_owner', args: [], token: MainToken.address, decimals: +MainToken.decimals, amount: totalAmount });
+    await sendMethod({ contract: EContracts.crowdSale, method: 'transfer_by_owner', args: [], token: MainToken.address, decimals: decimalNumber({ value: new BigNumber(totalAmount), format: 'without' }).toNumber(), amount: totalAmount });
   }, [requestAllStages, sendMethod]);
 
   const withdraw = useCallback(async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await sendMethod({ contract: EContracts.crowdSale, method: 'withdraw', args: [new BytesValue(MainToken.address as any)] });
   }, [sendMethod]);
+
+  const requestCurrentStage = useCallback(async () => {
+    const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage', implementInterface: ['Adder'] });
+    const normalizedValue = firstValue.valueOf();
+    if(new BigNumber(normalizedValue?.stage_number).toNumber() === 6 && normalizedValue) {
+      const [stages] = await requestAllStages();
+      const stagesInfo = stages.map((stage) => {
+        const [, stageInfo] = stage;
+        return stageInfo;
+      });
+      const totalAmount = stagesInfo.reduce((acc, val) => acc.plus(val.left_tokens), new BigNumber(0));
+      console.log(totalAmount);
+      // dispatch(updateCrowdSaleStage({...camelize(firstValue.valueOf() as any), }));
+    } else {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      dispatch(updateCrowdSaleStage(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
+    }
+  }, [callMethod, dispatch, requestAllStages]);
 
   const values = useMemo(() => ({ requestCurrentStage, withdraw, requestAllStages, requestStageTimeLeft, sendTransfer, requestAllowedTokensMap }), [requestCurrentStage, withdraw, sendTransfer, requestAllStages, requestStageTimeLeft, requestAllowedTokensMap]);
 
