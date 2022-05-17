@@ -57,7 +57,7 @@ export const OwnerMenu:VFC<IOwnerMenu> = ({ stage }) => {
     await requestData();
   }, [requestData, withdraw]);
 
-  const isTransferActive = useMemo(() => new BigNumber(balance).isEqualTo(totalAmount) || stage == null, [balance, stage, totalAmount]);
+  const isTransferActive = useMemo(() => new BigNumber(balance).isEqualTo(totalAmount), [balance, totalAmount]);
 
   if(!isOwner) {
     return null;

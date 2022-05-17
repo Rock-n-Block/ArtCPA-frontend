@@ -5,7 +5,6 @@ import { useInteraction } from 'containers/Interaction';
 import { createContext, FC, useCallback, useContext, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateCrowdSaleStage, updateStageTimeLeft } from 'store/crowdsale';
-import { setTokens } from 'store/tokens/reducer';
 import { camelize, decimalNumber } from 'utils';
 
 interface IContractContext {
@@ -33,10 +32,10 @@ const ContractProvider:FC = ({ children }) => {
   }, [callMethod, dispatch]);
 
   const requestAllowedTokensMap = useCallback(async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { values } = await callMethod({ contract: EContracts.crowdSale, method: 'allowed_tokens_map', implementInterface: ['Adder'] });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch(setTokens(camelize(values.map((val) => val.valueOf()) as any) as any));
-  }, [callMethod, dispatch]);
+  }, [callMethod]);
 
   const requestAllStages = useCallback(async () => {
     const { values } = await callMethod({ contract: EContracts.crowdSale, method: 'stages', implementInterface: ['Adder'] });

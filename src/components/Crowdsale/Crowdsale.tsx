@@ -12,7 +12,7 @@ import { Coin } from 'assets/icons/icons';
 import { useShallowSelector } from 'hooks';
 import crowdSaleSelector from 'store/crowdsale/selector';
 import BigNumber from 'bignumber.js';
-import { decimalNumber, validateOnlyNumbers } from 'utils';
+import { decimalNumber, formatNumber, validateOnlyNumbers } from 'utils';
 import { EContracts, MainToken } from 'config';
 import userSelector from 'store/user/selectors';
 import tokensSelector from 'store/tokens/selector';
@@ -132,7 +132,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       const { leftTokens } = stage;
       const leftWithoutDecimals = decimalNumber({ value: leftTokens });
       const leftInPayableToken = leftWithoutDecimals.multipliedBy(mainTokenToPayableToken);
-      const rawLimit = Math.ceil(stageLimits.minimum.div(selectedFullInfo.price).toNumber());
+      const rawLimit = stageLimits.minimum.div(selectedFullInfo.price).toNumber();
       return leftInPayableToken.isLessThan(rawLimit) ? leftInPayableToken.toNumber() - leftInPayableToken.toNumber() / 2 : rawLimit;
     }
     return 0;
@@ -143,7 +143,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       const { leftTokens } = stage;
       const leftWithoutDecimals = decimalNumber({ value: leftTokens });
       const leftInPayableToken = leftWithoutDecimals.multipliedBy(mainTokenToPayableToken);
-      const rawLimit = Math.ceil(stageLimits.maximum.div(selectedFullInfo.price).toNumber());
+      const rawLimit = stageLimits.maximum.div(selectedFullInfo.price).toNumber();
       return leftInPayableToken.isGreaterThan(rawLimit) ? rawLimit : leftInPayableToken.toNumber();
     }
     return 0;
@@ -244,7 +244,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           <Countdown endAuction={stageEndTimestamp} auctionEndText="" onTimerOut={onTimerOut} />
           <Text>{MainToken.symbol} tokens available:</Text>
           <ProgressBar
-            text={decimalNumber({ value: stage.totalTokens }).minus(tokensBought).toString()}
+            text={formatNumber(decimalNumber({ value: stage.totalTokens }).minus(tokensBought).toNumber()).toString()}
             className={styles.progressBar}
             maxValue={decimalNumber({ value: stage.totalTokens }).toNumber()}
             currentValue={tokensBought.toNumber()}

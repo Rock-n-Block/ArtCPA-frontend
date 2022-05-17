@@ -24,7 +24,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   const { width } = useWindowState();
   const dispatch = useDispatch();
 
-  const { requestCurrentStage, requestStageTimeLeft, requestAllowedTokensMap } = useContractMethods();
+  const { requestCurrentStage, requestStageTimeLeft } = useContractMethods();
   const { getAccountsNFTs } = useElrondApi();
 
   const initialRequest = useCallback(async () => {
@@ -39,8 +39,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
     initialRequest();
     requestCurrentStage();
     requestStageTimeLeft();
-    requestAllowedTokensMap();
-  }, [requestCurrentStage, requestStageTimeLeft, requestAllowedTokensMap, initialRequest]);
+  }, [requestCurrentStage, requestStageTimeLeft, initialRequest]);
 
   useSmoothTopScroll();
 

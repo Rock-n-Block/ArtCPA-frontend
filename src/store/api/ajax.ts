@@ -7,7 +7,7 @@ import { validateStatus } from '../../utils/validateStatus';
 import userSelector from '../user/selectors';
 
 const client: AxiosInstance = axios.create({
-  baseURL: 'https://cpa.rocknblock.io/api/v1/',
+  baseURL: 'https://artcpaclub.com/api/v1/',
   validateStatus,
 });
 
