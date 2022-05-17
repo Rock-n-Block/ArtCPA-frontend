@@ -301,7 +301,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
               <Button disabled={allowToCrowd || !address} variant="filled" className={styles.buyButton} size="md" onClick={onBuyClickHandler}>BUY {MainToken.symbol}</Button>
             </>
           )
-            : <Text noWrap={false} align="center">{stage.stageNumber.toString()} is sold out!</Text>}
+            : <Text noWrap={false} align="center">{stage.stageNumber.toString()} stage is sold out!</Text>}
         </>
         )}
         <OwnerMenu stage={stage} />

@@ -21,8 +21,8 @@ export const useTimeLeft = (endTime:DateLike, onTimerOut?: () => void):Nullable<
   const timer = useRef<NodeJS.Timer | null>(null);
   const [timeLeft, setTimeLeft] = useState<Nullable<ITimeLeft>>(null);
 
-  const calculateTimeLeft = useCallback(() => {
-    const difference = +endTime - Date.now();
+  const calculateTimeLeft = useCallback((endTime: number) => {
+    const difference = endTime - Date.now();
     if (difference > 0) {
       let timeTracker = difference;
       const days = Math.floor(timeTracker / DAY);
@@ -40,16 +40,17 @@ export const useTimeLeft = (endTime:DateLike, onTimerOut?: () => void):Nullable<
       });
     } else if (timer.current) {
       clearInterval(timer.current);
+      timer.current = null;
       setTimeout(() => {
         onTimerOut?.();
-      }, 5000);
+      }, 1000);
     }
-  }, [endTime, onTimerOut]);
+  }, [onTimerOut]);
 
   useEffect(() => {
-    if(!timer.current && +endTime > Date.now()) {
+    if(!timer.current) {
       timer.current = setInterval(() => {
-        calculateTimeLeft();
+        calculateTimeLeft(+endTime);
       }, 1000);
     }
   }, [calculateTimeLeft, endTime]);

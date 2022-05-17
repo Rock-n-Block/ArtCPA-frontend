@@ -1,7 +1,6 @@
 import { TokenIdentifierValue } from '@elrondnetwork/erdjs/out';
 import BigNumber from 'bignumber.js';
 import { EContracts, MainToken } from 'config';
-import { useElrondApi } from 'containers/ElrondAPI';
 import { useInteraction } from 'containers/Interaction';
 import { createContext, FC, useCallback, useContext, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
@@ -25,7 +24,6 @@ const ContractProvider:FC = ({ children }) => {
   const dispatch = useDispatch();
 
   const { callMethod, sendMethod } = useInteraction();
-  const { getContractInfo } = useElrondApi();
 
   const requestStageTimeLeft = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage_left_time', implementInterface: ['Adder'] });
@@ -63,8 +61,6 @@ const ContractProvider:FC = ({ children }) => {
     }
   }, [sendMethod]);
 
-  getContractInfo(EContracts.crowdSale).then((val) => console.log(val));
-
   const requestCurrentStage = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage', implementInterface: ['Adder'] });
     const normalizedValue = firstValue.valueOf();
@@ -78,6 +74,8 @@ const ContractProvider:FC = ({ children }) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       dispatch(updateCrowdSaleStage({ totalTokens: totalAmount.plus(firstValue.valueOf().total_tokens), stageNumber: 6, leftTokens: totalAmount.plus(firstValue.valueOf().left_tokens) } as any));
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      console.log(camelize(firstValue.valueOf() as any));
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       dispatch(updateCrowdSaleStage(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
     }
