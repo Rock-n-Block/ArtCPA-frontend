@@ -244,7 +244,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
           <Countdown endAuction={stageEndTimestamp} auctionEndText="" onTimerOut={onTimerOut} />
           <Text>{MainToken.symbol} tokens available:</Text>
           <ProgressBar
-            text={decimalNumber({ value: stage.totalTokens }).toString()}
+            text={decimalNumber({ value: stage.totalTokens }).minus(tokensBought).toString()}
             className={styles.progressBar}
             maxValue={decimalNumber({ value: stage.totalTokens }).toNumber()}
             currentValue={tokensBought.toNumber()}
