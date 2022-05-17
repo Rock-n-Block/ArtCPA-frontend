@@ -40,7 +40,7 @@ const ElrondApiProvider: FC = ({ children }) => {
 
   const { network: { id } } = useGetNetworkConfig();
 
-  const blockChainProxy = `https://${id}-gateway.elrond.com`;
+  const blockChainProxy = `https://${id === 'mainnet' ? '' : `-${id}`}gateway.elrond.com`;
 
   const getAccountsTokens = useCallback(async (address = userAddress) => {
     const response = await currentApiProvider.doGetGeneric(replaceVariables(apiEndpoints.getAddressTokens, { address }));
