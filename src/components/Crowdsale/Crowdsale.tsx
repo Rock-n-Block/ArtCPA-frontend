@@ -293,6 +293,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
               {userNfts.length > 0 && (
               <div>
                 <Text size="s" color="secondary" align="center">You&apos;ll get +10% {MainToken.symbol} because you have NFTs from {userNfts.join(',')}</Text>
+                <Text size="s" color="secondary" align="center">{new BigNumber(+receiveInput * 1.1).decimalPlaces(5).toNumber()} {MainToken.symbol}</Text>
               </div>
               )}
               <div className={styles.buyInfo}>
