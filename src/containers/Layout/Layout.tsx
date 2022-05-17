@@ -31,7 +31,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
     dispatch(getAvailableTokens());
     dispatch(getCurrentStage());
     const userNfts = await getAccountsNFTs();
-    const discountNfts = userNfts.filter((nft) => nftWithDiscount.includes(nft));
+    const discountNfts = userNfts.filter((nft) => nftWithDiscount.includes(nft.collection)).map((nft) => nft.collection);
     dispatch(updateUserNfts(discountNfts));
   }, [dispatch, getAccountsNFTs]);
 
