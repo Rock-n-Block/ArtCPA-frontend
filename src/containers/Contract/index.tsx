@@ -75,8 +75,6 @@ const ContractProvider:FC = ({ children }) => {
       dispatch(updateCrowdSaleStage({ totalTokens: totalAmount.plus(firstValue.valueOf().total_tokens), stageNumber: 6, leftTokens: totalAmount.plus(firstValue.valueOf().left_tokens) } as any));
     } else {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      console.log(camelize(firstValue.valueOf() as any));
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       dispatch(updateCrowdSaleStage(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
     }
   }, [callMethod, dispatch, requestAllStages]);

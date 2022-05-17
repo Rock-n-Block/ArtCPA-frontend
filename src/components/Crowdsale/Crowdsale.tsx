@@ -165,7 +165,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       if(new BigNumber(sendInput).isGreaterThan(maximumLimit)) {
         errors.push('Send amount is greater than max limit');
       }
-      if(new BigNumber(parseFloat(sendInput)).isLessThan(minimumLimit)) {
+      if(new BigNumber(parseFloat(sendInput)).isLessThan(minimumLimit.toFixed(5))) {
         errors.push('Send amount is lower than min limit');
       }
     }
@@ -188,7 +188,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
       if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isGreaterThan(maximumLimit)) {
         errors.push('Receive amount is greater than max limit');
       }
-      if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isLessThan(minimumLimit)) {
+      if(new BigNumber(parseFloat(receiveInput) * mainTokenToPayableToken).isLessThan(minimumLimit.toFixed(5))) {
         errors.push('Receive amount is lower than min limit');
       }
     }

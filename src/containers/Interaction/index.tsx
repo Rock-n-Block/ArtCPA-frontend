@@ -2,7 +2,7 @@ import { useGetAccountInfo, useGetNetworkConfig, sendTransactions, useSignTransa
 import { ApiNetworkProvider, ProxyNetworkProvider } from '@elrondnetwork/erdjs-network-providers/out';
 import { Account, Address, ContractFunction, ResultsParser, SmartContract, SmartContractAbi, TokenPayment, TypedOutcomeBundle, TypedValue } from '@elrondnetwork/erdjs/out';
 import { nativeCurrency } from 'appConstants/tokens';
-import { contracts, EContracts } from 'config';
+import { contracts, EContracts, isDev } from 'config';
 import { createContext, FC, useContext, useCallback, useMemo, useRef } from 'react';
 
 export type TCallMethodProperties = {
@@ -82,14 +82,13 @@ const InteractionProvider: FC = ({ children }) => {
         const isNativePayment = nativeCurrency.includes(token);
 
         const tx = appliedContract.methodsExplicit[method](args).withNonce(userAccount.nonce).withGasLimit(600000000).withValue(TokenPayment.egldFromAmount(isNativePayment ? amount : 0))
-          .withChainID('T');
+          .withChainID(isDev ? 'T' : '1');
 
         if(!isNativePayment && token) {
           tx.withSingleESDTTransfer(TokenPayment.fungibleFromAmount(token, amount, decimals));
         }
 
         const fullTransaction = tx.buildTransaction();
-
         const { sessionId } = await sendTransactions({
           transactions: [fullTransaction],
         });
