@@ -1,4 +1,4 @@
-import { useState, VFC } from 'react';
+import { useRef, useState, VFC, useCallback, useEffect } from 'react';
 
 import cn from 'clsx';
 import { Button } from 'components';
@@ -15,16 +15,28 @@ export interface MainVideoProps {
 
 export const MainVideo: VFC<MainVideoProps> = ({ className }) => {
   const [isClicked, setIsClicked] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const handleButtonClick = () => {
+  const handleButtonClick = useCallback(() => {
     setIsClicked(true);
-  };
+  }, []);
+
+  useEffect(() => {
+    if(isClicked && videoRef.current) {
+      videoRef.current.play();
+    }
+  }, [isClicked, videoRef.current]);
+
+  const handleVideoClick = useCallback(() => {
+    setIsClicked(false);
+  }, []);
+
   return (
     <WrapContainer className={cn(styles.mainVideo, className)}>
       {isClicked ? (
-        <video controls className={styles.video}>
+        // eslint-disable-next-line jsx-a11y/media-has-caption
+        <video onClick={handleVideoClick} ref={videoRef} loop className={styles.video}>
           <source src={src} />
-          <track kind="captions" />
         </video>
       ) : (
         <div className={styles.preview}>

@@ -1,17 +1,35 @@
-@import '../../assets/styles/variables';
-@import '../../assets/styles/mixins';
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
 
 .wrapperCard {
-    padding-top: spacing(5.75);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 400px);
-    gap: spacing(3);
-    width: 100%;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  .nft {
+    padding: 10px;
+    flex: 0 0 33.333%;
+    @include forDesktopMiddle {
+      flex: 0 0 50%;
+    }
+    @include forTablet {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
 }
 @include forTablet {
-    .wrapperCard {  
-      grid-template-columns: repeat(auto-fit, minmax(162px, 1fr));
-      gap: spacing(2);
+  .wrapperCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .nft {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
     }
+  }
 }

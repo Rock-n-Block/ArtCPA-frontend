@@ -1,5 +1,5 @@
 export const aboutUsHelper = [
-  { title: 'Vision', description: 'Our vision is to create a multi-platform application that a crypto investor need with the highest security.', id: 1 },
-  { title: 'Mission', description: 'Our mission is to simplify for users and combine all the most powerful tools in one place. It can be said that Adora Multi Wallet is "All in one"', id: 2 },
-  { title: 'Solutions', description: 'There are too many applications that users have to download. Each one will have a different operation. Both are consuming storage space and this lead to inefficient asset management for users.', id: 3 },
+  { title: 'Vision', description: 'CPA vision is to help create a future where humanity is free to unlock its full potential.', id: 1 },
+  { title: 'Mission', description: 'Grow awareness and attract new artists and art on to Elrond community, powered by Elrond ~ first negative carbon blockchainтin Europe. Create a decentralized marketplace(P2P) where everyone can place their offers (NFT and tokens).', id: 2 },
+  { title: 'Opportunity', description: 'We propose a Win-Win partnership between artists and investors. Artists get their creations presented to the community and investors receive their passive income from their investments.', id: 3 },
 ];
