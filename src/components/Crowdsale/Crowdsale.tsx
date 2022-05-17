@@ -16,7 +16,7 @@ import { decimalNumber, validateOnlyNumbers } from 'utils';
 import { EContracts, MainToken } from 'config';
 import userSelector from 'store/user/selectors';
 import tokensSelector from 'store/tokens/selector';
-import { tokensIconsMap } from 'appConstants/tokens';
+import { nftWithDiscount, tokensIconsMap } from 'appConstants/tokens';
 import { TSingleTokenWithIcon } from 'types';
 import { OptionType } from 'components/Select/Select.types';
 import { useGetAccountInfo } from '@elrondnetwork/dapp-core';
@@ -290,11 +290,15 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
                 <Text color="secondary" noWrap={false}>Your {MainToken.address} balance {mainTokenBalance.decimalPlaces(5).toString()} {MainToken.symbol}</Text>
                 <Text color="secondary">1 {MainToken.symbol} = {stageTokenPrice.decimalPlaces(5).toString()}$</Text>
               </div>
-              {userNfts.length > 0 && (
-              <div>
-                <Text size="s" color="secondary" align="center">You&apos;ll get +10% {MainToken.symbol} because you have NFTs from {userNfts.join(',')}</Text>
-                <Text size="s" color="secondary" align="center">{new BigNumber(+receiveInput * 1.1).decimalPlaces(5).toNumber()} {MainToken.symbol}</Text>
-              </div>
+              {userNfts.length > 0 ? (
+                <div>
+                  <Text size="s" color="secondary" align="center">You&apos;ll get +10% {MainToken.symbol} because you have NFTs from {userNfts.join(',')}</Text>
+                  <Text size="s" color="secondary" align="center">{new BigNumber(+receiveInput * 1.1).decimalPlaces(5).toNumber()} {MainToken.symbol}</Text>
+                </div>
+              ) : (
+                <div>
+                  <Text size="s" color="secondary" align="center">You&apos;ll get +10% {MainToken.symbol} if you have NFTs from {nftWithDiscount.join(',')}</Text>
+                </div>
               )}
               <div className={styles.buyInfo}>
                 <Text noWrap={false} align="center">You buy ArtCPAclub Tokens by sending {select.value} to the contract</Text>
