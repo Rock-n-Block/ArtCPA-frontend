@@ -6,11 +6,18 @@ import { createContext, FC, useCallback, useContext, useMemo } from 'react';
 
 const apiEndpoints = {
   getAddressTokens: 'accounts/{address}/tokens',
+  getAddressTokensCount: 'accounts/{address}/tokens/count',
   getAddressNFTs: 'accounts/{address}/nfts',
 };
 
 const blockChainEndpoints = {
   getAddressInfo: 'address/{address}',
+};
+
+const buildUrlWithQueryParameters = (endpoint: string, params: Record<string, string>):string => {
+  const searchParams = new URLSearchParams();
+  Object.entries(params).forEach(([key, value]) => value && searchParams.append(key, value));
+  return `${endpoint}?${searchParams.toString()}`;
 };
 
 const replaceVariables = (endpoint: string, values: {[key:string]: string | number}) => {
@@ -40,10 +47,11 @@ const ElrondApiProvider: FC = ({ children }) => {
 
   const { network: { id } } = useGetNetworkConfig();
 
-  const blockChainProxy = `https://${id === 'mainnet' ? '' : `-${id}`}gateway.elrond.com`;
+  const blockChainProxy = `https://${id === 'mainnet' ? '' : `${id}-`}gateway.elrond.com`;
 
   const getAccountsTokens = useCallback(async (address = userAddress) => {
-    const response = await currentApiProvider.doGetGeneric(replaceVariables(apiEndpoints.getAddressTokens, { address }));
+    const responseAmount = await currentApiProvider.doGetGeneric(replaceVariables(apiEndpoints.getAddressTokensCount, { address }));
+    const response = await currentApiProvider.doGetGeneric(buildUrlWithQueryParameters(replaceVariables(apiEndpoints.getAddressTokens, { address }), { from: '0', size: responseAmount }));
     return response;
   }, [currentApiProvider, userAddress]);
 
