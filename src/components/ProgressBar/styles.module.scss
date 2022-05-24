@@ -1,0 +1,23 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.progressBar { 
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    height: spacing(6);
+}
+.title {
+    width: 100%;
+    position: absolute;
+    align-self: center;
+	background: inherit;
+	-webkit-background-clip: text;
+	color: transparent;
+	filter: invert(1) grayscale(1) contrast(10);
+}
+.progress {
+    background: var(--progress-bar-default-background);
+    height: 100%;
+}

@@ -1,9 +1,6 @@
-export * from './connect';
 export * from './store';
 export * from './components';
-
-export type TNullable<T> = T | null;
-export type TOptionable<T> = T | undefined;
+export * from './api';
 
 export interface IModalProps {
   className?: string;
@@ -16,5 +13,6 @@ export enum WalletProviders {
   metamask = 'MetaMask',
 }
 
+export type DateLike = string | number | Date;
 export type Nullable<T> = null | T;
 export type Optinable<T> = undefined | T;

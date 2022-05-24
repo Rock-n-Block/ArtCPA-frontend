@@ -1,1 +1,10 @@
 export { default as vector } from './vector.png';
+export { default as LogoIcon } from './Main_logo.svg';
+export { default as rectangle } from './Rectangle.png';
+export { default as BannerBackgroundImg } from './BannerBackgroundImg.png';
+export { default as FirstCard } from './Team/FirstCard.jpg';
+export { default as SecondCard } from './Team/SecondCard.jpg';
+export { default as ThirdCard } from './Team/ThirdCard.jpg';
+export { default as FourthCard } from './Team/FourthCard.jpg';
+export { default as coinImg } from './coin.png';
+export * from './NFTs';

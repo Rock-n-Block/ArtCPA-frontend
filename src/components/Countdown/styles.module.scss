@@ -1,0 +1,33 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.timeBlock {
+    @include flexbox;
+    flex-direction: column;
+    padding: spacing(1,0);
+    max-width: 115px;
+    height: 85px;
+    border-radius: spacing(1);
+    background-color: var(--card-default-background);
+    & .time:last-child {
+        padding-bottom: spacing(1.5)
+    }
+}
+.notCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(94px, 1fr));
+    gap: spacing(1.5);
+    padding-bottom: spacing(3);
+}
+@include forTablet {
+    .timeBlock {
+        max-width: 68px;
+        height: 68;
+    }
+    .notCard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(54px, 1fr));
+        gap: spacing(1.5);
+        padding-bottom: spacing(3);
+    }
+}

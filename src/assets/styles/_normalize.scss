@@ -6,12 +6,15 @@ div[id='root'] {
   height: 100%;
   width: 100%;
   border: 0;
-  scroll-behavior: smooth;
+  font-family: "Poppins";
+  background: $colorBlack400;
 
   div,
   input,
   optgroup,
   select,
+  a,
+  button,
   textarea {
     box-sizing: border-box;
     margin: 0;
@@ -62,6 +65,14 @@ div[id='root'] {
     justify-content: center;
     align-items: center;
   }
+}
+
+// elrond dapp ui
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 // toastify styles

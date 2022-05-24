@@ -1,0 +1,33 @@
+@import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/mixins';
+
+.disconnectModal {
+  .disconnectBtn {
+    @include flexbox();
+    position: relative;
+    border-color: $colorGray20;
+    background: $colorGray20;
+    width: 100%;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    margin-top: spacing(2);
+  
+    & > span {
+      position: absolute;
+      right: 16px;
+      & > svg > path {
+        fill: none !important;
+      }
+    }
+  
+    &:hover {
+      border-color: $colorGray15;
+      background: $colorGray15;
+      color: $colorWhite;
+      & > span > svg > path {
+        fill: none !important;
+      }
+    }
+  }
+}
+

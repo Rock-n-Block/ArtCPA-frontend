@@ -1,5 +1,31 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
 .footer {
   width: 100%;
-  height: 100px;
-  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  @include flexbox(space-between,flex-end);
+  border-top: 1px solid var(--dividerColorDefault);
+  padding-top: spacing(7);
+  padding-bottom: spacing(6);
+  transition: 0ms !important;
 }
+.linksWrapper {
+  @include flexbox(space-between);
+  min-width: 320px;
+}
+@include forTablet {
+  .footer {
+    @include flexbox;
+    padding-top: spacing(4);
+  }
+  .linksWrapper {
+    display:none
+  }
+}
+@include forDesktopSm {
+  .linksWrapper {
+    flex-direction: column;
+    min-width: auto;
+  }
+}
+

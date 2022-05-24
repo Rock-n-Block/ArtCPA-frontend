@@ -1,0 +1,51 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.team {
+  @include forDesktopSm {
+    & > h1 {
+      font-weight: 600;
+      font-size: 32px;
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px !important;
+  .cardWrapper{
+    padding: 10px;
+    flex: 0 0 25%;
+    @include forDesktopMiddle{
+      flex: 0 0 33.333%;
+    }
+    @include forDesktopSm{
+      flex: 0 0 50%;
+    }
+    @include forTablet{
+      flex: 0 0 100%;
+    }
+  }
+}
+
+.second{
+  img{
+    object-position: 50% 20%;
+  }
+}
+
+.third{
+  img{
+    object-position: 50% 5%;
+  }
+}
+
+.fourth{
+  img{
+    object-position: 50% 0%;
+  }
+}

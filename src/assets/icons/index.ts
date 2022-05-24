@@ -1,2 +1,3 @@
-export { default as CloseIcon } from './closeIcon.svg';
-export { default as Arrow } from './arrow.svg';
+export { default as Twitter } from './twitter.png';
+export { default as Telegram } from './telegram.png';
+export { default as Discord } from './discord.png';

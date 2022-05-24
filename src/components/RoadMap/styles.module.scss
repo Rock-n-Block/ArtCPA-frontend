@@ -1,0 +1,121 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.roadMap {
+  @include flexbox();
+  flex-direction: column;
+  & > .contentItems {
+    width: 100%;
+    padding: 0 48px 0 48px;
+    @include flexbox();
+    flex-direction: column;
+    @include forDesktopSm {
+      padding: 0 16px 0 16px;
+    }
+    & > .dividerBetweenItems {
+      width: 1px;
+      height: 96px;
+      background-color: $colorGreen600;
+      margin: 0 auto 0 auto !important;
+      @include forDesktopSm {
+        height: 48px
+      }
+    }
+    & > .indexContainer {
+      @include flexbox();
+      border-radius: 24px;
+      width: 130px;
+      height: 130px;
+      @include forDesktopSm {
+        width: 76px;
+        height: 76px;
+        
+      }
+      background: $colorGreenGradient700;
+      margin: 0 auto 0 auto !important;
+      & > .index {
+        color: $colorDupont; 
+        @include forDesktopSm {
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 48.54px;
+        }
+      }
+    }
+    & > .dividerInsideContainer {
+      width: 1px;
+      height: 48px;
+      background-color: $colorGreen600;
+      margin: 0 auto 0 auto !important;
+      @include forDesktopSm {
+        height: 25px
+      }
+    }
+    & > .content {
+      width: inherit;
+      border-radius: 24px;
+      border: 1px solid $colorGreen600; 
+      padding: 16px 50px 100px 50px;
+      @include forDesktopSm {
+        padding: 16px 16px 16px 16px;
+
+      }
+      & > .title {
+        margin-bottom: 46px !important;
+        @include forDesktopSm {
+          margin-bottom: 8px !important;
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 48.54px;
+        }
+      }
+      & > .points { 
+        @include flexbox(space-between, center);
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 28px;
+        @include forDesktopSm {
+          @include flexbox(center, center);
+          flex-direction: column;
+          width: 100%;
+          width: inherit;
+          
+        }
+        & > .point {
+          @include flexbox(unset,unset);
+          flex: 40%;
+          max-width: 40%;
+          @include forDesktopSm {
+            @include flexbox(center, center);
+            flex-direction: column;
+            max-width: 100%;
+          }
+          & > p {
+            line-break: anywhere;
+            text-align: left;
+          }
+          & > svg {
+            min-width: 24px;
+            margin: auto 20px auto 0;
+            @include forDesktopSm {
+              margin: 16px auto 0 auto;
+            }
+          }
+          .text{
+            line-break:auto;
+          }
+        }
+      }
+    }
+  }  
+}
+
+.header {
+  margin-bottom: 46px !important;
+  @include forDesktopSm {
+    margin-bottom: 24px !important;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48.54px;
+  }
+}

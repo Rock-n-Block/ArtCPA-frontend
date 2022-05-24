@@ -11,8 +11,8 @@
 }
 
 .labelTextFocusedCommon {
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 20px;
   color: var(--input-focus-label)
 }
@@ -24,7 +24,7 @@
 
   &:focus-within .input + .labelText {
     @extend .labelTextFocusedCommon;
-    top: 14px;
+    display: none;
   }
 
   &:focus-within .textarea + .labelText {
@@ -35,10 +35,9 @@
 
 .input + .labelText {
   @extend .labelTextCommon;
-  left: spacing(2.5);
+  left: spacing(2);
   top: 50%;
 }
-
 .textarea + .labelText {
   @extend .labelTextCommon;
   left: spacing(3);
@@ -70,13 +69,14 @@
   height: 56px;
   padding: spacing(2, 2.5);
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: 200ms all;
   font-size: 16px;
 
   background: var(--input-default-background);
   border: var(--input-default-border);
   color: var(--typography-default-color);
+  opacity: 0.5;
 
   &:hover {
     background: var(--input-hover-background);
@@ -99,7 +99,6 @@
     & ~ .endAdorment > svg > path {
       fill: var(--input-focus-icon);
     }
-    padding-top: spacing(3);
   }
 
   &:focus {
@@ -109,7 +108,6 @@
     outline: none;
     box-shadow: none;
     caret-color: var(--input-active-caret);
-    padding-top: spacing(3);
     transition: 0s;
     & ~ .endAdorment > svg > path {
       fill: var(--input-focus-icon);
@@ -122,9 +120,9 @@
     color: var(--typography-default-color);
   }
 
-  // &::placeholder {
-  //   color: white;
-  // }
+  &::placeholder {
+    color: white;
+  }
 
   &:disabled {
     cursor: not-allowed;
@@ -149,6 +147,25 @@
       color: var(--input-error-label);
     }
   }
+  &.success {
+    background-color: var(--input-success-background);;
+    border: var(--input-success-border);
+    & ~ .endAdorment > svg > path {
+      fill: var(--input-success-icon);
+    }
+
+    & + .labelText {
+      color: var(--input-success-label);
+    }
+
+    &:focus-within + .labelText {
+      color: var(--input-success-label);
+    }
+
+    &:not(:placeholder-shown) + .labelText {
+      color: var(--input-success-label);
+    }
+  }
 
   &[type="number"] {
     appearance: none;
@@ -169,15 +186,16 @@
 }
 
 .textError {
-  position: absolute;
-  width: 100%;
+  position: relative;
   display: inline-block;
-
-  margin-top: 3px;
-
-  text-align: right;
+  top: -35px;
+  left: 50%;
   font-size: 10px;
   color: red;
+  transform: translateX(-50%);
+  justify-self: flex-start;
+  width: 100%;
+  text-align: center;
 }
 
 .icon {
@@ -196,12 +214,10 @@
   transition: 200ms;
 
   &:focus {
-    padding-top: spacing(4);
     transition: 200ms;
   }
 
   &:not(:placeholder-shown) {
-    padding-top: spacing(4);
     & + .labelText {
       top: 20px;
       color: var(--input-active-label)

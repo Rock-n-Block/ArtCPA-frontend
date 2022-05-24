@@ -1,0 +1,29 @@
+@import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/mixins';
+
+.connectModal {
+  display: flex;
+  flex-direction: column;
+
+  .connectButton{
+    background: var(--button-outlined-default-background);
+    border: $button-border-width solid var(--button-outlined-default-border);
+    color: var(--button-outlined-default-color);
+    transition: 200ms ease-in-out !important;
+
+    &:hover {
+      background: var(--button-outlined-hover-background);
+      border: $button-border-width solid var(--button-outlined-hover-border);
+      color: var(--button-outlined-hover-color);
+    }
+
+    &:active {
+      background: var(--button-outlined-active-background);
+      border: $button-border-width solid var(--button-outlined-active-border);
+      color: var(--button-outlined-active-color);
+    }
+  }
+
+  
+}
+

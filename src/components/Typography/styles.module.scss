@@ -2,18 +2,18 @@
 @import '../../assets/styles/variables';
 
 .h1 {
-  font-size: 64px;
-  line-height: 64px;
+  font-size: 48px;
+  line-height: 56px;
 }
 
 .h2 {
   font-size: 32px;
-  line-height: 40px;
+  line-height: 49px;
 }
 
 .h3 {
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 30px;
 }
 
 .center {
@@ -29,11 +29,6 @@
 }
 
 .text {
-  &.xs {
-    font-size: 12px;
-    line-height: 20px;
-  }
-
   &.s {
     font-size: 14px;
     line-height: 20px;
@@ -41,12 +36,12 @@
 
   &.m {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 22px;
   }
 
   &.l {
     font-size: 18px;
-    line-height: 30px;
+    line-height: 24px;
   }
 }
 
@@ -62,11 +57,13 @@
   color: var(--typography-error-color);;;
 }
 
-.normalWeight {
+.lightWeight {
+  font-weight: 300;
+}
+.mediumWeight {
   font-weight: 400;
 }
-
-.mediumWeight {
+.mediumHeightWeight {
   font-weight: 500;
 }
 
@@ -76,4 +73,10 @@
 
 .boldWeight {
   font-weight: 700;
+}
+
+.noWrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,0 +1,33 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.banner {
+  background: url('../../assets/img/icons/BannerBackgroundImg.png') no-repeat ;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  @include flexbox;
+  & > .container {
+    overflow: hidden;
+    max-width: 65%;
+    height: 100%;
+    @include flexbox;
+    gap: 71px;
+    flex-direction: column;
+    & > .bannerText {
+      overflow: hidden;
+      max-height: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .banner{
+    & > .container{
+      max-width: 85%;
+    }
+    &Text {
+      font-size: 22px;
+    }
+  }
+}

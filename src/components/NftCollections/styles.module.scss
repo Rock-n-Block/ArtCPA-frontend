@@ -1,0 +1,35 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+.wrapperCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  .nft {
+    padding: 10px;
+    flex: 0 0 33.333%;
+    @include forDesktopMiddle {
+      flex: 0 0 50%;
+    }
+    @include forTablet {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
+}
+@include forTablet {
+  .wrapperCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .nft {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

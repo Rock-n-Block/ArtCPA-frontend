@@ -1,40 +1,37 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable @typescript-eslint/indent */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FC } from 'react';
+import '@elrondnetwork/dapp-core/dist/index.css';
 
-import { Layout, RouteManager as Router } from 'containers';
+import { ContractProvider, ElrondApiProvider, InteractionProvider, Layout, RouteManager as Router } from 'containers';
 import { ToastContainer } from 'react-toastify';
 
 import { DappProvider, DappUI } from '@elrondnetwork/dapp-core';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'assets/styles/index.scss';
-import { WalletConnectContext } from 'services';
+import { isDev } from 'config';
 
-const {
-  TransactionsToastList,
-  SignTransactionsModals,
-  NotificationModal,
-  DappCorePages: { UnlockPage },
-} = DappUI;
+const { SignTransactionsModals, TransactionsToastList } = DappUI;
 
 const App: FC = () => {
   return (
-    // <DappProvider
-    //   environment="devnet"
-    // >
-      <WalletConnectContext>
-        <ToastContainer autoClose={4000} hideProgressBar position="top-right" closeButton={false} />
-        <Layout>
-          {/* <TransactionsToastList />
-          <NotificationModal />
-          <SignTransactionsModals />
-          <UnlockPage /> */}
-          <Router />
-        </Layout>
-      </WalletConnectContext>
-    // </DappProvider>
+    <DappProvider
+      environment={isDev ? 'testnet' : 'mainnet'}
+    >
+      <>
+        <TransactionsToastList />
+        <SignTransactionsModals />
+        <InteractionProvider>
+          <ElrondApiProvider>
+            <ContractProvider>
+              <Layout>
+                <ToastContainer autoClose={4000} hideProgressBar position="top-right" closeButton={false} />
+                <Router />
+              </Layout>
+            </ContractProvider>
+          </ElrondApiProvider>
+        </InteractionProvider>
+      </>
+    </DappProvider>
   );
 };
 export default App;

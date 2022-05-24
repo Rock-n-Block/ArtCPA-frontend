@@ -11,11 +11,12 @@ import {
 
 import cn from 'clsx';
 
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 export interface ButtonProps {
   variant?: 'filled' | 'outlined' | 'outlined-secondary' | 'text' | 'filled-secondary';
-  size?: 'lg' | 'md' | 'sm';
+  size?: 'lg' | 'md' | 'sm' | 'noSize';
   type?: 'button' | 'submit';
   disabled?: boolean;
   style?: CSSProperties;
@@ -48,12 +49,20 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   onMouseOver = () => {},
   children,
 }) => {
+  const navigator = useNavigate();
   const creationData = useMemo(() => {
     if (to) {
       return {
-        tag: 'a',
+        tag: 'button',
         props: {
-          to,
+          type,
+          ref: btnRef,
+          onClick: (e: never) => {
+            onClick(e);
+            navigator(to);
+          },
+          onMouseLeave,
+          onMouseOver,
         },
       };
     }
@@ -79,7 +88,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
         onMouseOver,
       },
     };
-  }, [to, href, type, btnRef, onClick, onMouseLeave, onMouseOver]);
+  }, [to, href, type, btnRef, onClick, onMouseLeave, onMouseOver, navigator]);
 
   return (
     createElement(
