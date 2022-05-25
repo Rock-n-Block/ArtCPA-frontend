@@ -239,7 +239,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
     <WrapContainer name={HomePageAnchors.BUY} className={styles.smainWrapper}>
       <H1 align="center" className={styles.mainTitle} weight="bold">Crowdsale</H1>
       <div className={cn(styles.crowdsale, className)}>
-        <H2 align="center" className={styles.title} weight="semiBold">{stage ? `${stage.stageNumber.toNumber() + stageAddition} stage is live!` : `${MainToken.symbol} crowdsale is over`}</H2>
+        <H2 align="center" className={styles.title} weight="semiBold">{stage ? `${stage.stageNumber.toNumber() + stageAddition} phase is live!` : `${MainToken.symbol} crowdsale is over`}</H2>
         {stage && (
         <>
           <Countdown endAuction={stageEndTimestamp} auctionEndText="" onTimerOut={onTimerOut} />
@@ -307,7 +307,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
               <Button disabled={allowToCrowd || !address} variant="filled" className={styles.buyButton} size="md" onClick={onBuyClickHandler}>BUY {MainToken.symbol}</Button>
             </>
           )
-            : <Text noWrap={false} align="center">{stage.stageNumber.toNumber() + stageAddition} stage is sold out!</Text>}
+            : <Text noWrap={false} align="center">{stage.stageNumber.toNumber() + stageAddition} phase is sold out!</Text>}
         </>
         )}
         <OwnerMenu stage={stage} />
