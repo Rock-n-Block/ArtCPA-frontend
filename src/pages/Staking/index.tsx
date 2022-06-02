@@ -438,8 +438,8 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
 
   return (
     <div className={cn(styles.stakingWrapper, className)}>
-      <BreadcrumbsComingSoon paths={paths} className={styles.breadcrumbs} />
       <div className={styles.container}>
+        <BreadcrumbsComingSoon paths={paths} className={styles.breadcrumbs} />
         <H1 weight="bold" align="center" className={styles.title}>{title}</H1>
         <H2 align="center">Total Staked CPA: {formatNumbers(totalStakeAmount)}</H2>
 

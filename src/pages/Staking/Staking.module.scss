@@ -46,3 +46,11 @@
     }
   }
 }
+
+@include forTablet{
+  .stakingWrapper{
+    .breadcrumbs{
+      padding-left: 16px;
+    }
+  }
+}
