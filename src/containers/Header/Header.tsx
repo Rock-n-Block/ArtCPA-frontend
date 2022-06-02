@@ -77,7 +77,9 @@ export const Header: VFC<HeaderProps> = () => {
         </>
       ) : (
         <>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
           {!isTablet && (
           <>
             {homePageNavigation.map(({ label, anchorId, isOuterLink, link }) => {

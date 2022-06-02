@@ -38,7 +38,7 @@ module.exports = {
     '@typescript-eslint/dot-notation': 0,
     '@typescript-eslint/keyword-spacing': 0,
     '@typescript-eslint/lines-between-class-members': 0,
-    '@typescript-eslint/no-explicit-any': 2,
+    '@typescript-eslint/no-explicit-any': 0,
     'object-curly-spacing': 2,
     'no-console': 1,
     'react/jsx-props-no-spreading': 0,
