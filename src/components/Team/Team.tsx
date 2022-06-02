@@ -22,9 +22,8 @@ export const Team: VFC<TeamProps> = ({ className }) => {
       <H1 weight="semiBold" align="center"> Team </H1>
       <div className={styles.cards}>
         {teamData.map((card, index) => (
-          <div className={styles.cardWrapper}>
+          <div className={styles.cardWrapper} key={index}>
             <TeamCard
-              key={index}
               image={card.image}
               personName={card.personName}
               personPosition={card.personPosition}

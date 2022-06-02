@@ -67,7 +67,7 @@ export const OwnerMenu:VFC<IOwnerMenu> = ({ stage }) => {
     <div className={styles.wrapper}>
       <Button disabled={isTransferActive} onClick={sendTransfer}>Transfer tokens</Button>
       <div className={styles.collect}>
-        {availableCollects.map((token) => <Button disabled={Boolean(stage)} onClick={() => onCollectClick(token)}>Collect {token}</Button>)}
+        {availableCollects.map(({ token, index }) => <Button key={index} disabled={Boolean(stage)} onClick={() => onCollectClick(token)}>Collect {token}</Button>)}
       </div>
     </div>
   );

@@ -26,6 +26,7 @@ const ContractProvider:FC = ({ children }) => {
 
   const requestStageTimeLeft = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage_left_time', implementInterface: ['Adder'] });
+    if(!firstValue) return;
     const normalizedValue = firstValue.valueOf();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch(updateStageTimeLeft(normalizedValue ? camelize(firstValue.valueOf() as any) as any : normalizedValue));
@@ -62,6 +63,7 @@ const ContractProvider:FC = ({ children }) => {
 
   const requestCurrentStage = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage', implementInterface: ['Adder'] });
+    if(!firstValue) return;
     const normalizedValue = firstValue.valueOf();
     if(new BigNumber(normalizedValue?.stage_number).toNumber() === 6 && normalizedValue) {
       const [stages] = await requestAllStages();
