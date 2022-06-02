@@ -23,10 +23,9 @@ export const BreadcrumbsComingSoon: VFC<BreadcrumbsComingSoonProps> = ({ paths, 
       <ul className={cn(styles.breadcrumbsContainer)}>
         {paths.length > 1 &&
           paths.map(({ label, path, icon }, index) => (
-            <span className={styles.container}>
+            <span className={styles.container} key={path}>
               {icon}
               <li
-                key={path}
                 className={
                 cn(
                   { [styles.breadcrumbFirst]: !index }, { [styles.breadcrumbLast]: paths.length - 1 === index },

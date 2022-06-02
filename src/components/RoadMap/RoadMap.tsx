@@ -38,7 +38,7 @@ export const RoadMap: VFC<RoadMapProps> = ({ className }) => {
             <H1 align="center" weight="bold" className={styles.title}>{item.title}</H1>
             <div className={styles.points}>
               {item.points.map((point) => (
-                <div className={styles.point}>
+                <div className={styles.point} key={point}>
                   <CheckIcon />
                   <Text size="m" className={styles.text} noWrap={false} align="center"> {point} </Text>
                 </div>

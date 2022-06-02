@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/mixins';
+
+.infoStyle {
+    @include flexbox;
+    flex-direction: column;
+    padding: spacing(1,0);
+    min-width: 200px;
+    height: 85px;
+    border-radius: spacing(1);
+    background-color: var(--card-default-background);
+    & .time:last-child {
+        padding-bottom: spacing(1.5)
+    }
+}
