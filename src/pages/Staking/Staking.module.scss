@@ -5,8 +5,9 @@
   overflow-y: scroll !important;
   width: 100vw;
   min-height: 100vh;
-  & > .breadcrumbs {
+  & .breadcrumbs {
     display: none;
+    padding-left: 16px;
   }
   & > .container{
     padding-top: 120px;
@@ -25,10 +26,10 @@
 
 @include forDesktopSm {
   .stakingWrapper {
-    & > .breadcrumbs {
+    & .breadcrumbs {
       display:unset;
       position: absolute;
-      top: 10vh;
+      top: 14vh;
     }
     & > .container {
       height: 100%;
