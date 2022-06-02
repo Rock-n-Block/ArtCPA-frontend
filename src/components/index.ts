@@ -10,3 +10,4 @@ export * from './Card';
 export * from './Copyable';
 export * from './Select';
 export * from './Card';
+export * from './Input';
