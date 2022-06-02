@@ -29,6 +29,7 @@ type TCallMethod = (values: TCallMethodProperties) => Promise<TypedOutcomeBundle
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TSendMethod = (values: TSendMethodProperties) => Promise<any>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TSendMethodWithMulti = (values: TSendMethodWithMultiProperties) => Promise<any>;
 
 interface IInteractionContext {

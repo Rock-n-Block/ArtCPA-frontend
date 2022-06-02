@@ -372,7 +372,6 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
         implementInterface: ['TokenStaking'],
       });
 
-      console.log('getFounderTokenNonce', firstValue);
       if(!firstValue) {
         setFounderStakedToken(0);
       } else {

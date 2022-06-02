@@ -6,6 +6,7 @@ export const convertEsdtToWei = (v: number, decimals = +MainToken.decimals) => {
   return (new BigNumber(v)).multipliedBy(factor);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const convertWeiToEsdt = (v: any, decimals = +MainToken.decimals, precision = 2) => {
   // conversion for BigNumber operation
   let value;
