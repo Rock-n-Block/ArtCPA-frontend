@@ -18,6 +18,21 @@ export const FounderToken = {
   amount: '1',
 };
 
+// export const isDev = true;
+
+// export const MainToken: TSingleToken = {
+//   symbol: 'CPA',
+//   address: 'CPA-eabe32',
+//   decimals: '6',
+//   price: '',
+// };
+
+// export const FounderToken = {
+//   symbol: 'CPA',
+//   id: 'CPA-60c1a9',
+//   amount: '1',
+// };
+
 export enum EContracts{
   crowdSale = 'crowdSale',
   tokenStaking = 'tokenStaking',
