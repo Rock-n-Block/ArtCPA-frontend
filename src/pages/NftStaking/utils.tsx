@@ -27,19 +27,10 @@ export const formatNumbers = (v: number, precision = 2) => {
   return new Intl.NumberFormat('en-US', { minimumFractionDigits: precision, maximumFractionDigits: precision }).format(number);
 };
 
-function padTo2Digits(num: number) {
-  return num.toString().padStart(2, '0');
-}
+export function zeroPadStringIfOddLength(input = '') {
+  if (input.length % 2 === 1) {
+    return `0${input}`;
+  }
 
-export function formatDate(date: Date) {
-  return [
-    date.toLocaleString('default', { month: 'long' }),
-    padTo2Digits(date.getDate()),
-    date.getFullYear(),
-  ].join(' ');
+  return input;
 }
-
-export const convertTimestampToDate = (ts: number) => {
-  const date = new Date(ts);
-  return formatDate(date);
-};

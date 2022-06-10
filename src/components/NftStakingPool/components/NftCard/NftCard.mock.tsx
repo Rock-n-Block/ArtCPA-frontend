@@ -2,7 +2,7 @@ import { coinImg } from 'assets/img/icons';
 import { NftCardProps } from './NftCard';
 
 export const nftCardPropsMocked: NftCardProps = {
-  image: coinImg,
-  title: 'Founders',
-  href: '1',
+  name: '',
+  identifier: '',
+  src: '',
 };
