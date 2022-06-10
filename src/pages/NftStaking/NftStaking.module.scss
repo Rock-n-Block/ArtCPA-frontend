@@ -1,0 +1,48 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.stakingWrapper {
+  overflow-y: scroll !important;
+  width: 100vw;
+  min-height: 100vh;
+  & > .breadcrumbs {
+    display: none;
+  }
+  & > .container{
+    padding-top: 120px;
+    
+    & > .bodyText {
+      font-size: 128px;
+      line-height: 192px;
+      background: $colorGreenGradient700;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform:uppercase;
+    }
+  }
+}
+
+@include forDesktopSm {
+  .stakingWrapper {
+    & > .breadcrumbs {
+      display:unset;
+      position: absolute;
+      top: 10vh;
+    }
+    & > .container {
+      height: 100%;
+      & > .title {
+        display: none;
+      }
+      & > .bodyText {
+        font-size: 60px;
+        line-height: inherit;
+      }
+      & > .returnButton {
+        position: absolute;
+        bottom: 5vh;
+      }
+    }
+  }
+}

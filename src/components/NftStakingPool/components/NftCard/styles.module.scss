@@ -1,0 +1,82 @@
+@import '../../../../assets/styles/variables';
+@import '../../../../assets/styles/mixins';
+
+
+.nftCard {
+    min-width: 200px; 
+    padding: spacing(2);
+    border-radius: 24px;
+    border: 1px solid var(--card-default-border-green);
+    @include flexbox;
+    flex-direction: column;
+    object-fit: cover;
+    & .imgCard {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+    margin: auto !important;
+}
+.title {
+    padding: spacing(2);
+}
+.viewButton {
+    margin-bottom: spacing(1) !important;
+}
+@include forTablet {
+    .nftCard {
+        min-width: 162px;
+        min-height: 223px;
+        border-radius: 10px;
+        padding: spacing(1);
+        margin: auto !important;
+    }
+    .title {
+        padding: spacing(0.75);
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .viewButton {
+        margin: 0 auto;
+        margin-bottom: spacing(1.5) !important;
+        padding: spacing(0.5,5) !important
+    }
+}
+
+.addNew {
+    min-width: 200px; 
+    padding: spacing(2);
+    border-radius: 24px;
+    border: 2px dashed gray !important;
+    font-size: 100px !important;
+    font-weight: lighter !important;
+    color: gray !important;
+    @include flexbox;
+    flex-direction: column;
+    object-fit: cover;
+    margin: auto !important;
+    width: 100%;
+    height: 100%;
+    max-width: 350px;
+
+    @include forDesktopHuge{
+        min-height: 400px;
+    }
+    @include forDesktopBig{
+        min-height: 450px;
+    }
+    @include forDesktopMiddle{
+        min-height: 400px;
+    }
+    @include forDesktopSm{
+        min-height: 350px;
+    }
+    @include forTablet {
+        min-height: 300px;
+    }
+
+    &:hover {
+        color: white !important;
+        background: none !important;
+        border: 2px dashed var(--card-default-border-green) !important;
+    }
+}
