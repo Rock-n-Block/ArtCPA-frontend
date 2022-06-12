@@ -9,7 +9,7 @@ import { H1, H3 } from 'components/Typography';
 
 import { BreadcrumbsComingSoon } from 'components/BreadcrumbsComingSoon';
 import { NftStakingPool } from 'components/NftStakingPool';
-import { HomeIcon } from 'assets/icons/icons';
+import { HomeIcon, EGLD } from 'assets/icons/icons';
 
 import axios from 'axios';
 
@@ -234,8 +234,8 @@ const NftStaking: FC<NftStakingProps> = ({ className, title }) => {
         <H1 weight="bold" align="center" className={styles.title}>{title}</H1>
         <div className={styles.infoGroup}>
           <H3 className={styles.leftInfo}>Total Staked: {formatNumbers(totalStakedAmount, 0)}</H3>
-          <H3 className={styles.middleInfo}>Base Reward: 0.01 EGLD</H3>
-          <H3 className={styles.rightInfo}>Your Reward: {rewardAmount} EGLD</H3>
+          <H3 className={styles.middleInfo}>Base Reward: 0.05<EGLD /></H3>
+          <H3 className={styles.rightInfo}>Your Reward: {rewardAmount}<EGLD /></H3>
         </div>
         <NftStakingPool
           stakedNfts={stakedNfts}

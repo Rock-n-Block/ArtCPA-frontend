@@ -81,7 +81,7 @@ export const contracts:TContracts = {
     abi: TokenStakingABI,
   },
   [EContracts.nftStaking]: {
-    address: isDev ? 'erd1qqqqqqqqqqqqqpgqaekwv8sfmpery3mhv33k0gv3kf6knu42gn8qnkc9hm' : '--',
+    address: isDev ? 'erd1qqqqqqqqqqqqqpgqaekwv8sfmpery3mhv33k0gv3kf6knu42gn8qnkc9hm' : 'erd1qqqqqqqqqqqqqpgq6a0wgz4akts00kgpwcg49069wng9y8cufy8q7dnaxj',
     abi: NftStakingABI,
   },
 };

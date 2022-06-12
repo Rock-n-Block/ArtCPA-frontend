@@ -37,10 +37,12 @@
     padding-left: 10px;
     border-right: 1px solid #777;
     padding-right: 10px;
+    display: flex;
   }
   
   & > .rightInfo {
     padding-left: 10px;
+    display: flex;
   }
 }
 
@@ -82,11 +84,13 @@
       padding: 0px;
       border-right: none;
       text-align: center;
+      justify-content: center;
     }
     
     & > .rightInfo {
       padding: 0px;
       text-align: center;
+      justify-content: center;
     }
   }
 }
