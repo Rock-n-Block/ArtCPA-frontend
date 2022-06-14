@@ -1,0 +1,84 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.wrapperCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: stretch;
+  width: 100%;
+  padding: 0 10px;
+  .nft {
+    padding: 10px;
+    flex: 0 0 25%;
+    @include forDesktopBig{
+      flex: 0 0 33.333%;
+    }
+    @include forDesktopMiddle{
+      flex: 0 0 50%;
+    }
+    @include forDesktopSm {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
+}
+@include forTablet {
+  .wrapperCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .nft {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.modalWrapper {
+  height: 80%;
+  margin: auto;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: end;
+  padding: 30px;
+}
+
+.button {
+  min-width: 200px;
+  margin: 0 10px !important;
+}
+
+.nftInfo {
+  align-self: center;
+  width: 100%;
+}
+
+.highlight {
+  color: #CCCC00 !important;
+}
+
+@include forDesktopSm {
+  .buttonGroup {
+    display: block;
+    justify-content: center;
+    padding: 0px;
+  }
+  .button {
+    margin: auto !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+  }
+  .nftInfo {
+    text-align: center;
+  }
+}
+
+.blankText {
+  margin-top: 50px !important;
+}

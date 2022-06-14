@@ -7,7 +7,11 @@ export const routes = {
   },
   staking: {
     root: '/staking',
-    title: 'Staking',
+    title: 'CPA Staking',
+  },
+  nftStaking: {
+    root: '/nft_staking',
+    title: 'NFT Staking',
   },
   dex: {
     root: '/dex',

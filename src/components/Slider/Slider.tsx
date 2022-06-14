@@ -20,7 +20,8 @@ export const Slider: VFC<ExtendedSliderProps> = (props) => {
   const nativeProps = omit(props, 'className');
   const { className, value, defaultValue } = props;
 
-  const renderThumb = useCallback((props: unknown, state: SliderState) => {
+  // @ts-ignore
+  const renderThumb = useCallback((props: any, state: SliderState) => {
     return (
       <div {...props} className={styles.thumb}>
         <Text>{state.valueNow}</Text>

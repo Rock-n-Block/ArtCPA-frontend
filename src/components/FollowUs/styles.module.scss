@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(343px,1fr));
     gap: spacing(3);
+    content-visibility: auto;
 }
 .title {
     padding-bottom: spacing(5.75);

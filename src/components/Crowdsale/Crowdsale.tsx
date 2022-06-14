@@ -39,6 +39,7 @@ const fromTokenTypeToOptionType = (token: TSingleTokenWithIcon) => ({
 });
 
 const crutch = true;
+const crutchEndTime = 1655247600;
 
 const fromOptionTypeToTokenType = (
   value: OptionType,
@@ -339,7 +340,7 @@ export const Crowdsale: VFC<CrowdsaleProps> = ({ className }) => {
         {stage && (
           <>
             <Countdown
-              endAuction={stageEndTimestamp}
+              endAuction={crutch ? crutchEndTime : stageEndTimestamp}
               auctionEndText=""
               onTimerOut={onTimerOut}
             />
