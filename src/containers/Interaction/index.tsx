@@ -32,10 +32,14 @@ type TSendMethod = (values: TSendMethodProperties) => Promise<any>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TSendMethodWithMulti = (values: TSendMethodWithMultiProperties) => Promise<any>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TSendMethodForNft = (values: TSendMethodWithMultiProperties) => Promise<any>;
+
 interface IInteractionContext {
   callMethod: TCallMethod;
   canMakeCallRequest: boolean;
   sendMethod: TSendMethod;
+  sendMethodForNft: TSendMethodForNft;
   sendMethodWithMulti: TSendMethodWithMulti;
   canMakeSendRequest: boolean;
   currentProvider: ProxyNetworkProvider;
@@ -110,6 +114,39 @@ const InteractionProvider: FC = ({ children }) => {
     return null;
   }, [canMakeSendRequest, userAddress]);
 
+  const sendMethodForNft = useCallback<TSendMethodForNft>(async ({ contract, method, args = [], implementInterface = [], callerAddress = userAddress, nft, nonce }) => {
+    if(canMakeSendRequest) {
+      try{
+        const { address, abi } = contracts[contract];
+        const contractAddress = new Address(address);
+        const contractAbi = new SmartContractAbi(abi, implementInterface);
+        const appliedContract = new SmartContract({ address: contractAddress, abi: contractAbi });
+
+        const userAccount = new Account(new Address(callerAddress));
+
+        const tx = appliedContract.methodsExplicit[method](args).withNonce(userAccount.nonce).withGasLimit(30000000).withValue(TokenPayment.egldFromAmount(0))
+          .withChainID(isDev ? 'T' : '1');
+
+        if(nft) {
+          tx.withSingleESDTNFTTransfer(
+            TokenPayment.nonFungible(nft, nonce),
+            new Address(callerAddress),
+          );
+        }
+
+        const fullTransaction = tx.buildTransaction();
+        const { sessionId } = await sendTransactions({
+          transactions: [fullTransaction],
+        });
+
+        return sessionId;
+      } catch(e) {
+        return null;
+      }
+    }
+    return null;
+  }, [canMakeSendRequest, userAddress]);
+
   const sendMethodWithMulti = useCallback<TSendMethodWithMulti>(async ({ contract, method, args = [], implementInterface = [], callerAddress = userAddress, token, amount, decimals, nft, nonce }) => {
     if(canMakeSendRequest) {
       try{
@@ -158,7 +195,7 @@ const InteractionProvider: FC = ({ children }) => {
     return null;
   }, [canMakeSendRequest, userAddress]);
 
-  const values = useMemo(() => ({ callMethod, canMakeCallRequest, sendMethod, sendMethodWithMulti, canMakeSendRequest, currentProvider, currentApiProvider }), [callMethod, sendMethod, sendMethodWithMulti, canMakeCallRequest, canMakeSendRequest, currentProvider, currentApiProvider]);
+  const values = useMemo(() => ({ callMethod, canMakeCallRequest, sendMethod, sendMethodForNft, sendMethodWithMulti, canMakeSendRequest, currentProvider, currentApiProvider }), [callMethod, sendMethod, sendMethodForNft, sendMethodWithMulti, canMakeCallRequest, canMakeSendRequest, currentProvider, currentApiProvider]);
 
   return(
     <InteractionContext.Provider value={values}>

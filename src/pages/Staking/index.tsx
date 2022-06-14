@@ -148,8 +148,6 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
 
   // fetch contract data
   useEffect(() => {
-    if(!address) return;
-
     // total stake amount
     (async () => {
       const value = await getContractData('getTotalStakeAmount', false);
@@ -162,38 +160,6 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
       const value = await getContractData('getFirstPoolDuration', false);
 
       setFirstPoolDuration(value);
-    })();
-
-    // first pool stake
-    (async () => {
-      const value = await getContractData('getFirstPoolStakeAmount');
-
-      setFirstPoolStakedAmount(convertWeiToEsdt(value));
-    })();
-
-    // first pool reward
-    (async () => {
-      const value = await getContractData('getCurrentFirstPoolReward');
-
-      setFirstPoolRewardAmount(convertWeiToEsdt(value));
-    })();
-
-    // first pool undelegate
-    (async () => {
-      const value = await getContractData('getCurrentFirstPoolUndelegate');
-
-      setFirstPoolUndelegateAmount(convertWeiToEsdt(value));
-    })();
-
-    // first pool timestamp
-    (async () => {
-      const value = await getContractData('getFirstPoolLastStakeTimestamps');
-
-      if (value === 0) {
-        setFirstPoolStakedTimestamp(Date.now());
-      } else {
-        setFirstPoolStakedTimestamp(value * 1000);
-      }
     })();
 
     // first pool total stake amount
@@ -228,38 +194,6 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
       setSecondPoolDuration(value);
     })();
 
-    // second pool stake
-    (async () => {
-      const value = await getContractData('getSecondPoolStakeAmount');
-
-      setSecondPoolStakedAmount(convertWeiToEsdt(value));
-    })();
-
-    // second pool reward
-    (async () => {
-      const value = await getContractData('getCurrentSecondPoolReward');
-
-      setSecondPoolRewardAmount(convertWeiToEsdt(value));
-    })();
-
-    // second pool undelegate
-    (async () => {
-      const value = await getContractData('getCurrentSecondPoolUndelegate');
-
-      setSecondPoolUndelegateAmount(convertWeiToEsdt(value));
-    })();
-
-    // second pool timestamp
-    (async () => {
-      const value = await getContractData('getSecondPoolLastStakeTimestamps');
-
-      if (value === 0) {
-        setSecondPoolStakedTimestamp(Date.now());
-      } else {
-        setSecondPoolStakedTimestamp(value * 1000);
-      }
-    })();
-
     // second pool total stake amount
     (async () => {
       const value = await getContractData('getSecondPoolTotalStakeAmount', false);
@@ -290,6 +224,122 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
       const value = await getContractData('getThirdPoolDuration', false);
 
       setThirdPoolDuration(value);
+    })();
+
+    // third pool total stake amount
+    (async () => {
+      const value = await getContractData('getThirdPoolTotalStakeAmount', false);
+
+      setThirdPoolTotalStakeAmount(convertWeiToEsdt(value));
+    })();
+
+    // third pool total staker count
+    (async () => {
+      const value = await getContractData('getThirdPoolStakerCount', false);
+
+      setThirdPoolStakerCount(value);
+    })();
+
+    // third pool current apr
+    (async () => {
+      let value = await getContractData('getThirdPoolCurrentApr');
+
+      if(value === 0) {
+        value = 21000;
+      }
+
+      setThirdPoolCurrentApr(value / 100);
+    })();
+
+    // founder pool total stake amount
+    (async () => {
+      const value = await getContractData('getFounderPoolTotalStakeAmount', false);
+
+      setFounderPoolTotalStakeAmount(convertWeiToEsdt(value));
+    })();
+
+    // founder pool total staker count
+    (async () => {
+      const value = await getContractData('getFounderPoolStakerCount', false);
+
+      setFounderPoolStakerCount(value);
+    })();
+
+    // founder pool current apr
+    (async () => {
+      let value = await getContractData('getFounderPoolCurrentApr');
+
+      if(value === 0) {
+        value = 25000;
+      }
+
+      setFounderPoolCurrentApr(value / 100);
+    })();
+
+    if(!address) return;
+
+    // first pool stake
+    (async () => {
+      const value = await getContractData('getFirstPoolStakeAmount');
+
+      setFirstPoolStakedAmount(convertWeiToEsdt(value));
+    })();
+
+    // first pool reward
+    (async () => {
+      const value = await getContractData('getCurrentFirstPoolReward');
+
+      setFirstPoolRewardAmount(convertWeiToEsdt(value));
+    })();
+
+    // first pool undelegate
+    (async () => {
+      const value = await getContractData('getCurrentFirstPoolUndelegate');
+
+      setFirstPoolUndelegateAmount(convertWeiToEsdt(value));
+    })();
+
+    // first pool timestamp
+    (async () => {
+      const value = await getContractData('getFirstPoolLastStakeTimestamps');
+
+      if (value === 0) {
+        setFirstPoolStakedTimestamp(Date.now());
+      } else {
+        setFirstPoolStakedTimestamp(value * 1000);
+      }
+    })();
+
+    // second pool stake
+    (async () => {
+      const value = await getContractData('getSecondPoolStakeAmount');
+
+      setSecondPoolStakedAmount(convertWeiToEsdt(value));
+    })();
+
+    // second pool reward
+    (async () => {
+      const value = await getContractData('getCurrentSecondPoolReward');
+
+      setSecondPoolRewardAmount(convertWeiToEsdt(value));
+    })();
+
+    // second pool undelegate
+    (async () => {
+      const value = await getContractData('getCurrentSecondPoolUndelegate');
+
+      setSecondPoolUndelegateAmount(convertWeiToEsdt(value));
+    })();
+
+    // second pool timestamp
+    (async () => {
+      const value = await getContractData('getSecondPoolLastStakeTimestamps');
+
+      if (value === 0) {
+        setSecondPoolStakedTimestamp(Date.now());
+      } else {
+        setSecondPoolStakedTimestamp(value * 1000);
+      }
     })();
 
     // third pool stake
@@ -324,36 +374,11 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
       }
     })();
 
-    // third pool total stake amount
-    (async () => {
-      const value = await getContractData('getThirdPoolTotalStakeAmount', false);
-
-      setThirdPoolTotalStakeAmount(convertWeiToEsdt(value));
-    })();
-
-    // third pool total staker count
-    (async () => {
-      const value = await getContractData('getThirdPoolStakerCount', false);
-
-      setThirdPoolStakerCount(value);
-    })();
-
     // founder pool stake
     (async () => {
       const value = await getContractData('getFounderPoolStakeAmount');
 
       setFounderPoolStakedAmount(convertWeiToEsdt(value));
-    })();
-
-    // third pool current apr
-    (async () => {
-      let value = await getContractData('getThirdPoolCurrentApr');
-
-      if(value === 0) {
-        value = 21000;
-      }
-
-      setThirdPoolCurrentApr(value / 100);
     })();
 
     // founder pool reward
@@ -380,14 +405,6 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
         setFounderStakedToken(value.toNumber());
       }
     })();
-
-    // founder pool total stake amount
-    (async () => {
-      const value = await getContractData('getFounderPoolTotalStakeAmount', false);
-
-      setFounderPoolTotalStakeAmount(convertWeiToEsdt(value));
-    })();
-
     // founder pool current apr
     (async () => {
       let value = await getContractData('getFounderPoolCurrentApr');
@@ -397,13 +414,6 @@ const Staking: FC<StakingProps> = ({ className, title }) => {
       }
 
       setFounderPoolCurrentApr(value / 100);
-    })();
-
-    // founder pool total staker count
-    (async () => {
-      const value = await getContractData('getFounderPoolStakerCount', false);
-
-      setFounderPoolStakerCount(value);
     })();
 
     (async () => {
