@@ -63,6 +63,7 @@ const ContractProvider:FC = ({ children }) => {
 
   const requestCurrentStage = useCallback(async () => {
     const { firstValue } = await callMethod({ contract: EContracts.crowdSale, method: 'stage', implementInterface: ['Adder'] });
+    console.log(firstValue);
     if(!firstValue) return;
     const normalizedValue = firstValue.valueOf();
     if(new BigNumber(normalizedValue?.stage_number).toNumber() === 6 && normalizedValue) {

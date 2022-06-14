@@ -3,7 +3,7 @@ import { TSingleToken } from 'types';
 import { CrowdSaleABI } from './abi/crowdsale.abi';
 import { TokenStakingABI } from './abi/tokenStaking.abi';
 
-export const isDev = true;
+export const isDev = false;
 
 export const MainToken: TSingleToken = {
   symbol: 'CPA',
