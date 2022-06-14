@@ -3,18 +3,18 @@ import { TSingleToken } from 'types';
 import { CrowdSaleABI } from './abi/crowdsale.abi';
 import { TokenStakingABI } from './abi/tokenStaking.abi';
 
-export const isDev = false;
+export const isDev = true;
 
 export const MainToken: TSingleToken = {
   symbol: 'CPA',
-  address: 'CPA-97530a',
+  address: isDev ? 'CPA-eabe32' : 'CPA-97530a',
   decimals: '6',
   price: '',
 };
 
 export const FounderToken = {
   symbol: 'CPA',
-  id: 'CPA-76d979',
+  id: isDev ? 'CPA-60c1a9' : 'CPA-76d979',
   amount: '1',
 };
 

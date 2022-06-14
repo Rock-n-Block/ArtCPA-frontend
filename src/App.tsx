@@ -18,8 +18,6 @@ const App: FC = () => {
       environment={isDev ? 'testnet' : 'mainnet'}
     >
       <>
-        <TransactionsToastList />
-        <SignTransactionsModals />
         <InteractionProvider>
           <ElrondApiProvider>
             <ContractProvider>
@@ -30,6 +28,10 @@ const App: FC = () => {
             </ContractProvider>
           </ElrondApiProvider>
         </InteractionProvider>
+        <SignTransactionsModals />
+        <TransactionsToastList
+          successfulToastLifetime={2000}
+        />
       </>
     </DappProvider>
   );
