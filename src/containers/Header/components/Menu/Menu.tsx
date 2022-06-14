@@ -75,9 +75,8 @@ export const Menu: VFC<MenuProps> = ({
         }
 
         return (
-          <Link to={link} className={styles.navLink}>
+          <Link to={link} className={styles.navLink} key={label}>
             <Button
-              key={label}
               variant="text"
               onClick={onClose}
             >

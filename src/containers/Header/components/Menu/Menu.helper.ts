@@ -6,8 +6,12 @@ export const menuNavLinks = [
     link: '/marketplace',
   },
   {
-    label: 'Staking',
+    label: 'CPA Staking',
     link: '/staking',
+  },
+  {
+    label: 'NFT Staking',
+    link: '/nft_staking',
   },
   {
     label: 'DEX',

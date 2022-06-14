@@ -17,7 +17,7 @@ export const NftCollections: VFC<NftCollectionsProps> = ({ className }) => {
       <H1 align="center" weight="bold">NFT Collections</H1>
       <div className={styles.wrapperCard}>
         {NftCollectionsHelper.map((nftCard) => (
-          <div className={styles.nft}>
+          <div className={styles.nft} key={nftCard.title}>
             <NftCard {...nftCard} />
           </div>
         ))}

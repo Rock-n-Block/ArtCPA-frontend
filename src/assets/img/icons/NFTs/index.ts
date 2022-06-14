@@ -3,3 +3,4 @@ export { default as earthSpiritsCollectionSrc } from './earthSpiritsCollection.j
 export { default as communityCollectionSrc } from './communityCollection.jpeg';
 export { default as womenDaySpecialCollectionSrc } from './womenDaySpecialCollection.jpeg';
 export { default as seaCreationCollectionSrc } from './seaCreationCollection.jpg';
+export { default as guardiansOfTheRealmSrc } from './guardiansOfTheRealm.png';
